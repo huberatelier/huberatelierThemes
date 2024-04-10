@@ -6,30 +6,32 @@
 @author         huberatelier
 @preprocessor   stylus
 @license        GNU GPLv3
-@var select newImg "Version" ["image1:2015 Default", "image2:2015 Default Brand", "image3:2009-2013"]
+@var select newImg "Version" ["image1:2015 Default", "image2:2015 Default Brand", "image3:2013"]
 ==/UserStyle== */
 
 @-moz-document domain("www.youtube.com") {
-    .distiller_yt-thread_avatar {
-        content: url('https://lh3.googleusercontent.com/uFp_tsTJboUY7kue5XAsGA=s48');
+if newImg == 'image1'{
+    .distiller_yt-thread_avatar, img.yt-img-shadow {
+        content: url('https://github.com/huberatelier/huberatelierThemes/blob/main/oldYTpfp/normalacc.png?raw=true');
+    }
     .avatar {
-        background-image: url('https://yt3.ggpht.com/ytc/AIdro_nBTFXWwj8zsz_NgqjS2osVXhVOrySqUYi5svDyhEA=s88-c-k-c0x00ffffff-no-rj') !important;
+        background-image: url('https://github.com/huberatelier/huberatelierThemes/blob/main/oldYTpfp/normalacc.png?raw=true') !important;
     }
-    }
+}
 if newImg == 'image2'{
-    .distiller_yt-thread_avatar {
-        content: url('https://yt3.ggpht.com/ytc/AIdro_nBTFXWwj8zsz_NgqjS2osVXhVOrySqUYi5svDyhEA=s88-c-k-c0x00ffffff-no-rj');
+    .distiller_yt-thread_avatar, img.yt-img-shadow {
+        content: url('https://github.com/huberatelier/huberatelierThemes/blob/main/oldYTpfp/brandacc.png?raw=true');
     }
     .avatar {
-        background-image: url('https://yt3.ggpht.com/ytc/AIdro_nBTFXWwj8zsz_NgqjS2osVXhVOrySqUYi5svDyhEA=s88-c-k-c0x00ffffff-no-rj') !important;
+        background-image: url('https://github.com/huberatelier/huberatelierThemes/blob/main/oldYTpfp/brandacc.png?raw=true') !important;
     }
 }
 if newImg == 'image3'{
-    .distiller_yt-thread_avatar, avatar {
-        content: url('https://yt3.ggpht.com/ytc/AIdro_nBTFXWwj8zsz_NgqjS2osVXhVOrySqUYi5svDyhEA=s88-c-k-c0x00ffffff-no-rj');
-    .avatar {
-        background-image: url('https://yt3.ggpht.com/ytc/AIdro_nBTFXWwj8zsz_NgqjS2osVXhVOrySqUYi5svDyhEA=s88-c-k-c0x00ffffff-no-rj') !important;
+    .distiller_yt-thread_avatar, img.yt-img-shadow {
+        content: url('https://github.com/huberatelier/huberatelierThemes/blob/main/oldYTpfp/2013acc.png?raw=true');
     }
+    .avatar {
+        background-image: url('https://github.com/huberatelier/huberatelierThemes/blob/main/oldYTpfp/2013acc.png?raw=true') !important;
     }
 }
 }
