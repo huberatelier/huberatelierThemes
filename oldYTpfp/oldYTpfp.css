@@ -1,0 +1,35 @@
+/* ==UserStyle==
+@name           Old YT profile picture
+@namespace      https://github.com/huberatelier
+@version        1.0
+@description    ==IMPORTANT== Currently there is no way of replacing only the default profile pictures, so this theme replaces all profile pictures.
+@author         huberatelier
+@preprocessor   stylus
+@license        GNU GPLv3
+@var select newImg "Version" ["image1:2015 Default", "image2:2015 Default Brand", "image3:2009-2013"]
+==/UserStyle== */
+
+@-moz-document domain("www.youtube.com") {
+    .distiller_yt-thread_avatar {
+        content: url('https://lh3.googleusercontent.com/uFp_tsTJboUY7kue5XAsGA=s48');
+    .avatar {
+        background-image: url('https://yt3.ggpht.com/ytc/AIdro_nBTFXWwj8zsz_NgqjS2osVXhVOrySqUYi5svDyhEA=s88-c-k-c0x00ffffff-no-rj') !important;
+    }
+    }
+if newImg == 'image2'{
+    .distiller_yt-thread_avatar {
+        content: url('https://yt3.ggpht.com/ytc/AIdro_nBTFXWwj8zsz_NgqjS2osVXhVOrySqUYi5svDyhEA=s88-c-k-c0x00ffffff-no-rj');
+    }
+    .avatar {
+        background-image: url('https://yt3.ggpht.com/ytc/AIdro_nBTFXWwj8zsz_NgqjS2osVXhVOrySqUYi5svDyhEA=s88-c-k-c0x00ffffff-no-rj') !important;
+    }
+}
+if newImg == 'image3'{
+    .distiller_yt-thread_avatar, avatar {
+        content: url('https://yt3.ggpht.com/ytc/AIdro_nBTFXWwj8zsz_NgqjS2osVXhVOrySqUYi5svDyhEA=s88-c-k-c0x00ffffff-no-rj');
+    .avatar {
+        background-image: url('https://yt3.ggpht.com/ytc/AIdro_nBTFXWwj8zsz_NgqjS2osVXhVOrySqUYi5svDyhEA=s88-c-k-c0x00ffffff-no-rj') !important;
+    }
+    }
+}
+}
