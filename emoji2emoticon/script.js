@@ -1,8 +1,8 @@
 // ==UserScript==
-// @name         testdeploy
+// @name         emoji2emoticon
 // @namespace    http://tampermonkey.net/
 // @version      0.0.2
-// @description  Replaces emojis with traditional text emoticons
+// @description  Replace emojis with traditional text emoticons
 // @author       huberatelier
 // @match        *://*/*
 // @icon         https://github.com/huberatelier/huberatelierThemes/blob/main/emoji2emoticon/lolicon.png?raw=true
@@ -15,84 +15,83 @@
 
     // Define the emoji-to-text mapping
     const emojiMappings = {
-    ' :-D ': ' :-D ',
-    ' =D ': ' =D ',
-    ' ^_^ ': ' ^_^ ',
-    ' ^_^V ': ' ^_^V ',
-    ' xD ': ' xD ',
-    ' ^_^' ': ' ^_^\' ',
-    ' :'D ': ' :\'D ',
-    ' :) ': ' :) ',
-    ' :-) ': ' :-) ',
-    ' ;) ': ' ;) ',
-    ' ^_^ ': ' ^_^ ',
-    ' O:-) ': ' O:-) ',
-    ' <3_<3 ': ' <3_<3 ',
-    ' :-* ': ' :-* ',
-    ' :-* ': ' :-* ',
-    ' ^_^ ': ' ^_^ ',
-    ' :-* ': ' :-* ',
-    ' :-*^_^ ': ' :-*^_^ ',
-    ' :p ': ' :p ',
-    ' :P ': ' :P ',
-    ' ;P ': ' ;P ',
-    ' :p ': ' :p ',
-    ' $.$ ': ' $.$ ',
-    ' \(^_^)/ ': ' \\(^_^)/ ',
-    ' :-? ': ' :-? ',
-    ' :-X ': ' :-X ',
-    ' :| ': ' :| ',
-    ' :-| ': ' :-| ',
-    ' :-| ': ' :-| ',
-    ' ¬‿¬ ': ' ¬‿¬ ',
-    ' -_- ': ' -_- ',
-    ' -_- ': ' -_- ',
-    ' D: ': ' D: ',
-    ' ^_^' ': ' ^_^\' ',
-    ' :\ ': ' :\\ ',
-    ' |-O ': ' |-O ',
-    ' (-O-) ': ' (-O-) ',
-    ' :-| ': ' :-| ',
-    ' °_° ': ' °_° ',
-    ' @_@ ': ' @_@ ',
-    ' X_X ': ' X_X ',
-    ' B-) ': ' B-) ',
-    ' 8-) ': ' 8-) ',
-    ' :-/ ': ' :-/ ',
-    ' D: ': ' D: ',
-    ' :( ': ' :( ',
-    ' :-( ': ' :-( ',
-    ' :-o ': ' :-o ',
-    ' :-o ': ' :-o ',
-    ' :-o ': ' :-o ',
-    ' ^_^' ': ' ^_^\' ',
-    ' :-(': ' :-(',
-    ' D: ': ' D: ',
-    ' D: ': ' D: ',
-    ' D: ': ' D: ',
-    ' ^_^' ': ' ^_^\' ',
-    ' T_T ': ' T_T ',
-    ' T_T ': ' T_T ',
-    ' :-o ': ' :-o ',
-    ' @_@ ': ' @_@ ',
-    ' >_< ': ' >_< ',
-    ' :( ': ' :( ',
-    ' ^_^' ': ' ^_^\' ',
-    ' (-_-) ': ' (-_-) ',
-    ' (-_-) ': ' (-_-) ',
-    ' >_< ': ' >_< ',
-    ' >_< ': ' >_< ',
-    ' >_< ': ' >_< ',
-    ' >:D ': ' >:D ',
-    ' >:( ': ' >:( ',
-    '...': '...',
-        // ... (rest of your mappings)
+    '😀': ' :-D ',
+    '😃': ' =D ',
+    '😄': ' ^_^ ',
+    '😁': ' ^_^V ',
+    '😆': ' xD ',
+    '😅': ' ^_^\' ',
+    '😂': ' :\'D ',
+    '🙂': ' :) ',
+    '🙃': ' :-) ',
+    '😉': ' ;) ',
+    '😊': ' ^_^ ',
+    '😇': ' O:-) ',
+    '😍': ' <3_<3 ',
+    '😘': ' :-* ',
+    '😗': ' :-* ',
+    '☺️': ' ^_^ ',
+    '😚': ' :-* ',
+    '😙': ' :-*^_^ ',
+    '😋': ' :p ',
+    '😛': ' :P ',
+    '😜': ' ;P ',
+    '😝': ' :p ',
+    '🤑': ' $.$ ',
+    '🤗': ' \\(^_^)/ ',
+    '🤔': ' :-? ',
+    '🤐': ' :-X ',
+    '😐': ' :| ',
+    '😑': ' :-| ',
+    '😶': ' :-| ',
+    '😏': ' ¬‿¬ ',
+    '😒': ' -_- ',
+    '🙄': ' -_- ',
+    '😬': ' D: ',
+    '😌': ' ^_^\' ',
+    '😔': ' :\\ ',
+    '😪': ' |-O ',
+    '😴': ' (-O-) ',
+    '😷': ' :-| ',
+    '🤒': ' °_° ',
+    '🤕': ' @_@ ',
+    '😵': ' X_X ',
+    '😎': ' B-) ',
+    '🤓': ' 8-) ',
+    '😕': ' :-/ ',
+    '😟': ' D: ',
+    '🙁': ' :( ',
+    '☹️': ' :-( ',
+    '😮': ' :-o ',
+    '😯': ' :-o ',
+    '😲': ' :-o ',
+    '😳': ' ^_^\' ',
+    '😦': ' :-(',
+    '😧': ' D: ',
+    '😨': ' D: ',
+    '😰': ' D: ',
+    '😥': ' ^_^\' ',
+    '😢': ' T_T ',
+    '😭': ' T_T ',
+    '😱': ' :-o ',
+    '😖': ' @_@ ',
+    '😣': ' >_< ',
+    '😞': ' :( ',
+    '😓': ' ^_^\' ',
+    '😩': ' (-_-) ',
+    '😫': ' (-_-) ',
+    '😤': ' >_< ',
+    '😡': ' >_< ',
+    '😠': ' >_< ',
+    '😈': ' >:D ',
+    '👿': ' >:( ',
+    '💀': '...',
     };
 
-    // Create a single regex pattern to match all emojis
+    // create a regex to match emojis
     const emojiPattern = new RegExp(Object.keys(emojiMappings).join('|'), 'g');
 
-    // Function to replace emojis in a single text node
+    // replacing in a single node
     function replaceTextNode(node) {
         const originalText = node.nodeValue;
         const replacedText = originalText.replace(emojiPattern, match => emojiMappings[match]);
@@ -102,7 +101,7 @@
         }
     }
 
-    // Function to replace emojis in all text nodes
+    // replace in all nodes
     function replaceEmojisInDocument() {
         const textNodes = [];
         const walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT, null, false);
@@ -115,10 +114,10 @@
         textNodes.forEach(replaceTextNode);
     }
 
-    // Run the replacement function when the document loads
+    // run the function when site loads
     window.addEventListener('load', replaceEmojisInDocument);
 
-    // Optimized MutationObserver handler
+    // NEW MutationObserver
     let observerTimeout;
     const observer = new MutationObserver(() => {
         clearTimeout(observerTimeout);
