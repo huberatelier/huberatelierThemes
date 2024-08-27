@@ -5,7 +5,7 @@
 // @description  Replaces emojis with traditional text emoticons
 // @author       huberatelier
 // @match        *://*/*
-// @icon         https://static.xx.fbcdn.net/images/emoji.php/v9/ef8/1.5/16/PACMAN.png
+// @icon         https://github.com/huberatelier/huberatelierThemes/blob/main/emoji2emoticon/lolicon.png?raw=true
 // @grant        none
 // @license      MIT
 // ==/UserScript==
