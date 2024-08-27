@@ -12,8 +12,6 @@
 
 (function() {
     'use strict';
-
-    // Define the emoji-to-text mapping
     const emojiMappings = {
     '😀': ' :-D ',
     '😃': ' =D ',
