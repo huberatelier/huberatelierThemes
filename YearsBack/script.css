@@ -1,8 +1,8 @@
 // ==UserScript==
 // @name         YearsBack
 // @namespace    http://tampermonkey.net/
-// @version      0.0.1
-// @description  Fork of my previous script for emojis. Script changes 202X years for 201X.
+// @version      0.0.2
+// @description  Fork of my previous script for emojis. Script changes 202X years for 201X, and optionally pre-2020 years for pre-2010 years.
 // @author       huberatelier
 // @match        *://*/*
 // @icon         https://github.com/huberatelier/huberatelierThemes/blob/main/YearsBack/clock.png?raw=true
@@ -13,6 +13,10 @@
 (function() {
     'use strict';
 
+    // Check localStorage for the user preference for pre-2020 mode
+    const isPre2020Mode = localStorage.getItem('isPre2020Mode') === 'true';
+
+    // Define years to replace in the 2010s and optionally the 2000s
     const years = {
         '2020': '2010',
         '2021': '2011',
@@ -21,6 +25,19 @@
         '2024': '2014',
         '2025': '2015',
         '2026': '2016',
+        // Add years from the 2000s when pre-2020 mode is enabled
+        ...(isPre2020Mode ? {
+            '2019': '2009',
+            '2018': '2008',
+            '2017': '2007',
+            '2016': '2006',
+            '2015': '2005',
+            '2014': '2004',
+            '2013': '2003',
+            '2012': '2002',
+            '2011': '2001',
+            '2010': '2000'
+        } : {})
     };
 
     const emojiregex = new RegExp(Object.keys(years).join('|'), 'g');
@@ -45,12 +62,40 @@
         nodes.forEach(replacetext);
     }
 
+    // Listen for the page load event and replace all text
     window.addEventListener('load', replaceall);
 
+    // Set up a MutationObserver to catch dynamically added content
     const observer = new MutationObserver(() => {
         clearTimeout(observer.timeout);
         observer.timeout = setTimeout(replaceall, 100);
     });
 
     observer.observe(document.body, { childList: true, subtree: true });
+
+    // Add a button to toggle the pre-2020 mode (for user interaction)
+    const toggleButton = document.createElement('button');
+    toggleButton.textContent = isPre2020Mode ? 'Switch to 2020+ Mode' : 'Switch to Pre-2020 Mode';
+    toggleButton.style.position = 'fixed';
+    toggleButton.style.top = '10px';
+    toggleButton.style.right = '10px';
+    toggleButton.style.zIndex = '9999';
+    toggleButton.style.padding = '10px';
+    toggleButton.style.fontSize = '16px';
+    toggleButton.style.cursor = 'pointer';
+    toggleButton.style.backgroundColor = '#007BFF';
+    toggleButton.style.color = '#FFFFFF';
+    toggleButton.style.border = 'none';
+    toggleButton.style.borderRadius = '5px';
+
+    // Toggle the mode on button click and update localStorage
+    toggleButton.addEventListener('click', () => {
+        const newMode = !isPre2020Mode;
+        localStorage.setItem('isPre2020Mode', newMode.toString());
+        window.location.reload(); // Reload to apply the new mode
+    });
+
+    // Append the toggle button to the body
+    document.body.appendChild(toggleButton);
+
 })();
