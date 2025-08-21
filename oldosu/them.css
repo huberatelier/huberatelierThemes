@@ -1,0 +1,153 @@
+/* ==UserStyle==
+@name           osu.ppy.sh
+@namespace      github.com/openstyles/stylus
+@version        1.0.0
+@description    A new userstyle
+@author         Me
+==/UserStyle== */
+
+/*Alright so thank you Chrome for wiping ALL my userstyles after long-pressing the power button on my PC. FUCK. alright.*/
+@-moz-document domain("osu.ppy.sh") {
+
+}
+@-moz-document url-prefix("https://osu.ppy.sh") {
+    .osu-page--generic-compact {
+        background-image: url(https://github.com/huberatelier/huberatelierThemes/blob/main/oldosu/siteimg/main-bg-new.png?raw=true);   
+        width:860px;
+    /* background-color: hsl(var(--hsl-b5)); */
+    box-shadow: 0 1px 3px rgba(0, 0, 0, .25);
+    color: hsl(var(--hsl-c1));
+}
+    .osu-layout--body, .osu-layout--body-landing {
+    background: #a9a9ff url(https://github.com/huberatelier/huberatelierThemes/blob/main/oldosu/siteimg/bg-top.png?raw=true);
+    background-repeat: repeat-x;
+    }
+    .page-extra {
+        width:638px;
+        border-radius:0px;
+        background-color:transparent;
+        box-shadow:unset;
+            --outer-gutter-desktop: 0;
+}
+    .profile-links {
+    width: 638px;
+    }
+    .page-extra--userpage {
+    border-radius: 0px;
+    width: 652px;
+    }
+    .profile-info__cover-toggle {
+        display: none;
+    }
+    .profile-detail {
+            justify-self: end;
+        width:652px;
+    background-color: transparent;
+    }
+    .profile-detail__stats {
+        grid-template-columns: auto;
+    }
+    .profile-detail-bar {
+    margin-left: 208px;
+    width: 652px;
+    }
+    .profile-info {
+        height: 500px;
+        width: 200px;
+    }
+    .header-v4__container .header-nav-v4 { /* modding, multiplayer, all that bs */
+    display: none;
+    }
+        .profile-badges {
+            width:200px;
+        float: left;
+            clear:both;
+                flex-direction: column;
+    }
+    .profile-info {
+    float: left;
+    }
+    .profile-info__details {
+        display:flex;
+        flex-direction: column;
+    }
+    .page-extra-tabs {
+     position:static;   
+    }
+    .osu-page--generic-compact {
+    display: flex
+;
+    background-color: hsl(var(--hsl-b5));
+    flex-wrap: wrap;
+    justify-content: flex-end;
+}
+     .profile-info__bg {
+        display: none;
+    }
+    .profile-extra-entries__time {
+    font-family: Tahoma;
+    color: black;
+}
+    .title--page-extra {
+        border-bottom: 1px solid #4a4a4a;
+    border-top: 1px solid #4a4a4a;
+    background: #5f5f5f;
+    font-size: 14.9999993px;
+    color: #fff;
+    cursor: pointer;
+        font-family: Tahoma;
+    font-weight: normal;
+    width: -webkit-fill-available;
+    }
+    .title--page-extra-small {
+    letter-spacing: -0.5px;
+    font-weight: normal;
+    font-size: 17.06667px;
+    color: #cc2e8a;
+    text-shadow: #efcfe1 0 0 10px;
+    overflow: visible;
+    border-bottom: none;
+    margin: 0;
+    padding: 10px 0;
+}
+        .user-profile-pages {
+        background: white;
+            width:638px;
+    }
+    .page-extra__content-overflow-wrapper-outer {
+    color: black;
+    font-size: 10.66667px;
+    }
+        .page-extra--userpage {
+        background-color: white;
+    }
+    a {
+    color: #3843a6;
+    text-decoration: none;
+    cursor: pointer;
+}
+    .profile-extra-entries__text {
+    font-family: Tahoma;
+    font-size: 10.6667px;
+    }
+.profile-extra-entries__item {
+    font-family: Tahoma;
+    font-size: 10.6667px;
+    display: flex
+;
+    flex-direction: row-reverse;
+}
+html>body:nth-child(2)>div:nth-child(6)>div:nth-child(1)>div:nth-child(1)>div:nth-child(1)>div:nth-child(1)>div:nth-child(1)>div:nth-child(2)>div:nth-child(1) {
+display:none;
+}
+        .title--page-extra-small:before {
+            display:none;
+    }
+    .osu-page--generic-compact {
+    display: flex
+;
+    width: 860px;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+}
+}
