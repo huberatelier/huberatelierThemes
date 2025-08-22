@@ -114,7 +114,7 @@
         background: white;
             width:638px;
     }
-    .osu-page--generic-compact {
+    .osu-page--generic-compact { /*this was done like a month ago thank you Chrome for wiping it*/
     display: inline !important;
     }
     .page-extra__content-overflow-wrapper-outer {
