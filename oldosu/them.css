@@ -114,6 +114,9 @@
         background: white;
             width:638px;
     }
+    .osu-page--generic-compact {
+    display: inline !important;
+    }
     .page-extra__content-overflow-wrapper-outer {
     color: black;
     font-size: 10.66667px;
