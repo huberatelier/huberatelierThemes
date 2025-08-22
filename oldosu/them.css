@@ -8,9 +8,6 @@
 
 /*Alright so thank you Chrome for wiping ALL my userstyles after long-pressing the power button on my PC. FUCK. alright.*/
 @-moz-document domain("osu.ppy.sh") {
-
-}
-@-moz-document url-prefix("https://osu.ppy.sh") {
     .osu-page--generic-compact {
         background-image: url(https://github.com/huberatelier/huberatelierThemes/blob/main/oldosu/siteimg/main-bg-new.png?raw=true);   
         width:860px;
@@ -22,6 +19,24 @@
     background: #a9a9ff url(https://github.com/huberatelier/huberatelierThemes/blob/main/oldosu/siteimg/bg-top.png?raw=true);
     background-repeat: repeat-x;
     }
+        .nav2-header__body .nav2.js-nav-button, .nav2-header__body .nav2.js-nav-button > .nav2__colgroup {
+        background:url(https://github.com/huberatelier/huberatelierThemes/blob/main/oldosu/siteimg/head-left-new2.png?raw=true);
+    }
+    .nav2-header__body {
+    background-position-x: 500px;
+    background-repeat: no-repeat;
+    background-image: url(https://github.com/huberatelier/huberatelierThemes/blob/main/oldosu/siteimg/right-pippi.jpg?raw=true);
+    }
+        .osu-page--generic-compact {
+    display: flex
+;
+    width: 860px;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+}
+}
+@-moz-document url-prefix("https://osu.ppy.sh/users/") {
+
     .page-extra {
         width:638px;
         border-radius:0px;
@@ -29,32 +44,140 @@
         box-shadow:unset;
             --outer-gutter-desktop: 0;
 }
-    .profile-links {
-    width: 638px;
+    .avatar--full, .avatar--full-circle {
+        padding-bottom:unset;
+    height: 128px;
+    width: 128px;
     }
+    .profile-info__avatar {
+        border-radius:0px;
+    width: 134px;
+    height: 134px;
+    justify-content:center;
+        align-items: center;
+        display: flex
+;
+    background-color: white;
+    }
+    .profile-links {
+        float:right;
+    width: 640px;
+    }
+    
     .page-extra--userpage {
     border-radius: 0px;
-    width: 652px;
+    width: 640px;
     }
     .profile-info__cover-toggle {
         display: none;
     }
+    .profile-info__name {
+    display: block;
+    }
+    .profile-info__flag-text {
+        display: none;
+    }
+    .profile-info__details {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Wrap flag + supporter into a horizontal row */
+.profile-info__flags,
+.profile-info__icons--flag-inline {
+    display: inline-flex !important;
+    align-items: center;
+    gap: 4px;
+}
+.profile-info__icon--supporter, .profile-info__icon--supporter:active, .profile-info__icon--supporter:focus, .profile-info__icon--supporter:hover {
+    width: 80px;
+    background-image: url(https://github.com/huberatelier/huberatelierThemes/blob/main/oldosu/siteimg/supporter.png?raw=true);
+    align-items: center;
+    background-color: transparent;
+    border-radius: 0px;
+    color: transparent;
+    display: inline-flex
+;
+    justify-content: center;
+    padding: 0 10px;
+    text-decoration: none;
+}
+    .flag-country {
+    width: 16px;
+    height: 11px;
+    }
+
+/* Force supporter badge next to flag, even if it's in another container */
+.profile-info__icons--flag-inline {
+    order: 2; /* ensure it comes right after the flag */
+    margin-left: 0 !important;
+}
+    .profile-info__icons--name-inline {
+        display: none;
+    }
+/* Make sure flag stays first */
+.profile-info__flag {
+    order: 1;
+}
+
+/* Optional: tweak spacing under them */
+.profile-info__flags {
+    justify-content: center;
+    margin-top: 4px;
+}
     .profile-detail {
+        --gutter:0px;
             justify-self: end;
-        width:652px;
+        width:640px;
     background-color: transparent;
     }
     .profile-detail__stats {
         grid-template-columns: auto;
     }
     .profile-detail-bar {
-    margin-left: 208px;
-    width: 652px;
+float:right;
+    width: 640px;
     }
     .profile-info {
+        background-color:transparent;
         height: 500px;
         width: 200px;
     }
+    .profile-info__details {
+        padding:30px;
+        display: flex
+;
+    flex-direction: column;
+    flex-wrap: nowrap;
+}
+    html>body:nth-child(2)>div:nth-child(6)>div:nth-child(1)>div:nth-child(1)>div:nth-child(1)>div:nth-child(1)>div:nth-child(1)>div:nth-child(3)>div:nth-child(1)>h2:nth-child(1) {
+display:none;
+}
+    .profile-previous-usernames__icon--plain {
+        display: none;
+    }
+    .page-extra__content-overflow-wrapper-outer {
+    width: 642px;
+    padding-top: 30px;
+    background-color: #f0ecfa;
+    color: black;
+    font-size: 10.66667px;
+}
+    .profile-info__name {
+    text-shadow: none;
+    color: black;
+    }
+        .profile-info__title {
+        text-shadow: none;
+        color: black;
+    }
+    .u-ellipsis-pre-overflow {
+    order: -1;
+    overflow: unset;
+    text-overflow: unset;
+    white-space: pre !important;
+}
     .header-v4__container .header-nav-v4 { /* modding, multiplayer, all that bs */
     display: none;
     }
@@ -72,6 +195,7 @@
         flex-direction: column;
     }
     .page-extra-tabs {
+        float:right;
      position:static;   
     }
     .osu-page--generic-compact {
@@ -111,6 +235,7 @@
     padding: 10px 0;
 }
         .user-profile-pages {
+            float:right;
         background: white;
             width:638px;
     }
@@ -146,11 +271,5 @@ display:none;
         .title--page-extra-small:before {
             display:none;
     }
-    .osu-page--generic-compact {
-    display: flex
-;
-    width: 860px;
-    flex-wrap: wrap;
-    justify-content: flex-end;
-}
+
 }
