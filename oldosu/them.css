@@ -8,9 +8,15 @@
 
 /*Alright so thank you Chrome for wiping ALL my userstyles after long-pressing the power button on my PC. FUCK. alright.*/
 @-moz-document domain("osu.ppy.sh") {
+    .u-fancy-scrollbar, .u-fancy-scrollbar * {
+    scrollbar-width: unset;
+}
+    .u-fancy-scrollbar {
+    scrollbar-color: #808080 hsla(0, 0%, 100%, .025);
+}
     .osu-page--generic-compact {
         background-image: url(https://github.com/huberatelier/huberatelierThemes/blob/main/oldosu/siteimg/main-bg-new.png?raw=true);   
-        width:860px;
+        width:864px;
     /* background-color: hsl(var(--hsl-b5)); */
     box-shadow: 0 1px 3px rgba(0, 0, 0, .25);
     color: hsl(var(--hsl-c1));
@@ -22,21 +28,45 @@
         .nav2-header__body .nav2.js-nav-button, .nav2-header__body .nav2.js-nav-button > .nav2__colgroup {
         background:url(https://github.com/huberatelier/huberatelierThemes/blob/main/oldosu/siteimg/head-left-new2.png?raw=true);
     }
-    .nav2-header__body {
+    /*2-header__body {
     background-position-x: 500px;
     background-repeat: no-repeat;
     background-image: url(https://github.com/huberatelier/huberatelierThemes/blob/main/oldosu/siteimg/right-pippi.jpg?raw=true);
+    }*/
+    
+    .osu-layout::before {
+width: 524px;
+    height: 96px;
+    position: absolute;
+    background-repeat: no-repeat;
+    right: 0;
+    top: 0;
+    background-image: url(https://github.com/huberatelier/huberatelierThemes/blob/main/oldosu/siteimg/right-pippi.jpg?raw=true);   
     }
         .osu-page--generic-compact {
-    display: flex
-;
-    width: 860px;
+    display: flex;
     flex-wrap: wrap;
     justify-content: flex-end;
 }
 }
 @-moz-document url-prefix("https://osu.ppy.sh/users/") {
-
+    .page-extra--userpage {
+    background-repeat: no-repeat;
+    background-image: url(https://github.com/huberatelier/huberatelierThemes/blob/main/oldosu/siteimg/main-bg-new.png?raw=true);
+        background-color:transparent !important;
+    }
+    .value-display__label {
+    font-family: Tahoma;
+    color: #3843a6;
+    font-size: 17.0667px;
+    font-weight: bold;
+}
+.value-display__value {
+    font-family: Tahoma;
+    color: black;
+    font-size: 17.0667px;
+    font-weight: bold;
+}
     .page-extra {
         width:638px;
         border-radius:0px;
@@ -82,6 +112,42 @@
     flex-direction: column;
     align-items: center;
 }
+    .medals-group {
+        grid-template-columns: 1fr;
+    }
+    .medals-group__title {
+    color: #000;
+    clear: both;
+    font-size: 12.8px;
+    font-weight: bold;
+    border-bottom: solid 1px #eacd5b;
+    /* font-size: 14px; */
+    /* font-style: normal; */
+    /* font-weight: 700; */
+    margin: 0;
+    padding: 10px 0 0;
+    position: relative;
+}
+    .medals-group__title:before {
+        display:none;
+    }
+.badge-achievement__image[alt="Video Game Pack vol.1"] {
+  content: url("https://github.com/huberatelier/huberatelierThemes/blob/main/oldosu/achievements/gamer1.png?raw=true") !important;
+}
+    .badge-achievement__image[alt="Rhythm Game Pack vol.1"] {
+  content: url("https://github.com/huberatelier/huberatelierThemes/blob/main/oldosu/achievements/rhythm1.png?raw=true") !important;
+}
+
+.badge-achievement--locked .badge-achievement__image {
+  content: url("https://github.com/huberatelier/huberatelierThemes/blob/main/oldosu/achievements/unknown.png?raw=true") !important;
+  filter: none !important;
+  opacity: 1 !important;
+}
+    .badge-achievement--listing {
+    height: 103px;
+    width: 133px;
+    margin: auto;
+}
 
 /* Wrap flag + supporter into a horizontal row */
 .profile-info__flags,
@@ -96,7 +162,7 @@
     align-items: center;
     background-color: transparent;
     border-radius: 0px;
-    color: transparent;
+    color: transparent !important;
     display: inline-flex
 ;
     justify-content: center;
@@ -107,6 +173,10 @@
     width: 16px;
     height: 11px;
     }
+.profile-rank-count > div:has(.score-rank--XH),
+.profile-rank-count > div:has(.score-rank--SH) {
+  display: none;
+}
 
 /* Force supporter badge next to flag, even if it's in another container */
 .profile-info__icons--flag-inline {
@@ -141,7 +211,7 @@ float:right;
     }
     .profile-info {
         background-color:transparent;
-        height: 500px;
+        height: 300px;
         width: 200px;
     }
     .profile-info__details {
@@ -151,16 +221,101 @@ float:right;
     flex-direction: column;
     flex-wrap: nowrap;
 }
+    .play-detail__detail {
+    display: flex
+;
+    flex: 1;
+    min-width: 0;
+    flex-direction: row;
+        margin-left:-5px;
+}
+.play-detail__time {
+    font-size: 10.66667px;
+    bottom: 2px;
+    left: 2px;
+    position: absolute;
+    color: #000;
+    flex: none;
+}
+    .play-detail__beatmap {
+    margin-top: -2px;
+    margin-left: 2px;
+    font-size: 10.66667px;
+    color: #3843a6;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+        font-weight:bold;
+}
+    .play-detail__beatmap:before {
+        content: "[";
+    }
+        .play-detail__beatmap:after {
+        content: "]";
+    }
+        .play-detail__group--top {
+        flex: 1;
+        padding-bottom: 5px;
+        padding-right: 0;
+        padding-top: 5px;
+        margin-top: -15px;
+        background-color: transparent !important;
+    }
+.mod__icon:before {
+    margin-top: -3px;
+    font-weight: bold;
+    color: #000;
+    font-size: 10.66667px;
+    content: attr(data-acronym);
+    background-color: transparent;
+    mask-image: unset;
+}
+.play-detail__score-detail--mods .mod:first-child::before {
+    content: "+";
+        color:#000;
+    font-family:Tahoma;
+    font-size:10.6667px;
+    font-weight:bold;
+    margin-top: -3px;
+}
+    .play-detail__score-detail--mods .mod:not(:last-child)::after {
+  content: ",";
+        color:#000;
+    font-family:Tahoma;
+    font-size:10.6667px;
+    font-weight:bold;
+    margin-top: -3px;
+}
+.mod__icon:after {
+    opacity: 0;
+    }
+    .mod__icon {
+        width:0.75em;
+    }
+    .play-detail__group--top {
+    max-width: min-content;
+    }
+        .play-detail__pp {
+        position: fixed;
+        left: 520px;
+    }
+.play-detail__more .popup-menu .fa-ellipsis-v:before {
+    margin-top: -10px;
+    top: auto;
+    left: 625px;
+    position: fixed;
+}
     html>body:nth-child(2)>div:nth-child(6)>div:nth-child(1)>div:nth-child(1)>div:nth-child(1)>div:nth-child(1)>div:nth-child(1)>div:nth-child(3)>div:nth-child(1)>h2:nth-child(1) {
 display:none;
 }
     .profile-previous-usernames__icon--plain {
         display: none;
     }
+
     .page-extra__content-overflow-wrapper-outer {
     width: 642px;
     padding-top: 30px;
-    background-color: #f0ecfa;
+    /*background-color: #f0ecfa;*/
     color: black;
     font-size: 10.66667px;
 }
@@ -178,6 +333,61 @@ display:none;
     text-overflow: unset;
     white-space: pre !important;
 }
+    .play-detail {
+        height: 44px;
+        border-radius: 0;
+        background: #e7e4fc;
+    border: 1px solid #dad7fb;
+    margin: 3px;
+    padding: 2px;
+    min-height: 38px;
+    }
+    .play-detail__group--top, .play-detail__group--bottom, .play-detail__score-detail--mods, .play-detail__score-detail, .play-detail__pp, .play-detail__pp:before {
+        background: #e7e4fc;
+        border-radius: 0;
+    }
+    .play-detail__pp, .play-detail__pp-unit {
+            justify-content: flex-end;
+        text-align: right;
+        font-family: Tahoma;
+    font-size: 18.6667px;
+    color: #9492dc;
+    text-shadow: #b5c6cb 2px 0px 3px;
+    padding-right: 5px;
+    }
+.play-detail__icon--main {
+    margin-left: -20px;
+        display: block;
+        height: 15px;
+        width: 12px;
+    }
+        .score-rank--X {
+    background-image: url(https://github.com/huberatelier/huberatelierThemes/blob/main/oldosu/ranks/X_small.png?raw=true);
+}
+        .score-rank--XH {
+    background-image: url(https://github.com/huberatelier/huberatelierThemes/blob/main/oldosu/ranks/XH_small.png?raw=true);
+}
+    .score-rank--S {
+    background-image: url(https://github.com/huberatelier/huberatelierThemes/blob/main/oldosu/ranks/S_small.png?raw=true);
+}
+    .score-rank--SH {
+    background-image: url(https://github.com/huberatelier/huberatelierThemes/blob/main/oldosu/ranks/SH_small.png?raw=true);
+}
+        .score-rank--A {
+    background-image: url(https://github.com/huberatelier/huberatelierThemes/blob/main/oldosu/ranks/A_small.png?raw=true);
+}
+            .score-rank--B {
+    background-image: url(https://github.com/huberatelier/huberatelierThemes/blob/main/oldosu/ranks/B_small.png?raw=true);
+}
+            .score-rank--C {
+    background-image: url(https://github.com/huberatelier/huberatelierThemes/blob/main/oldosu/ranks/C_small.png?raw=true);
+}
+            .score-rank--D {
+    background-image: url(https://github.com/huberatelier/huberatelierThemes/blob/main/oldosu/ranks/D_small.png?raw=true);
+}
+html>body:nth-child(2)>div:nth-child(6)>div:nth-child(1)>div:nth-child(1)>div:nth-child(1)>div:nth-child(1)>div:nth-child(1)>div:nth-child(4)>div:nth-child(1)>div:nth-child(1)>div:nth-child(3)>div:nth-child(2)>div:nth-child(1)>div:nth-child(1), html>body:nth-child(2)>div:nth-child(6)>div:nth-child(1)>div:nth-child(1)>div:nth-child(1)>div:nth-child(1)>div:nth-child(1)>div:nth-child(4)>div:nth-child(1)>div:nth-child(1)>div:nth-child(3)>div:nth-child(2)>div:nth-child(1)>div:nth-child(3) {
+display:none; /*what the fuck is this? thanks for asking. this removes silver S and SS but i suck at css so i just did this to target the specific element*/
+}
     .header-v4__container .header-nav-v4 { /* modding, multiplayer, all that bs */
     display: none;
     }
@@ -194,7 +404,60 @@ display:none;
         display:flex;
         flex-direction: column;
     }
+    .page-mode--profile-page-extra {
+    background: transparent;
+    align-items: center;
+    display: flex
+;
+    font-size: 14px;
+    gap: 20px;
+    overflow-x: auto;
+    padding: 10px;
+    justify-content: center;
+}
+    .page-mode-link--is-active.page-mode-link--profile-page, .page-mode-link.js-is-active.page-mode-link--profile-page {
+    color: black;
+}
+.page-mode-link--profile-page {
+    color: black;
+    margin: 0;
+    padding: 0;
+}
+    .profile-info__info {
+        align-items:center;
+    }
+    html>body:nth-child(2)>div:nth-child(6)>div:nth-child(1)>div:nth-child(1)>div:nth-child(1)>div:nth-child(1)>div:nth-child(1)>div:nth-child(2)>div:nth-child(1)>h2:nth-child(1) {
+display:none;
+}
+    .page-extra--userpage .u-relative .title title--page-extra {
+        display:none;
+    }
+    .page-extra__content-overflow-wrapper-inner {
+        padding-right:0;
+    }
+    .page-mode--profile-page-extra .page-mode__item {
+    display: flex
+;
+    width: 150%;
+    background: #e7e4fc;
+    text-align: center;
+    font-weight: bold;
+    border-left: solid 2px #dad7fb;
+    border-top: solid 2px #dad7fb;
+    border-right: solid 2px #dad7fb;
+    -webkit-border-top-left-radius: 5px;
+    -webkit-border-top-right-radius: 5px;
+    -moz-border-radius-topleft: 5px;
+    -moz-border-radius-topright: 5px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    cursor: pointer;
+    font-size: 10.66667px;
+    margin: 0;
+    justify-content: center;
+}
     .page-extra-tabs {
+        width:640px;
         float:right;
      position:static;   
     }
@@ -235,6 +498,7 @@ display:none;
     padding: 10px 0;
 }
         .user-profile-pages {
+            right:2px;
             float:right;
         background: white;
             width:638px;
@@ -250,10 +514,19 @@ display:none;
         background-color: white;
     }
     a {
-    color: #3843a6;
+    color: #3843a6 !important;
     text-decoration: none;
     cursor: pointer;
 }
+    .play-detail__title {
+    font-family: Tahoma;
+    font-weight: 700;
+    font-size: 10.6667px;
+    }
+    .play-detail__artist {
+        display: none;
+    }
+
     .profile-extra-entries__text {
     font-family: Tahoma;
     font-size: 10.6667px;
@@ -265,9 +538,9 @@ display:none;
 ;
     flex-direction: row-reverse;
 }
-html>body:nth-child(2)>div:nth-child(6)>div:nth-child(1)>div:nth-child(1)>div:nth-child(1)>div:nth-child(1)>div:nth-child(1)>div:nth-child(2)>div:nth-child(1) {
+/*html>body:nth-child(2)>div:nth-child(6)>div:nth-child(1)>div:nth-child(1)>div:nth-child(1)>div:nth-child(1)>div:nth-child(1)>div:nth-child(2)>div:nth-child(1) {
 display:none;
-}
+}*/
         .title--page-extra-small:before {
             display:none;
     }
