@@ -53,7 +53,7 @@ width: 524px;
     .page-extra--userpage {
     background-repeat: no-repeat;
     background-image: url(https://github.com/huberatelier/huberatelierThemes/blob/main/oldosu/siteimg/main-bg-new.png?raw=true);
-        background-color:transparent !important;
+        background-color:white !important /*og:transparent for maintenance*/;
     }
     .value-display__label {
     font-family: Tahoma;
@@ -114,6 +114,14 @@ width: 524px;
 }
     .medals-group {
         grid-template-columns: 1fr;
+    }
+    .page-extra__recent-medals-box {
+    display: none;
+    }
+    .play-detail__pp-weight {
+        color:rgb(68,68,68);
+        font-size:10.66667px;
+        font-family:Tahoma;
     }
     .medals-group__title {
     color: #000;
@@ -177,6 +185,9 @@ width: 524px;
 .profile-rank-count > div:has(.score-rank--SH) {
   display: none;
 }
+    .profile-rank-count {
+        color:#000;
+    }
 
 /* Force supporter badge next to flag, even if it's in another container */
 .profile-info__icons--flag-inline {
@@ -200,7 +211,7 @@ width: 524px;
         --gutter:0px;
             justify-self: end;
         width:640px;
-    background-color: transparent;
+    background-color: white;
     }
     .profile-detail__stats {
         grid-template-columns: auto;
@@ -526,11 +537,135 @@ display:none;
     .play-detail__artist {
         display: none;
     }
-
+    .profile-extra-entries__time {
+        padding-left: 3px;
+     width:20%;   
+    }
     .profile-extra-entries__text {
+        color:black;
     font-family: Tahoma;
     font-size: 10.6667px;
     }
+    .show-more-link--profile-page {
+    box-shadow: unset;
+    position: static;
+}
+[data-page-id="recent_activity"] {
+  .show-more-link.show-more-link--profile-page {
+    margin-left: -2px;
+    box-shadow: unset;
+    position: static;
+    margin-top: -2px;
+    margin-bottom: 8px;
+    background: transparent;
+    border-radius: 0;
+    width: 100%;
+    height: 13px;
+    color: #3843a6;
+    font-size: 10.6667px;
+    font-weight: normal;
+    .show-more-link__label-text {
+      margin: 0 -15px;
+      margin-top: -2px;
+      text-transform: capitalize;
+      font-size: 0;
+      
+      &::after {
+        content: "Show me more...";
+        font-size: 10.6667px;
+        color: #3843a6;
+      }
+    }
+    
+    .show-more-link__label-icon {
+      display: none;
+    }
+  }
+  
+  .profile-extra-entries__item.u-contents {
+    padding: 5px 0;
+  }
+}
+    .play-detail__title .u-ellipsis-overflow {
+        overflow: unset !important;
+    }
+    .profile-stats {
+        grid-template-columns: auto;
+        color:black;
+    }
+    .profile-stats__entry {
+    background: #f0ecfa;
+    border-bottom: 1px dashed #a9a9ff;
+    display: flex;
+        font-size: 13.8667px;
+}
+    .profile-stats__key {
+    font-weight: bold;
+}
+    .profile-stats__key:after {
+        font-weight:normal;
+    content:":";
+}
+    .profile-stats__value {
+        margin-left: 0.25rem;
+    }
+.value-display--rank {
+        display: flex;
+        flex-direction: row;
+    }
+    .daily-challenge {
+    display: none;
+    }
+    .profile-detail__chart-numbers--top {
+        height:21px;
+        background: #f0ecfa;
+    border-bottom: 1px dashed #a9a9ff;
+    }
+    .profile-detail__chart-numbers--top > .profile-detail__values > .value-display--rank > .value-display__label:after {
+        content:":";
+    }
+        .profile-detail__chart-numbers--top > .profile-detail__values > .value-display--rank > .value-display__value {
+        margin-left:2px;
+    }
+.profile-detail__values > .value-display--rank:nth-child(2) .value-display__label,
+.profile-detail__values > .value-display--rank:nth-child(2) .value-display__value {
+    font-weight:normal;
+    color:black;
+    margin-left:2px;
+  font-size: 13.6533px !important;
+    display:flex;
+    align-items:center;
+}
+    
+.profile-detail__values--grid > .value-display:first-child {
+  display: none !important;
+}
+.play-detail-list > .show-more-link.show-more-link--profile-page {
+  margin-top: 2px;
+  background: #e7e4fc;
+  border: 1px solid #dad7fb;
+  border-radius: 0;
+  width: 632px;
+  height: 19px;
+  color: #3843a6;
+  font-size: 10.6667px;
+  font-weight: bold;
+  .show-more-link__label-text {
+    margin: 0 -15px;
+    margin-top: -2px;
+    text-transform: capitalize;
+    font-size: 0;
+    &::after {
+      content: "Show me more!";
+      font-size: 10.6667px;
+      color: #3843a6;
+    }
+  }
+  
+  .show-more-link__label-icon {
+    display: none;
+  }
+}
 .profile-extra-entries__item {
     font-family: Tahoma;
     font-size: 10.6667px;
