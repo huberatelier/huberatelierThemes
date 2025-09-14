@@ -51,7 +51,7 @@ width: 524px;
 }
 @-moz-document url-prefix("https://osu.ppy.sh/users/") {
     .page-extra--userpage {
-        margin-top:30px;
+        margin-top:26px;
     background-repeat: no-repeat;
     background-image: url(https://github.com/huberatelier/huberatelierThemes/blob/main/oldosu/siteimg/main-bg-new.png?raw=true);
         background-color:#e7e4fc !important; /*og:transparent for maintenance*/;
@@ -83,6 +83,9 @@ width: 524px;
 /*    .profile-detail__chart-numbers .value-display, .value-display--plain, .value-display--plain-wide {
         display: flex;
     }*/
+    .game-mode {
+        gap: 10px 10px;
+    }
 .game-mode-link {
     display:flex;
     justify-content: center;
@@ -90,7 +93,7 @@ width: 524px;
     background: #e7e4fc;
     border-radius: 5px;
     border: solid 2px #978cd0;
-    width: 140px;
+    width: 144px;
     text-shadow: none;
 }
     .game-mode-link:hover {
@@ -461,7 +464,7 @@ display:none;
 
     .page-extra__content-overflow-wrapper-outer {
     width: 642px;
-    padding-top: 30px;
+    padding-top: 10px;
     /*background-color: #f0ecfa;*/
     color: black;
     font-size: 10.66667px;
@@ -545,6 +548,8 @@ display:none; /*what the fuck is this? thanks for asking. this removes silver S 
                 flex-direction: column;
     }
     .profile-info {
+        margin-top: -2px;
+    margin-left: 6px;
     float: left;
     }
     .profile-info__details {
@@ -573,6 +578,8 @@ display:none; /*what the fuck is this? thanks for asking. this removes silver S 
 }
     .profile-info__info {
         align-items:center;
+        margin-top: -2px;
+    margin-left: 6px;
     }
     html>body:nth-child(2)>div:nth-child(6)>div:nth-child(1)>div:nth-child(1)>div:nth-child(1)>div:nth-child(1)>div:nth-child(1)>div:nth-child(2)>div:nth-child(1)>h2:nth-child(1) {
 display:none;
@@ -581,6 +588,7 @@ display:none;
         display:none;
     }
     .page-extra__content-overflow-wrapper-inner {
+        padding-bottom:10px;
         border: solid transparent 5px;
         margin-top:-20px;
         padding-right:0;
@@ -734,7 +742,18 @@ display:none;
   .profile-extra-entries__item.u-contents {
     padding: 5px 0;
   }
+    .title--page-extra {
+        background: #f5f2fe;
+    border-bottom: 1px solid #a9a9ff;
+        border-top: unset;
+    color: #5a539a;
+        font-weight: bold;
+        height:18px;
+    &::before {
+        content: "\25BC";
+    }
 }
+    }
     .play-detail__title .u-ellipsis-overflow {
         overflow: unset !important;
     }
