@@ -56,6 +56,30 @@ width: 524px;
     background-image: url(https://github.com/huberatelier/huberatelierThemes/blob/main/oldosu/siteimg/main-bg-new.png?raw=true);
         background-color:#e7e4fc !important; /*og:transparent for maintenance*/;
     }
+    .line-chart--profile-page .line-chart__hover-circle {
+        background-color: rgb(255, 127, 14);
+    border-color: rgb(255, 127, 14);
+            height: 12px;
+    left: -6px;
+    top: -6px;
+    width: 12px;
+    }
+    .line-chart--profile-page .line-chart__hover-line {
+        background:transparent;
+    }
+    .line-chart--profile-page .line-chart__line {
+    stroke-width: 2px;
+    stroke-opacity: 1;
+    fill-opacity: 0.5;
+    /* fill: rgb(255, 127, 14); */
+    stroke: rgb(255, 127, 14);
+    /* stroke: #fc2; */
+    /* stroke-width: 2px; */
+}
+    .line-chart--profile-page {
+        width: 532px;
+        left: 87px;
+    }
     .value-display__label {
     font-family: Tahoma;
     color: #3843a6;
