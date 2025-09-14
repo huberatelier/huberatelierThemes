@@ -51,9 +51,10 @@ width: 524px;
 }
 @-moz-document url-prefix("https://osu.ppy.sh/users/") {
     .page-extra--userpage {
+        margin-top:30px;
     background-repeat: no-repeat;
     background-image: url(https://github.com/huberatelier/huberatelierThemes/blob/main/oldosu/siteimg/main-bg-new.png?raw=true);
-        background-color:white !important /*og:transparent for maintenance*/;
+        background-color:#e7e4fc !important; /*og:transparent for maintenance*/;
     }
     .value-display__label {
     font-family: Tahoma;
@@ -74,6 +75,53 @@ width: 524px;
         box-shadow:unset;
             --outer-gutter-desktop: 0;
 }
+.header-v4__row--bar {
+    display: flex;
+    justify-content:center;
+        border:none;
+    }
+/*    .profile-detail__chart-numbers .value-display, .value-display--plain, .value-display--plain-wide {
+        display: flex;
+    }*/
+.game-mode-link {
+    display:flex;
+    justify-content: center;
+    height: 34px;
+    background: #e7e4fc;
+    border-radius: 5px;
+    border: solid 2px #978cd0;
+    width: 140px;
+    text-shadow: none;
+}
+    .game-mode-link:hover {
+            text-shadow: #e5c6db 1px 1px 2px;
+    text-decoration: none;
+    }
+    .fa-extra-mode-taiko:before {
+        font-size:16px;
+        font-family:Tahoma;
+    content: "Taiko";
+}
+    .fa-extra-mode-fruits:before {
+           font-size:16px;
+        font-family:Tahoma;
+    content: "CatchTheBeat";
+}
+    .fa-extra-mode-mania:before {
+               font-size:16px;
+        font-family:Tahoma;
+    content: "osu!mania";
+}
+    .fa-extra-mode-osu:before {
+               font-size:16px;
+        font-family:Tahoma;
+    content: "osu!";
+}
+    .game-mode-link--active {
+    background: #bea8f4;
+    color: #fff !important;
+    }
+    
     .avatar--full, .avatar--full-circle {
         padding-bottom:unset;
     height: 128px;
@@ -207,6 +255,94 @@ width: 524px;
     justify-content: center;
     margin-top: 4px;
 }
+    /* Add to your existing CSS */
+.profile-stats__entry--kudosu {
+    order: 10; /* Place it after other stats */
+    border-bottom: 1px dashed #a9a9ff !important;
+}
+
+.profile-stats__key--kudosu:after {
+    content: "" !important;
+}
+
+.profile-stats__key--kudosu a {
+    color: #3843a6 !important;
+    text-decoration: underline !important;
+}
+
+    .page-extra--userpage > .u-relative > .title--page-extra {
+        display:none;
+    }
+.kudosu-box .value-display__description {
+    font-family: Tahoma;
+    font-size: 10.6667px;
+    color: #000;
+}
+.value-display--kudosu {
+    display: grid;
+    grid-template-columns: 150px auto;
+    grid-template-rows: auto auto;
+    gap: 0 5px;
+}
+
+.kudosu-box .value-display__label {
+    grid-column: 1;
+    grid-row: 1;
+    font-weight: bold;
+    color: #000;
+    font-size:13.8667px;
+}
+
+.kudosu-box .value-display__label::after {
+    content: ":";
+}
+
+.kudosu-box .value-display__value {
+    grid-column: 2;
+    grid-row: 1;
+    font-weight: normal;
+    color: #000;
+    font-size:13.8667px;
+}
+
+.kudosu-box .value-display__description {
+    grid-column: 1 / span 2;
+    grid-row: 2;
+    color: #000;
+    font-size: 10.6667px;
+    line-height: 1.5;
+    margin-top: -8px;
+    padding-top: 10px;
+}
+.kudosu-box .value-display__description:after {
+    position: fixed;
+    z-index: -1;
+    margin-top: -36px;
+    height: 17px;
+    display: block;
+    content: "";
+    width: 638px;
+    background: #f0ecfa;
+    border-bottom: 1px dashed #a9a9ff;
+}
+    [data-page-id="kudosu"] .lazy-load {
+        margin-top: -20px;
+    }
+    .profile-extra-entries--kudosu .profile-extra-entries__time:after {
+        content: " - ";
+    }
+    .profile-extra-entries--kudosu .profile-extra-entries__time {
+    padding-right: 3px;
+    padding-left: 3px;
+    width: unset;
+}
+    .profile-extra-entries__kudosu-amount {
+    color: #000;
+    font-weight: bold;
+}
+    .profile-extra-entries--kudosu .profile-extra-entries__item {
+        line-height:10px;
+    }
     .profile-detail {
         --gutter:0px;
             justify-self: end;
@@ -416,6 +552,7 @@ display:none; /*what the fuck is this? thanks for asking. this removes silver S 
         flex-direction: column;
     }
     .page-mode--profile-page-extra {
+                margin-bottom:-30px;
     background: transparent;
     align-items: center;
     display: flex
@@ -444,9 +581,12 @@ display:none;
         display:none;
     }
     .page-extra__content-overflow-wrapper-inner {
+        border: solid transparent 5px;
+        margin-top:-20px;
         padding-right:0;
     }
     .page-mode--profile-page-extra .page-mode__item {
+        height:17px;
     display: flex
 ;
     width: 150%;
@@ -466,7 +606,19 @@ display:none;
     font-size: 10.66667px;
     margin: 0;
     justify-content: center;
+        align-items: center;
 }
+    .beatmap-playcount:nth-child(n+16) {
+    display: none;
+}
+.profile-detail:before {
+    margin-top: -10px;
+    margin-bottom: -10px;
+        border-bottom: 1px solid #4a4a4a;
+    border-top: 1px solid #4a4a4a;
+    background: #5f5f5f;
+        content:"General";
+    }
     .page-extra-tabs {
         width:640px;
         float:right;
@@ -520,9 +672,6 @@ display:none;
     .page-extra__content-overflow-wrapper-outer {
     color: black;
     font-size: 10.66667px;
-    }
-        .page-extra--userpage {
-        background-color: white;
     }
     a {
     color: #3843a6 !important;
