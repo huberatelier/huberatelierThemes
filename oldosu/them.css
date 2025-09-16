@@ -321,11 +321,48 @@ div.beatmap-playcount:nth-child(15) .beatmap-playcount__count {
     .page-extra__recent-medals-box {
     display: none;
     }
-    .play-detail__pp-weight {
+
+.play-detail__pp-weight {
+    width: 80px;
+    text-align: right;
+    left: 508px;
+    position: fixed;
+        margin-left: -16px;
+        float:left;
         color:rgb(68,68,68);
         font-size:10.66667px;
         font-family:Tahoma;
     }
+        .play-detail__weighted-pp {
+                font-weight:normal;
+            left: 575px;
+    position: fixed;
+            min-width: 10px;
+    margin-right: -6px;
+    float: right;
+    display: inline-block;
+    margin-left: 0px;
+    width: 0px;
+    margin-top: 13px;
+            &:before {
+                content:"("
+            }
+            &:after {
+                content:")"
+            }
+}
+    .play-detail__more .popup-menu .fa-ellipsis-v:before {
+        content:"★";
+        color: #3843a6;
+    text-decoration: none;
+    cursor: pointer;
+        font-size: 10.6667px;
+    margin-top: 0px !important;
+    top: auto;
+    left: 620px !important;
+    position: fixed;
+    }
+    
     .medals-group__title {
     color: #000;
     clear: both;
@@ -647,11 +684,21 @@ display:none;
     .play-detail__score-detail--mods {
         padding-left:1px;
     }
+/*.h3.title.title--page-extra-small:nth-of-type(5) > .title__count {
+    display:flex !important;
+  background: red;
+}*/
+.sortable-handle--score-pin {
+    width:0px;
+display:none;
+}
     .play-detail__group--top, .play-detail__group--bottom, .play-detail__score-detail--mods, .play-detail__score-detail, .play-detail__pp, .play-detail__pp:before {
         background: #e7e4fc;
         border-radius: 0;
     }
     .play-detail__pp, .play-detail__pp-unit {
+            background-color: transparent;
+    margin-top: -4px;
             justify-content: flex-end;
         text-align: right;
         font-family: Tahoma;
@@ -660,6 +707,7 @@ display:none;
     text-shadow: #b5c6cb 2px 0px 3px;
     padding-right: 5px;
     }
+
     .play-detail__pp .fa-heart:before {
         content:"0pp";
         font-family:Tahoma;
@@ -854,6 +902,7 @@ display:none;
     font-family: Tahoma;
     font-weight: 700;
     font-size: 10.6667px;
+        justify-content: flex-end;
     }
     .play-detail__artist {
         margin-left: -16px;
@@ -876,6 +925,15 @@ display:none;
     .show-more-link--profile-page {
     box-shadow: unset;
     position: static;
+}
+    .sortable-handle--profile-page-extra {
+        display:none;
+    }
+    .play-detail__accuracy-and-weighted-pp {
+    color: #444444;
+    font-size: 10.6667px;
+    font-weight: bold;
+    font-family: Tahoma;
 }
 [data-page-id="recent_activity"] {
   .show-more-link.show-more-link--profile-page {
