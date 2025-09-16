@@ -9,6 +9,176 @@
 // @grant        GM_xmlhttpRequest
 // @connect      old.ppy.sh
 // ==/UserScript==
+// === Auto-load up to 15 items specifically for "Most Played Beatmaps" ===
+(function () {
+  'use strict';
+
+  var TARGET_COUNT = 15;
+  var MAX_CLICKS = 12;
+  var CLICK_DELAY = 350;         // ms between clicks
+  var WAIT_FOR_NEW_MS = 2500;    // wait after click for new nodes
+  var OVERALL_TIMEOUT = 20000;   // fail-safe
+
+  function findMostPlayedSection() {
+    // Find the H3 that contains the "Most Played Beatmaps" title
+    var headers = document.querySelectorAll('h3.title--page-extra-small');
+    for (var i = 0; i < headers.length; i++) {
+      var txt = headers[i].textContent || '';
+      if (txt.indexOf('Most Played Beatmaps') !== -1) {
+        // In the HTML structure the container with beatmap items is the next sibling <div>
+        var sibling = headers[i].nextElementSibling;
+        if (sibling) return { header: headers[i], container: sibling };
+      }
+    }
+    return null;
+  }
+
+  function countMaps(container) {
+    if (!container) return 0;
+    return container.querySelectorAll('.beatmap-playcount').length;
+  }
+
+  function safeClick(el) {
+    if (!el) return;
+    try { el.click && el.click(); } catch (e) {}
+    try {
+      el.dispatchEvent(new MouseEvent('mousedown', { bubbles: true, cancelable: true }));
+      el.dispatchEvent(new MouseEvent('mouseup', { bubbles: true, cancelable: true }));
+      el.dispatchEvent(new MouseEvent('click', { bubbles: true, cancelable: true }));
+    } catch (e) {}
+    try { el.dispatchEvent(new Event('touchstart', { bubbles: true, cancelable: true })); } catch (e) {}
+  }
+
+  function wait(ms) {
+    return new Promise(function (res) { setTimeout(res, ms); });
+  }
+
+  async function ensureMostPlayedLoaded() {
+    var startTs = Date.now();
+    // Wait for the section to exist
+    while (Date.now() - startTs < OVERALL_TIMEOUT) {
+      var sec = findMostPlayedSection();
+      if (sec && sec.container) break;
+      await wait(300);
+    }
+    var secObj = findMostPlayedSection();
+    if (!secObj || !secObj.container) {
+      // give up
+      return false;
+    }
+    var container = secObj.container;
+
+    // If already enough, done
+    if (countMaps(container) >= TARGET_COUNT) return true;
+
+    // Find the show-more button inside this container
+    function findLocalShowMore() {
+      return container.querySelector('.show-more-link.show-more-link--profile-page') ||
+             container.querySelector('.show-more-link--profile-page') ||
+             container.querySelector('button.show-more-link');
+    }
+
+    var clicks = 0;
+    var overallStop = false;
+
+    // MutationObserver to detect additions quickly
+    var mo;
+    var promiseResolve;
+    var increasePromise = new Promise(function (resolve) { promiseResolve = resolve; });
+
+    function onMut(muts) {
+      if (countMaps(container) >= TARGET_COUNT) {
+        if (promiseResolve) {
+          promiseResolve(true);
+          promiseResolve = null;
+        }
+      } else {
+        // if any childList mutation adds .beatmap-playcount, resolve true
+        for (var m = 0; m < muts.length; m++) {
+          var added = muts[m].addedNodes;
+          for (var a = 0; a < added.length; a++) {
+            if (added[a].nodeType === 1 && added[a].matches && added[a].matches('.beatmap-playcount')) {
+              if (promiseResolve) {
+                promiseResolve(true);
+                promiseResolve = null;
+              }
+              return;
+            }
+            // also check subtree
+            if (added[a].querySelector && added[a].querySelector('.beatmap-playcount')) {
+              if (promiseResolve) {
+                promiseResolve(true);
+                promiseResolve = null;
+              }
+              return;
+            }
+          }
+        }
+      }
+    }
+
+    mo = new MutationObserver(onMut);
+    mo.observe(container, { childList: true, subtree: true });
+
+    while (!overallStop && clicks < MAX_CLICKS && Date.now() - startTs < OVERALL_TIMEOUT) {
+      if (countMaps(container) >= TARGET_COUNT) break;
+
+      var btn = findLocalShowMore();
+      if (!btn) {
+        // If no explicit button, attempt to scroll the container to trigger lazy-loading
+        try { container.scrollTop = container.scrollHeight; } catch (e) {}
+        // Wait a bit and re-check
+        await wait(WAIT_FOR_NEW_MS);
+        if (countMaps(container) >= TARGET_COUNT) break;
+        // still no button and no new nodes — break
+        break;
+      }
+
+      clicks++;
+      // Prepare an increasePromise that will auto-resolve after WAIT_FOR_NEW_MS to continue
+      if (!promiseResolve) {
+        increasePromise = new Promise(function (resolve) {
+          promiseResolve = resolve;
+          // safety timeout to resolve false if nothing added
+          setTimeout(function () {
+            if (promiseResolve) { promiseResolve(false); promiseResolve = null; }
+          }, WAIT_FOR_NEW_MS + 250);
+        });
+      }
+
+      safeClick(btn);
+
+      // Wait for observer to detect additions OR fallback timeout
+      var increased = await increasePromise;
+      // small extra delay between clicks
+      await wait(CLICK_DELAY);
+
+      if (countMaps(container) >= TARGET_COUNT) break;
+
+      // if click didn't increase nodes, try a second click quickly (some handlers require it)
+      if (!increased) {
+        safeClick(btn);
+        await wait(WAIT_FOR_NEW_MS);
+        if (countMaps(container) >= TARGET_COUNT) break;
+      }
+    }
+
+    // cleanup
+    try { mo.disconnect(); } catch (e) {}
+
+    return countMaps(container) >= TARGET_COUNT;
+  }
+
+  // Run (no await at top-level needed since user script continues)
+  ensureMostPlayedLoaded().then(function (ok) {
+    // optionally log result
+    // console.log('MostPlayed auto-load result:', ok);
+  }).catch(function (err) {
+    // console.error('MostPlayed auto-load error:', err);
+  });
+
+})();
+
 (function() {
     'use strict';
 
@@ -65,32 +235,122 @@
     const intervalId = setInterval(limitBeatmaps, checkInterval);
 })();
 function repositionPageTabs() {
-    // Find the user profile box and page tabs
-    const userProfileBox = document.querySelector('.page-extra--userpage');
-    const pageTabs = document.querySelector('.page-extra-tabs');
+    const MAX_ATTEMPTS = 80;
+    let attempts = 0;
+    let observer = null;
 
-    if (!userProfileBox || !pageTabs) return;
+    function tryPlace() {
+        attempts++;
 
-    // Create a container for both elements
-    const container = document.createElement('div');
-    container.className = 'user-profile-container';
+        const profileDetail = document.querySelector('.profile-detail');
+        // Main tab bar (the 4 big buttons are often here)
+        const pageTabs = document.querySelector('.page-extra-tabs');
+        // Smaller page-mode (me!, Recent, Ranks, etc.)
+        const pageMode = document.querySelector('.page-mode--profile-page-extra') || document.querySelector('.page-mode');
 
-    // Insert the container after the user profile box's current position
-    userProfileBox.parentNode.insertBefore(container, userProfileBox.nextSibling);
+        // If no profileDetail yet, wait (we need its position to insert before it)
+        if (!profileDetail) {
+            if (attempts >= MAX_ATTEMPTS) {
+                disconnectObserver();
+            }
+            return false;
+        }
 
-    // Move both elements into the new container
-    container.appendChild(userProfileBox);
-    container.appendChild(pageTabs);
+        // If neither tab element exists yet, wait
+        if (!pageTabs && !pageMode) {
+            if (attempts >= MAX_ATTEMPTS) disconnectObserver();
+            return false;
+        }
 
-    // Apply styling to maintain layout
-    container.style.display = 'flex';
-    container.style.flexDirection = 'column';
-    container.style.marginBottom = '20px';
-    container.style.alignItems = 'flex-end';
+        const targetParent = profileDetail.parentNode;
 
-    // Ensure tabs are full width
-    pageTabs.style.marginTop = '15px';
+        // Helper to safely insert node before profileDetail
+        function insertBeforeProfile(node) {
+            if (!node) return;
+            // if it's already in the right place, skip
+            if (node.parentNode === targetParent && node.nextElementSibling === profileDetail) return;
+            try {
+                targetParent.insertBefore(node, profileDetail);
+            } catch (e) {
+                // fallback: insert directly into document before profileDetail
+                profileDetail.parentNode.insertBefore(node, profileDetail);
+            }
+            // small inline style fallback to ensure layout if CSS hasn't applied yet
+            node.style.position = 'static';
+            node.style.float = 'right';
+            node.style.width = '640px';
+            node.style.marginBottom = '0';
+
+            pageMode.style.marginBottom = '-10px';
+        }
+
+        // Move pageTabs and pageMode to directly before .profile-detail
+        if (pageTabs) insertBeforeProfile(pageTabs);
+        if (pageMode) insertBeforeProfile(pageMode);
+
+        // Ensure the userpage wrapper still contains an inner/outer wrapper so your CSS rules depending on them won't break
+        const userBox = document.querySelector('.page-extra--userpage');
+        if (userBox) {
+            let outer = userBox.querySelector('.page-extra__content-overflow-wrapper-outer');
+            if (!outer) {
+                outer = document.createElement('div');
+                outer.className = 'page-extra__content-overflow-wrapper-outer';
+                // append at the end of userBox to avoid disturbing other nodes
+                userBox.appendChild(outer);
+            }
+            let inner = outer.querySelector('.page-extra__content-overflow-wrapper-inner');
+            if (!inner) {
+                inner = document.createElement('div');
+                inner.className = 'page-extra__content-overflow-wrapper-inner';
+                outer.appendChild(inner);
+            }
+            // If CSS expects pageTabs INSIDE the inner wrapper, put a copy (or move it) there.
+            // We prefer to *not* remove the element from before profileDetail if the visual result would break,
+            // so only move it into inner if inner isn't already an ancestor.
+            if (pageTabs && !inner.contains(pageTabs)) {
+                // Clone and keep a copy in the original position to avoid style-breaks:
+                // But cloning can confuse event handlers, so prefer moving only if pageTabs currently isn't placed above profileDetail.
+                // If pageTabs is already before profileDetail, keep it there (that's the priority).
+                // However: some CSS selectors expect pageTabs to be inside the inner wrapper — so if your CSS relies on that, uncomment the move:
+                // inner.appendChild(pageTabs);
+                // For safety, do not force the move here.
+            }
+        }
+
+        // Success — stop observing
+        disconnectObserver();
+        return true;
+    }
+
+    function disconnectObserver() {
+        if (observer) {
+            observer.disconnect();
+            observer = null;
+        }
+    }
+
+    // Try immediately (if DOM already ready)
+    tryPlace();
+
+    // Observe body for dynamic insertions (async loading)
+    observer = new MutationObserver(() => {
+        tryPlace();
+    });
+
+    observer.observe(document.body, { childList: true, subtree: true });
+
+    // Safety: stop after N ms
+    setTimeout(() => {
+        if (observer) disconnectObserver();
+    }, 10000);
 }
+
+// Run when page loads (replace any previous invocations)
+window.addEventListener('load', function() {
+    repositionPageTabs();
+    // Try again after a short delay in case content loads slowly
+    setTimeout(repositionPageTabs, 800);
+});
 
 // Run when page loads
 window.addEventListener('load', function() {
@@ -120,7 +380,7 @@ function addClassicKudosu() {
     kudosuEntry.className = 'profile-stats__entry profile-stats__entry--kudosu';
     kudosuEntry.innerHTML = `
         <span class="profile-stats__key profile-stats__key--kudosu">
-            <a href="http://osu.ppy.sh/wiki/Kudosu" target="_blank">Kudosu</a>:
+            Total <a href="http://osu.ppy.sh/wiki/Kudosu" target="_blank">Kudosu</a> Earned:
         </span>
         <span class="profile-stats__value">${kudosuValue}</span>
     `;
@@ -286,7 +546,7 @@ window.addEventListener('load', function() {
                 clearInterval(waitForTarget);
                 const parent = target.parentNode;
                 parent.insertBefore(header, target);
-                header.style.marginBottom = '20px';
+                header.style.marginBottom = '-5px';
             }
         }, 100);
     })();
