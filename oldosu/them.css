@@ -50,8 +50,15 @@ width: 524px;
 }
 }
 @-moz-document url-prefix("https://osu.ppy.sh/users/") {
+/*    .header-v4__row .game-mode {
+        padding-top: 30px;
+    }*/
+    .header-v4__container:before {
+        padding-top:30px;
+    }
     .page-extra--userpage {
-        margin-top:26px;
+        margin-top: -4px;
+        /*margin-top:26px;*/
     background-repeat: no-repeat;
     background-image: url(https://github.com/huberatelier/huberatelierThemes/blob/main/oldosu/siteimg/main-bg-new.png?raw=true);
         background-color:#e7e4fc !important; /*og:transparent for maintenance*/;
@@ -63,6 +70,18 @@ width: 524px;
     left: -6px;
     top: -6px;
     width: 12px;
+    }
+    .profile-stats__entry:nth-child(1):before {
+        width: 640px;
+    margin-top: -25px;
+        position:absolute;
+        content:"\25BC Detailed Stats";
+        background: #f5f2fe;
+        border-bottom: 1px solid #a9a9ff;
+        border-top: unset;
+        color: #5a539a;
+        font-weight: bold;
+        height: 18px;
     }
     .line-chart--profile-page .line-chart__hover-line {
         background:transparent;
@@ -148,7 +167,117 @@ width: 524px;
     background: #bea8f4;
     color: #fff !important;
     }
-    
+    .beatmap-playcount__detail {
+    display: flex;
+    flex-direction: row-reverse;
+}
+    .beatmap-playcount__cover {
+        display:none;
+    }
+    .beatmap-playcount__count:after {
+        content:" plays";
+    }
+    .beatmap-playcount__title:before {
+        padding-left: 6px;
+        content:" - "
+    }
+    .beatmap-playcount__count-icon {
+        display:none;
+    }
+    .beatmap-playcount__detail, .beatmap-playcount, .beatmap-playcount:hover .beatmap-playcount__detail {
+        background:transparent;
+    }
+    .beatmap-playcount__mapper {
+        display:none;
+    }
+    .beatmap-playcount__title {
+        font-weight:normal;
+        font-family:Tahoma;
+    }
+div.beatmap-playcount:nth-child(1) .beatmap-playcount__title,
+div.beatmap-playcount:nth-child(1) .beatmap-playcount__count {
+    font-size: 19.2px;
+}
+
+div.beatmap-playcount:nth-child(2) .beatmap-playcount__title,
+div.beatmap-playcount:nth-child(2) .beatmap-playcount__count {
+    font-size: 18.56px;
+}
+
+div.beatmap-playcount:nth-child(3) .beatmap-playcount__title,
+div.beatmap-playcount:nth-child(3) .beatmap-playcount__count {
+    font-size: 17.92px;
+}
+
+div.beatmap-playcount:nth-child(4) .beatmap-playcount__title,
+div.beatmap-playcount:nth-child(4) .beatmap-playcount__count {
+    font-size: 17.28px;
+}
+
+div.beatmap-playcount:nth-child(5) .beatmap-playcount__title,
+div.beatmap-playcount:nth-child(5) .beatmap-playcount__count {
+    font-size: 16.64px;
+}
+
+div.beatmap-playcount:nth-child(6) .beatmap-playcount__title,
+div.beatmap-playcount:nth-child(6) .beatmap-playcount__count {
+    font-size: 16px;
+}
+
+div.beatmap-playcount:nth-child(7) .beatmap-playcount__title,
+div.beatmap-playcount:nth-child(7) .beatmap-playcount__count {
+    font-size: 15.53px;
+}
+
+div.beatmap-playcount:nth-child(8) .beatmap-playcount__title,
+div.beatmap-playcount:nth-child(8) .beatmap-playcount__count {
+    font-size: 14.72px;
+}
+
+div.beatmap-playcount:nth-child(9) .beatmap-playcount__title,
+div.beatmap-playcount:nth-child(9) .beatmap-playcount__count {
+    font-size: 14.08px;
+}
+
+div.beatmap-playcount:nth-child(10) .beatmap-playcount__title,
+div.beatmap-playcount:nth-child(10) .beatmap-playcount__count {
+    font-size: 13.44px;
+}
+
+div.beatmap-playcount:nth-child(11) .beatmap-playcount__title,
+div.beatmap-playcount:nth-child(11) .beatmap-playcount__count {
+    font-size: 12.8px;
+}
+
+div.beatmap-playcount:nth-child(12) .beatmap-playcount__title,
+div.beatmap-playcount:nth-child(12) .beatmap-playcount__count {
+    font-size: 12.16px;
+}
+
+div.beatmap-playcount:nth-child(13) .beatmap-playcount__title,
+div.beatmap-playcount:nth-child(13) .beatmap-playcount__count {
+    font-size: 11.52px;
+}
+
+div.beatmap-playcount:nth-child(14) .beatmap-playcount__title,
+div.beatmap-playcount:nth-child(14) .beatmap-playcount__count {
+    font-size: 10.88px;
+}
+
+div.beatmap-playcount:nth-child(15) .beatmap-playcount__title,
+div.beatmap-playcount:nth-child(15) .beatmap-playcount__count {
+    font-size: 10.24px;
+}
+.beatmap-playcount ~ .show-more-link--profile-page {
+    display:none;
+}
+    .beatmap-playcount__count {
+    color: #000000;
+    display: block;
+}
+    .title__count {
+        display:none;
+    }
     .avatar--full, .avatar--full-circle {
         padding-bottom:unset;
     height: 128px;
@@ -168,7 +297,6 @@ width: 524px;
         float:right;
     width: 640px;
     }
-    
     .page-extra--userpage {
     border-radius: 0px;
     width: 640px;
@@ -516,6 +644,9 @@ display:none;
     padding: 2px;
     min-height: 38px;
     }
+    .play-detail__score-detail--mods {
+        padding-left:1px;
+    }
     .play-detail__group--top, .play-detail__group--bottom, .play-detail__score-detail--mods, .play-detail__score-detail, .play-detail__pp, .play-detail__pp:before {
         background: #e7e4fc;
         border-radius: 0;
@@ -528,6 +659,10 @@ display:none;
     color: #9492dc;
     text-shadow: #b5c6cb 2px 0px 3px;
     padding-right: 5px;
+    }
+    .play-detail__pp .fa-heart:before {
+        content:"0pp";
+        font-family:Tahoma;
     }
 .play-detail__icon--main {
     margin-left: -20px;
@@ -571,8 +706,11 @@ display:none; /*what the fuck is this? thanks for asking. this removes silver S 
             clear:both;
                 flex-direction: column;
     }
+    [data-page-id="main"] {
+        padding-top: 30px;
+    }
     .profile-info {
-        margin-top: -2px;
+        margin-top: -32px;
     margin-left: 6px;
     float: left;
     }
@@ -711,12 +849,20 @@ display:none;
     cursor: pointer;
 }
     .play-detail__title {
+        display:flex;
+        flex-direction: row-reverse;
     font-family: Tahoma;
     font-weight: 700;
     font-size: 10.6667px;
     }
     .play-detail__artist {
-        display: none;
+        margin-left: -16px;
+        display: flex;
+            font-size: 10.6667px;
+        &:after {
+            padding: 0 4px;
+            content:" - "
+        }
     }
     .profile-extra-entries__time {
         padding-left: 3px;
