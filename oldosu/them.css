@@ -362,7 +362,12 @@ div.beatmap-playcount:nth-child(15) .beatmap-playcount__count {
     left: 620px !important;
     position: fixed;
     }
-    
+    .page-mode__item[data-page-id="me"], .page-mode__item[data-page-id="kudosu"] {
+  display: none !important;
+}
+        .page-mode__item[data-page-id="historical"] {
+  order:2;
+}
     .medals-group__title {
     color: #000;
     clear: both;
@@ -609,7 +614,7 @@ float:right;
     background-color: transparent;
     mask-image: unset;
 }
-.play-detail__score-detail--mods .mod:first-child::before {
+    .play-detail__mods .mod:first-child::before {
     content: "+";
         color:#000;
     font-family:Tahoma;
@@ -617,7 +622,7 @@ float:right;
     font-weight:bold;
     margin-top: -3px;
 }
-    .play-detail__score-detail--mods .mod:not(:last-child)::after {
+        .play-detail__mods .mod:not(:last-child)::after {
   content: ",";
         color:#000;
     font-family:Tahoma;
@@ -692,6 +697,9 @@ display:none;
     width:0px;
 display:none;
 }
+    .play-detail__mods {
+        background-color:transparent;
+    }
     .play-detail__group--top, .play-detail__group--bottom, .play-detail__score-detail--mods, .play-detail__score-detail, .play-detail__pp, .play-detail__pp:before {
         background: #e7e4fc;
         border-radius: 0;
@@ -1076,4 +1084,69 @@ display:none;
             display:none;
     }
 
+}
+@-moz-document url-prefix("https://osu.ppy.sh/beatmapsets/") {
+    .beatmap-scoreboard-table {
+        width:860px;
+    --default-color: #000;
+    --padding-h: 4px;
+    --perfect-color: #000;
+    --row-background-color: #dad7fb;
+    --row-background-color-highlight: #FDE1FF;
+    --zero-color: hsla(0, 0%, 100%, .4);
+    margin-right: -16px;
+    overflow-x: visible;
+    transform: translateZ(0);
+}
+    .beatmap-scoreboard-table__body-row:nth-child(odd) {
+    --row-background-color: #e7e4fc;
+}
+/*   .beatmap-scoreboard-table__popup-menu:nth-child(odd) {
+        background-color: #e7e4fc;
+    }
+       .beatmap-scoreboard-table__popup-menu {
+        background-color: #dad7fb;
+    }*/
+    .beatmap-scoreboard-table__cell-content {
+        height:15px;
+    }
+    .page-extra {
+        border-radius:0px;
+        --gutter: unset;
+        --outer-gutter: 2px;
+    }
+    .beatmap-scoreboard-table__cell:first-child, .beatmap-scoreboard-table__cell:nth-last-child(2) {
+    border-bottom-left-radius: 0px;
+    border-top-left-radius: 0px;
+        border-bottom-right-radius: 0px;
+    border-top-right-radius: 0px;
+}
+    .beatmap-scoreboard-table__header caption, th {
+        text-align:center;
+    }
+.beatmap-scoreboard-table__header {
+    background: #d7d2fb;
+    border-bottom: 1px solid #a79ef3;
+    color: #000;
+    font-size: 10.6667px;
+    font-weight: bold;
+    padding: 0;
+        text-transform:capitalize;
+    }
+    .beatmap-scoreboard-table__body-row--highlightable .beatmap-scoreboard-table__popup-menu {
+    opacity: 1;
+}
+    .beatmap-scoreboard-table__popup-menu .fa-ellipsis-v:before {
+        content:"Options";
+        color: #3843a6;
+        font-family:Tahoma;
+        font-size:10.6667px;
+        font-weight:normal;
+    }
+    .beatmap-scoreboard-table__header--popup-menu {
+    width: 60px;
+}
+    .beatmap-scoreboard-table__table {
+        width:860px;
+    }
 }
