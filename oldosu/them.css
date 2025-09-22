@@ -48,6 +48,30 @@ width: 524px;
     flex-wrap: wrap;
     justify-content: flex-end;
 }
+            .score-rank--X {
+    background-image: url(https://github.com/huberatelier/huberatelierThemes/blob/main/oldosu/ranks/X_small.png?raw=true);
+}
+        .score-rank--XH {
+    background-image: url(https://github.com/huberatelier/huberatelierThemes/blob/main/oldosu/ranks/XH_small.png?raw=true);
+}
+    .score-rank--S {
+    background-image: url(https://github.com/huberatelier/huberatelierThemes/blob/main/oldosu/ranks/S_small.png?raw=true);
+}
+    .score-rank--SH {
+    background-image: url(https://github.com/huberatelier/huberatelierThemes/blob/main/oldosu/ranks/SH_small.png?raw=true);
+}
+        .score-rank--A {
+    background-image: url(https://github.com/huberatelier/huberatelierThemes/blob/main/oldosu/ranks/A_small.png?raw=true);
+}
+            .score-rank--B {
+    background-image: url(https://github.com/huberatelier/huberatelierThemes/blob/main/oldosu/ranks/B_small.png?raw=true);
+}
+            .score-rank--C {
+    background-image: url(https://github.com/huberatelier/huberatelierThemes/blob/main/oldosu/ranks/C_small.png?raw=true);
+}
+            .score-rank--D {
+    background-image: url(https://github.com/huberatelier/huberatelierThemes/blob/main/oldosu/ranks/D_small.png?raw=true);
+}
 }
 @-moz-document url-prefix("https://osu.ppy.sh/users/") {
 /*    .header-v4__row .game-mode {
@@ -726,30 +750,7 @@ display:none;
         height: 15px;
         width: 12px;
     }
-        .score-rank--X {
-    background-image: url(https://github.com/huberatelier/huberatelierThemes/blob/main/oldosu/ranks/X_small.png?raw=true);
-}
-        .score-rank--XH {
-    background-image: url(https://github.com/huberatelier/huberatelierThemes/blob/main/oldosu/ranks/XH_small.png?raw=true);
-}
-    .score-rank--S {
-    background-image: url(https://github.com/huberatelier/huberatelierThemes/blob/main/oldosu/ranks/S_small.png?raw=true);
-}
-    .score-rank--SH {
-    background-image: url(https://github.com/huberatelier/huberatelierThemes/blob/main/oldosu/ranks/SH_small.png?raw=true);
-}
-        .score-rank--A {
-    background-image: url(https://github.com/huberatelier/huberatelierThemes/blob/main/oldosu/ranks/A_small.png?raw=true);
-}
-            .score-rank--B {
-    background-image: url(https://github.com/huberatelier/huberatelierThemes/blob/main/oldosu/ranks/B_small.png?raw=true);
-}
-            .score-rank--C {
-    background-image: url(https://github.com/huberatelier/huberatelierThemes/blob/main/oldosu/ranks/C_small.png?raw=true);
-}
-            .score-rank--D {
-    background-image: url(https://github.com/huberatelier/huberatelierThemes/blob/main/oldosu/ranks/D_small.png?raw=true);
-}
+
 html>body:nth-child(2)>div:nth-child(6)>div:nth-child(1)>div:nth-child(1)>div:nth-child(1)>div:nth-child(1)>div:nth-child(1)>div:nth-child(4)>div:nth-child(1)>div:nth-child(1)>div:nth-child(3)>div:nth-child(2)>div:nth-child(1)>div:nth-child(1), html>body:nth-child(2)>div:nth-child(6)>div:nth-child(1)>div:nth-child(1)>div:nth-child(1)>div:nth-child(1)>div:nth-child(1)>div:nth-child(4)>div:nth-child(1)>div:nth-child(1)>div:nth-child(3)>div:nth-child(2)>div:nth-child(1)>div:nth-child(3) {
 display:none; /*what the fuck is this? thanks for asking. this removes silver S and SS but i suck at css so i just did this to target the specific element*/
 }
@@ -1083,7 +1084,6 @@ display:none;
         .title--page-extra-small:before {
             display:none;
     }
-
 }
 @-moz-document url-prefix("https://osu.ppy.sh/beatmapsets/") {
     .beatmap-scoreboard-table {
@@ -1108,9 +1108,11 @@ display:none;
         background-color: #dad7fb;
     }*/
     .beatmap-scoreboard-table__cell-content {
+        font-size:10.6667px;
         height:15px;
     }
     .page-extra {
+        background-color: unset;
         border-radius:0px;
         --gutter: unset;
         --outer-gutter: 2px;
@@ -1149,4 +1151,132 @@ display:none;
     .beatmap-scoreboard-table__table {
         width:860px;
     }
+    .beatmap-scoreboard-table__user-link {
+    font-size: 10.6667px;
+    color: #3843a6;
+    text-decoration: none;
+    cursor: pointer;
+}
+    .beatmap-scoreboard-top {
+        flex-wrap:unset;
+    }
+.beatmap-scoreboard-top__item:nth-child(2) .beatmap-score-top, .beatmap-scoreboard-top__item:nth-child(1) .beatmap-score-top {
+    display: flex;
+    flex-wrap: nowrap;
+    margin: 15px 0;
+}
+
+.beatmap-scoreboard-top__item:nth-child(2) .beatmap-score-top__section, .beatmap-scoreboard-top__item:nth-child(1) .beatmap-score-top__section {
+    border: solid 1px black;
+    align-items: center;
+    background-color: #E7E4FC;
+    border-radius: 0px;
+    box-shadow: unset;
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    pointer-events: none;
+    position: relative;
+    width: 378px;
+    height: 155px;
+    flex-wrap: wrap;
+}
+
+.beatmap-scoreboard-top__item:nth-child(2) .beatmap-score-top__avatar {
+    display: none;
+}
+
+.beatmap-scoreboard-top__item:nth-child(2) .beatmap-score-top__username {
+    font-size: 0px;
+}
+
+.beatmap-scoreboard-top__item:nth-child(2) .beatmap-score-top__position {
+    display: flex;
+    font-size: 13.8667px;
+    font-weight: bold;
+    align-items: center;
+}
+    .beatmap-score-top__position-number {
+        padding-bottom:0px;
+    }
+    .beatmap-score-top__position-number:before {
+        margin-left:5px;
+        content: "(";
+    }
+.beatmap-scoreboard-top__item:nth-child(2) .beatmap-score-top__position:before {
+    color: #fdbf2a;
+    content: "Personal Best";
+}
+
+.beatmap-scoreboard-top__item .beatmap-score-top__position .score-rank {
+    height: 130px;
+    width: 120px;
+    position: absolute;
+    display: none;
+}
+
+.beatmap-scoreboard-top__item .beatmap-score-top__achieved {
+    font-weight: bold;
+    font-size: 13.8667px;
+    margin-bottom: 0px;
+}
+    .beatmap-scoreboard-top__item:nth-child(2) .beatmap-score-top__flags {
+        display:none;
+    }
+    .beatmap-scoreboard-top__item:nth-child(2) .beatmap-score-top__user-box:after {
+            font-size: 13.8667px;
+    font-weight: bold;
+        content:")";
+        margin-left: -4px;
+    }
+    .beatmap-score-top__wrapping-container--left {
+        margin-top: -10px;
+    margin-left: -10px;
+        height: 21px;
+    }
+    .beatmap-scoreboard-top__item:nth-child(2) .beatmap-score-top__stat-value--score {
+    color: black;
+    font-size: 10.6667px;
+}
+    .beatmap-score-top__stat-value--perfect {
+        font-size:10.6667px;
+        color: black;
+    }
+    .beatmap-scoreboard-top__item:nth-child(2) .beatmap-score-top__stat:first-child {
+    display: none;
+}
+    .beatmap-score-top__stat-header {
+    border-bottom: unset;
+    color: #000;
+    font-size: 10px;
+    font-weight: 700;
+    padding-bottom: 2px;
+    text-transform: capitalize;
+    white-space: nowrap;
+        min-width:0px;
+}
+    .beatmap-score-top__stat-header:after {
+        content:":";
+        margin-right:2px;
+    }
+    .beatmap-score-top__stat {
+        display: flex
+;
+    flex-direction: row;
+    }
+    .beatmap-score-top__stats {
+            display: flex;
+    flex-shrink: 1;
+    flex-direction: column;
+    }
+.beatmap-score-top__wrapping-container--right {
+    align-items: flex-start;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    width: 25%;
+}
+    .beatmap-score-top__stat-value {
+    line-height: unset;
+    margin-top: unset;
+}
 }
