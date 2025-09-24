@@ -619,83 +619,8 @@ window.addEventListener('load', function() {
     (function() {
         'use strict';
 
-        function addListingLink() {
-            const header = document.querySelector('.beatmapset-header__box--main');
-            if (!header) return false;
-
-            // Create the Beatmap Listing link
-            const listingLink = document.createElement('a');
-            listingLink.href = 'https://osu.ppy.sh/p/beatmaplist';
-            listingLink.textContent = 'Beatmap Listing';
-            listingLink.style.cssText = `
-                color: #3843a6;
-                text-decoration: none;
-                cursor: pointer;
-                margin-right: 15px;
-                font-weight: normal;
-                font-size: 23.4667px;
-                white-space: nowrap;
-            `;
-
-            // Create a container for the artist-title combo
-            const artistTitleContainer = document.createElement('span');
-            artistTitleContainer.style.display = 'inline-block';
-            artistTitleContainer.style.whiteSpace = 'nowrap';
-
-            // Get artist and title elements
-            const artistEl = header.querySelector('.beatmapset-header__details-text--artist');
-            const titleEl = header.querySelector('.beatmapset-header__details-text--title');
-
-            if (!artistEl || !titleEl) return false;
-
-            // Clone elements to preserve original styling
-            const artistClone = artistEl.cloneNode(true);
-            const titleClone = titleEl.cloneNode(true);
-
-            // Create separator
-            const separator = document.createElement('span');
-            separator.textContent = ' - ';
-            separator.style.margin = '0 4px';
-            separator.style.display = 'inline';
-            separator.style.color = '#cc2e8a';
-            separator.style.textShadow = '#efcfe1 0px 0px 10px';
-            separator.style.fontSize = '23.4667px';
-            separator.style.fontWeight = 'normal';
-
-            // Build the artist-title combo
-            artistTitleContainer.appendChild(artistClone);
-            artistTitleContainer.appendChild(separator);
-            artistTitleContainer.appendChild(titleClone);
-
-            // Create a flex container to hold everything
-            const flexContainer = document.createElement('div');
-            flexContainer.style.display = 'flex';
-            flexContainer.style.alignItems = 'center';
-            flexContainer.style.gap = '10px';
-            flexContainer.style.order = '-1';
-
-            // Add elements to flex container
-            flexContainer.appendChild(listingLink);
-            flexContainer.appendChild(artistTitleContainer);
-
-            // Insert the flex container before the original elements
-            header.insertBefore(flexContainer, artistEl);
-
-            // Remove original elements
-            artistEl.remove();
-            titleEl.remove();
-
-            return true;
-        }
 
         // Try immediately
-        if (!addListingLink()) {
-            // If elements aren't ready, try every 100ms
-            const interval = setInterval(() => {
-                if (addListingLink()) {
-                    clearInterval(interval);
-                }
-            }, 100);
-        }
+
     })();
 })();
