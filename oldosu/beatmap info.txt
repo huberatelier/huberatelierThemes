@@ -1,0 +1,355 @@
+// ==UserScript==
+// @name         Osu Classic Beatmap Info Panel
+// @namespace    http://tampermonkey.net/
+// @version      2025-08-11
+// @description  Recreates the classic osu! beatmap info panel with all statistics
+// @author       You
+// @match        https://osu.ppy.sh/*
+// @icon         https://www.google.com/s2/favicons?sz=64&domain=ppy.sh
+// @grant        none
+// ==/UserScript==
+
+// Genre and Language mappings
+const GENRES = {
+    0: 'Any', 1: 'Unspecified', 2: 'Video Game', 3: 'Anime',
+    4: 'Rock', 5: 'Pop', 6: 'Other', 7: 'Novelty', 8: 'Hip Hop',
+    9: 'Electronic', 10: 'Metal', 11: 'Classical', 12: 'Folk', 13: 'Jazz'
+};
+
+const LANGUAGES = {
+    0: 'Any', 1: 'Other', 2: 'English', 3: 'Japanese', 4: 'Chinese',
+    5: 'Instrumental', 6: 'Korean', 7: 'French', 8: 'German', 9: 'Swedish',
+    10: 'Spanish', 11: 'Italian', 12: 'Russian', 13: 'Polish', 14: 'Unspecified'
+};
+
+// Flag to prevent duplicate creation
+let panelCreated = false;
+
+function getBeatmapsetData() {
+    const jsonScript = document.getElementById('json-beatmapset');
+    if (jsonScript) {
+        try {
+            return JSON.parse(jsonScript.textContent);
+        } catch (e) {
+            console.error('Error parsing beatmapset data:', e);
+        }
+    }
+    return null;
+}
+
+function getCurrentBeatmap() {
+    const data = getBeatmapsetData();
+    if (!data || !data.beatmaps) return null;
+
+    // Get current beatmap ID from URL hash
+    const hash = window.location.hash;
+    const match = hash.match(/osu\/(\d+)/);
+    const currentId = match ? parseInt(match[1]) : null;
+
+    if (currentId) {
+        return data.beatmaps.find(b => b.id === currentId) || data.beatmaps[0];
+    }
+
+    return data.beatmaps[0]; // Fallback to first beatmap
+}
+
+function formatDate(dateString) {
+    if (!dateString) return 'Unknown';
+    const date = new Date(dateString);
+    return date.toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' });
+}
+
+function formatLength(seconds) {
+    if (!seconds) return '0:00';
+    const minutes = Math.floor(seconds / 60);
+    const remainingSeconds = seconds % 60;
+    return `${minutes}:${remainingSeconds.toString().padStart(2, '0')}`;
+}
+
+function createStarRating(value, max = 10) {
+    const width = (value / max) * 140;
+    return `
+        <div class="starfield" style="width:140px">
+            <div class="active" style="width:${width}px"></div>
+        </div>
+    `;
+}
+
+function createRatingSpread(ratingData) {
+    if (!ratingData || ratingData.length === 0) return 'No ratings';
+
+    const total = ratingData.reduce((sum, val) => sum + val, 0);
+    if (total === 0) return 'No ratings';
+
+    let html = '<table width="100%" height="20px" style="color:#fff;"><tr>';
+
+    ratingData.forEach((count, index) => {
+        if (count > 0) {
+            const percentage = (count / total) * 100;
+            const color = index < 5 ? '#BC2036' : '#78AB23'; // Red for 1-4, Green for 5-10
+            html += `<td style="background-color:${color};text-align:right;border:solid 1px #82000B;" width="${percentage}">${count}</td>`;
+        }
+    });
+
+    html += '</tr></table>';
+    return html;
+}
+
+function createBreadcrumbHeader(data) {
+    if (!data) return '';
+
+    const artist = data.artist_unicode || data.artist;
+    const title = data.title_unicode || data.title;
+
+    return `
+        <h1 style="top: -40px;
+        left: -40px;
+    position: absolute;
+    color: #cc2e8a;
+    text-shadow: #efcfe1 0px 0px 10px;
+    font-size: 23.4667px;
+    margin: 10px 0;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding-left: 6px;
+    padding-right: 6px;
+    font-weight: normal;">
+            <a href="/p/beatmaplist" style="color: #3843a6; text-decoration: none;">Beatmap Listing</a>
+            » ${artist} - ${title}
+        </h1>
+    `;
+}
+
+function createClassicInfoPanel() {
+    const data = getBeatmapsetData();
+    const currentBeatmap = getCurrentBeatmap();
+
+    if (!data || !currentBeatmap) return null;
+
+    // Calculate success rate
+    const successRate = currentBeatmap.playcount > 0
+        ? ((currentBeatmap.passcount / currentBeatmap.playcount) * 100).toFixed(1)
+        : 0;
+
+    // Get genre and language
+    const genre = GENRES[data.genre_id] || 'Unknown';
+    const language = LANGUAGES[data.language_id] || 'Unknown';
+
+    // Create the classic table
+    return `
+<div style="background: #e4dbfb;
+    border: 1px solid #ccc;
+    margin: 10px 40px 0px -40px;
+    font-family: Tahoma;
+    font-size: 10.6667px;">
+<table id="songinfo" width="100%" cellspacing="0">
+<tbody>
+<tr>
+    <td width="0%">Artist:</td>
+    <td width="23%" class="colour"><a href="/beatmapsets?q=artist%3D%22${encodeURIComponent(data.artist)}%22">${data.artist_unicode || data.artist}</a></td>
+    <td width="0%">Circle Size:</td>
+    <td width="23%" class="colour">${createStarRating(currentBeatmap.cs)}</td>
+    <td width="0%">Approach Rate:</td>
+    <td class="colour">${createStarRating(currentBeatmap.ar)}</td>
+</tr>
+<tr>
+    <td width="0%">Title:</td>
+    <td class="colour"><a href="/beatmapsets?q=title%3D%22${encodeURIComponent(data.title)}%22">${data.title_unicode || data.title}</a></td>
+    <td width="0%">HP Drain:</td>
+    <td class="colour">${createStarRating(currentBeatmap.drain)}</td>
+    <td width="0%"><strong>Star Difficulty</strong>:</td>
+    <td width="23%" class="colour">${createStarRating(currentBeatmap.difficulty_rating, 10)} (${currentBeatmap.difficulty_rating.toFixed(2)})</td>
+</tr>
+<tr>
+    <td width="0%">Creator:</td>
+    <td class="colour"><a href="/users/${data.user_id}">${data.user?.username || data.creator}</a></td>
+    <td width="0%">Accuracy:</td>
+    <td class="colour">${createStarRating(currentBeatmap.accuracy)}</td>
+    <td width="0%">Length:</td>
+    <td class="colour">${formatLength(currentBeatmap.total_length)} (${formatLength(currentBeatmap.hit_length)} drain)</td>
+</tr>
+<tr>
+    <td width="0%">Source:</td>
+    <td class="colour"><a href="/beatmapsets?q=source%3D%22${encodeURIComponent(data.source)}%22">${data.source || 'Unknown'}</a></td>
+    <td width="0%">Genre:</td>
+    <td class="colour"><a href="/beatmapsets?g=${data.genre_id}">${genre}</a> (<a href="/beatmapsets?la=${data.language_id}">${language}</a>)</td>
+    <td width="0%">BPM:</td>
+    <td class="colour">${currentBeatmap.bpm}</td>
+</tr>
+<tr>
+    <td width="0%">Tags:</td>
+    <td class="colour">${data.tags || 'None'}</td>
+    <td width="0%">User Rating:</td>
+    <td class="colour">${createRatingSpread(data.ratings)}</td>
+    <td width="0%" rowspan="2" valign="top">
+        Success Rate:<br>
+        Points of Failure:<br>
+        <span style="font-size:80%">(graph is accumulative, based on % at fail/retry)</span>
+    </td>
+    <td class="colour" rowspan="2">
+        <b>${successRate}%</b> (${currentBeatmap.passcount} of ${currentBeatmap.playcount} plays)<br>
+        <img width="200" height="60" src="https://old.ppy.sh/pages/include/beatmap-fail-graph.php?b=${currentBeatmap.id}" alt="Fail graph">
+    </td>
+</tr>
+<tr>
+    <td width="0%">
+        Submitted:<br>
+        Ranked:
+    </td>
+    <td class="colour">
+        ${formatDate(data.submitted_date)}<br>
+        ${formatDate(data.ranked_date)}
+    </td>
+    <td>Rating Spread:</td>
+    <td class="colour">
+        <img width="200" height="40" src="https://old.ppy.sh/pages/include/beatmap-rating-graph.php?s=${data.id}" alt="Rating graph">
+    </td>
+</tr>
+<tr>
+    <td colspan="4">
+        <div><b>Favourited ${data.favourite_count || 0} times</b> in total</div>
+        ${data.recent_favourites ? `Users that love this map: ${data.recent_favourites.slice(0, 10).map(user =>
+            `<a href="/users/${user.id}">${user.username}</a>`
+        ).join(', ')}${data.recent_favourites.length > 10 ? ' and <b>many more</b>!' : ''}` : ''}
+    </td>
+    <td width="0%">Options:</td>
+    <td class="colour">
+        <a href="/beatmapsets/${data.id}/discussion">Modding / Discussion</a>
+    </td>
+    <td class="colour"></td>
+</tr>
+</tbody>
+</table>
+</div>
+
+<style>
+.classic-beatmap-info {
+width:860px;
+}
+.starfield {
+background: url(https://s.ppy.sh/images/starn.png);
+    height: 14px;
+    position: relative;
+}
+
+.starfield .active {
+    background: url(https://s.ppy.sh/images/star.png);
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.colour {
+    color: #333 !important;
+}
+.songinfo {
+display:none;
+}
+#songinfo a {
+    color: #06C !important;
+    text-decoration: none;
+}
+
+#songinfo a:hover {
+    text-decoration: underline;
+}
+#songinfo {
+background-color: #e1d6fb;
+}
+.colour {
+background-color:#e4dbfb;
+}
+#songinfo td {
+border-bottom: 1px solid #cfc1ef;
+color:#000;
+    padding: 2px 4px;
+    vertical-align: middle;
+}
+</style>
+    `;
+}
+
+function replaceModernInfoWithClassic() {
+    // Prevent duplicate creation
+    if (panelCreated || document.querySelector('.classic-beatmap-info')) {
+        return;
+    }
+
+    // Find the modern beatmap info container
+    const modernContainer = document.querySelector('.beatmapset-mapping, .beatmapset-header__details-text--title, .beatmapset-header__details-text--artist');
+
+    if (modernContainer) {
+        const data = getBeatmapsetData();
+        if (!data) {
+            console.log('No beatmap data found, retrying...');
+            setTimeout(replaceModernInfoWithClassic, 1000);
+            return;
+        }
+
+        // Create container for classic panel
+        const classicContainer = document.createElement('div');
+        classicContainer.className = 'classic-beatmap-info';
+
+        // Add breadcrumb header
+        const breadcrumb = createBreadcrumbHeader(data);
+        const panel = createClassicInfoPanel();
+
+        if (breadcrumb && panel) {
+            classicContainer.innerHTML = breadcrumb + panel;
+
+            // Insert before the modern container
+            modernContainer.parentNode.insertBefore(classicContainer, modernContainer);
+
+            // Hide the modern container
+            modernContainer.style.display = 'none';
+
+            // Set flag to prevent duplicates
+            panelCreated = true;
+
+            console.log('Classic beatmap info panel created!');
+        }
+    } else {
+        // Retry if container not found yet
+        setTimeout(replaceModernInfoWithClassic, 1000);
+    }
+}
+
+// Wait for page load and then create the panel
+function init() {
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', () => {
+            setTimeout(replaceModernInfoWithClassic, 2000);
+        });
+    } else {
+        setTimeout(replaceModernInfoWithClassic, 2000);
+    }
+}
+
+// More careful observer to prevent duplicates
+new MutationObserver((mutations) => {
+    if (panelCreated) return; // Don't observe after creation
+
+    let shouldCreate = false;
+    mutations.forEach((mutation) => {
+        if (mutation.type === 'childList') {
+            mutation.addedNodes.forEach((node) => {
+                if (node.nodeType === 1) {
+                    if (node.querySelector?.('.beatmapset-header__box, .beatmapset-info, .beatmapset-header') ||
+                        node.classList?.contains('beatmapset-header__box') ||
+                        node.classList?.contains('beatmapset-info') ||
+                        node.classList?.contains('beatmapset-header')) {
+                        shouldCreate = true;
+                    }
+                }
+            });
+        }
+    });
+
+    if (shouldCreate && !panelCreated) {
+        setTimeout(replaceModernInfoWithClassic, 500);
+    }
+}).observe(document.body, { childList: true, subtree: true });
+
+// Initialize
+init();

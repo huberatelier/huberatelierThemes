@@ -1,0 +1,223 @@
+// ==UserScript==
+// @name         Osu Difficulty Names Display - With Icons
+// @namespace    http://tampermonkey.net/
+// @version      2025-08-10
+// @description  Display actual difficulty names with proper icons next to beatmap buttons
+// @author       You
+// @match        https://osu.ppy.sh/*
+// @icon         https://www.google.com/s2/favicons?sz=64&domain=ppy.sh
+// @grant        none
+// ==/UserScript==
+
+// Difficulty ranges and their corresponding icons
+const DIFFICULTY_RANGES = [
+    { min: 0.0, max: 1.99, name: "Easy", icon: "https://s.ppy.sh/images/easy.png" },
+    { min: 2.0, max: 2.69, name: "Normal", icon: "https://s.ppy.sh/images/normal.png" },
+    { min: 2.7, max: 3.99, name: "Hard", icon: "https://s.ppy.sh/images/hard.png" },
+    { min: 4.0, max: 5.29, name: "Insane", icon: "https://s.ppy.sh/images/insane.png" },
+    { min: 5.3, max: 6.49, name: "Expert", icon: "https://s.ppy.sh/images/expert.png" },
+    { min: 6.5, max: Infinity, name: "Expert+", icon: "https://s.ppy.sh/images/expert.png" } // same as expert
+];
+
+function getDifficultyIcon(stars) {
+    const range = DIFFICULTY_RANGES.find(r => stars >= r.min && stars <= r.max);
+    return range ? range.icon : null;
+}
+
+function getDifficultyName(stars) {
+    const range = DIFFICULTY_RANGES.find(r => stars >= r.min && stars <= r.max);
+    return range ? range.name : "Unknown";
+}
+
+function extractBeatmapData() {
+    const beatmapData = {};
+
+    console.log('=== Extracting beatmap data from json-beatmapset ===');
+
+    // METHOD: Get data from the json-beatmapset script tag
+    const jsonScript = document.getElementById('json-beatmapset');
+    if (jsonScript) {
+        try {
+            const beatmapsetData = JSON.parse(jsonScript.textContent);
+            console.log('Found beatmapset data:', beatmapsetData);
+
+            if (beatmapsetData.beatmaps && Array.isArray(beatmapsetData.beatmaps)) {
+                // Filter for Standard mode (mode: "osu" or mode_int: 0)
+                beatmapsetData.beatmaps
+                    .filter(beatmap => beatmap.mode === 'osu' || beatmap.mode_int === 0)
+                    .forEach(beatmap => {
+                        if (beatmap.id && beatmap.version && beatmap.difficulty_rating) {
+                            beatmapData[beatmap.id] = {
+                                name: beatmap.version,
+                                stars: beatmap.difficulty_rating,
+                                icon: getDifficultyIcon(beatmap.difficulty_rating),
+                                difficultyName: getDifficultyName(beatmap.difficulty_rating)
+                            };
+                            console.log(`Found beatmap: ${beatmap.id} = "${beatmap.version}" (${beatmap.difficulty_rating}★)`);
+                        }
+                    });
+            }
+        } catch (e) {
+            console.log('Error parsing json-beatmapset:', e);
+        }
+    } else {
+        console.log('json-beatmapset script tag not found');
+    }
+
+    return beatmapData;
+}
+// Add this function to style the active button
+function styleActiveButton() {
+    const activeButton = document.querySelector('.beatmapset-beatmap-picker__beatmap--active');
+    if (activeButton) {
+        activeButton.style.cssText += `
+            background: #cab8f7 !important;
+        `;
+    }
+}
+
+// Modify the addDifficultyNames function to include active button styling
+function addDifficultyNames() {
+    const buttons = document.querySelectorAll('.beatmapset-beatmap-picker__beatmap');
+    if (buttons.length === 0) {
+        setTimeout(addDifficultyNames, 1000);
+        return;
+    }
+
+    console.log(`Processing ${buttons.length} buttons`);
+
+    const beatmapData = extractBeatmapData();
+    console.log('Extracted beatmap data:', beatmapData);
+
+    if (Object.keys(beatmapData).length === 0) {
+        console.log('No beatmap data found!');
+        return;
+    }
+
+    buttons.forEach((button, index) => {
+        if (button.dataset.processed) return;
+        button.dataset.processed = 'true';
+
+        const href = button.getAttribute('href');
+        const beatmapId = href ? parseInt(href.split('/').pop()) : null;
+
+        let displayName = 'Unknown';
+        let iconUrl = null;
+
+        if (beatmapId && beatmapData[beatmapId]) {
+            const data = beatmapData[beatmapId];
+            displayName = data.name;
+            iconUrl = data.icon;
+            console.log(`Button ${index}: ${beatmapId} = "${displayName}" (${data.stars}★)`);
+        } else {
+            console.log(`Button ${index}: No data found for ID ${beatmapId}`);
+        }
+
+        // Clear and rebuild button
+        button.innerHTML = '';
+
+        // Base styles for all buttons
+        button.style.cssText = `
+            display: inline-flex !important;
+            align-items: center !important;
+            gap: 6px !important;
+            padding: 4px 8px !important;
+            margin: 0px 1px !important;
+            text-decoration: none !important;
+            background: #e0d6fb;
+            white-space: nowrap;
+            min-width: fit-content;
+            position: relative !important;
+        `;
+
+        // Add difficulty icon
+        if (iconUrl) {
+            const iconImg = document.createElement('img');
+            iconImg.src = iconUrl;
+            iconImg.style.cssText = `
+                width: 16px;
+                height: 16px;
+                object-fit: contain;
+            `;
+            iconImg.alt = 'Difficulty';
+            button.appendChild(iconImg);
+        } else {
+            const placeholder = document.createElement('div');
+            placeholder.style.cssText = `
+                width: 16px;
+                height: 16px;
+                background: rgba(255, 255, 255, 0.3);
+                border-radius: 2px;
+            `;
+            button.appendChild(placeholder);
+        }
+
+        // Add the difficulty name
+        const nameSpan = document.createElement('span');
+        nameSpan.textContent = displayName;
+        nameSpan.style.cssText = `
+            font-size: 13.8667px;
+            font-weight: 500;
+            color: #5e5e5e;
+        `;
+        button.appendChild(nameSpan);
+
+        // Add hover effects
+        button.addEventListener('mouseenter', () => {
+            if (!button.classList.contains('beatmapset-beatmap-picker__beatmap--active')) {
+                button.style.background = '#ffffff';
+            }
+        });
+        button.addEventListener('mouseleave', () => {
+            if (!button.classList.contains('beatmapset-beatmap-picker__beatmap--active')) {
+                button.style.background = '#e0d6fb';
+            }
+        });
+    });
+
+    // Style the active button after creating all buttons
+    styleActiveButton();
+
+    // Style the container
+    const picker = document.querySelector('.beatmapset-beatmap-picker');
+    if (picker) {
+        picker.style.cssText = `
+            display: flex !important;
+            flex-wrap: wrap !important;
+            max-width: none !important;
+            overflow: visible !important;
+            align-items: center !important;
+        `;
+    }
+
+    console.log('Difficulty names and icons applied successfully!');
+}
+
+// Add CSS to hide the pseudo-element that covers the button
+const style = document.createElement('style');
+style.textContent = `
+    .beatmapset-beatmap-picker__beatmap--active::before {
+        display: none !important;
+    }
+`;
+document.head.appendChild(style);
+
+// Initialize
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', () => setTimeout(addDifficultyNames, 1000));
+} else {
+    setTimeout(addDifficultyNames, 1000);
+}
+
+// Observer for dynamic content
+new MutationObserver((mutations) => {
+    mutations.forEach((mutation) => {
+        if (mutation.type === 'childList') {
+            mutation.addedNodes.forEach((node) => {
+                if (node.nodeType === 1 && node.querySelector?.('.beatmapset-beatmap-picker__beatmap')) {
+                    setTimeout(addDifficultyNames, 500);
+                }
+            });
+        }
+    });
+}).observe(document.body, { childList: true, subtree: true });

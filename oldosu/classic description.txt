@@ -1,0 +1,89 @@
+// ==UserScript==
+// @name         Osu Classic Description Styling
+// @namespace    http://tampermonkey.net/
+// @version      2025-08-11
+// @description  Styles the description with thumbnail on the left like old osu!
+// @author       You
+// @match        https://osu.ppy.sh/*
+// @icon         https://www.google.com/s2/favicons?sz=64&domain=ppy.sh
+// @grant        none
+// ==/UserScript==
+
+function getBeatmapsetId() {
+    const jsonScript = document.getElementById('json-beatmapset');
+    if (jsonScript) {
+        try {
+            const data = JSON.parse(jsonScript.textContent);
+            return data.id;
+        } catch (e) {
+            console.error('Error parsing beatmapset data:', e);
+        }
+    }
+    return null;
+}
+
+function styleDescriptionWithThumbnail() {
+    const description = document.querySelector('.beatmapset-info__box');
+    if (!description) {
+        console.log('Description not found, retrying...');
+        setTimeout(styleDescriptionWithThumbnail, 1000);
+        return;
+    }
+
+    const beatmapsetId = getBeatmapsetId();
+    if (!beatmapsetId) {
+        console.log('Beatmapset ID not found');
+        return;
+    }
+
+    // Create the thumbnail URL
+    const thumbnailUrl = `https://b.ppy.sh/thumb/${beatmapsetId}l.jpg`;
+
+    // Create the wrapper structure
+    const wrapperHTML = `
+        <div class="paddingboth" style="padding-right: 8px;">
+            <div class="posttext" style="position: relative;padding:3px;">
+                <img class="bmt" src="${thumbnailUrl}"
+                     style="float: left; margin-right: 15px; margin-bottom: 10px; max-width: 150px;max-width: 160px;
+    max-height: 120px;">
+                <div class="description-content">
+                    ${description.innerHTML}
+                </div>
+                <div style="clear: both;"></div>
+            </div>
+        </div>
+    `;
+
+    // Replace the description content with the new structure
+    description.innerHTML = wrapperHTML;
+
+
+    console.log('Description styled with thumbnail');
+}
+
+// Wait for page to load and then style the description
+function init() {
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', () => {
+            setTimeout(styleDescriptionWithThumbnail, 2000);
+        });
+    } else {
+        setTimeout(styleDescriptionWithThumbnail, 2000);
+    }
+}
+
+// Observer for dynamic content
+new MutationObserver((mutations) => {
+    mutations.forEach((mutation) => {
+        if (mutation.type === 'childList') {
+            mutation.addedNodes.forEach((node) => {
+                if (node.nodeType === 1 && node.querySelector?.('.beatmapset-description')) {
+                    setTimeout(styleDescriptionWithThumbnail, 500);
+                }
+            });
+        }
+    });
+}).observe(document.body, { childList: true, subtree: true });
+
+// Initialize
+init();
