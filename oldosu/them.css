@@ -809,7 +809,7 @@ display:none;
     .page-extra__content-overflow-wrapper-inner {
         padding-bottom:10px;
         border: solid transparent 5px;
-        margin-top:-20px;
+        margin-top:-10px;
         padding-right:0;
     }
     .page-mode--profile-page-extra .page-mode__item {
@@ -1331,13 +1331,136 @@ display:none;
         background: #f9f7fe;
         border: 1px solid #e1dfe7;
         padding: 5px;
-        max-height: unset;
+        overflow-y: scroll;
+        max-height: 140px;
         min-height: unset;
     }
     .beatmapset-info .beatmapset-info__box:nth-child(2), .beatmapset-info__box:nth-child(3), .beatmapset-info__header--sticky {
         display:none;
     }
-    .bbcode h2 {
-        font-size: 17.0667px;
+    .bbcode a {
+        color:unset;
     }
+    .bbcode h2 {
+        color: #cc2e8a;
+    text-shadow: #efcfe1 0px 0px 10px;
+    overflow: visible;
+        font-size: 17.0667px;
+        font-weight:unset;
+    }
+    .bbcode .well {
+        background: #f9f7fe;
+    border: 1px solid #e1dfe7;
+    border-radius: 0px;
+    box-shadow: unset;
+    }
+    .osu-page--generic-compact {
+        color:#000;
+    }
+    .comments__title {
+        display: flex;
+        padding-left: 50px;
+        padding-right: 50px;
+        flex-direction: row-reverse;
+        justify-content: flex-end;
+    }
+    .comments__title, .comments__count {
+        text-transform: lowercase;
+        align-items: center;
+    background-color: transparent;
+    border-radius: 10000px;
+    color: black;
+    font-size: 13.5pt;
+    font-weight: bold;
+    margin-left: 5px;
+    font-family: Arial;
+    padding: 5px 2.5px;
+}
+    .avatar--full-circle {
+    border-radius: 10%;
+}
+    .comment__row--header .comment__row-item:nth-child(1) {
+        font-weight:bold;
+        font-size:10pt;
+        font-family:Arial;
+        color:#3843a6;
+    }
+        .comment__row--header .comment__row-item {
+            font-weight:normal;
+        font-size:9pt;
+        font-family:Arial;
+        color:#8D8F9C;
+    }
+    .comment__message {
+        color:#414149;
+        font-size:10pt;
+    }
+    .osu-md {
+        font-family:Arial;
+    }
+    .comment__main--clip .comment__message:after {
+        display:none;
+    }
+    .comments__items--toolbar {
+        font-family:Arial;
+        font-size:10pt;
+    background-color: transparent;
+    }
+    .sort--page-extra {
+    --item-hover-bg: transparent;
+}
+    .sort__item--title {
+        display:none;
+    }
+    .sort__item--button {
+        border-radius:0px;
+        color:#A7AAB3;
+    }
+    .sort__item--active {
+        border-bottom: solid #3645AA 2px;
+        color:#333438;
+    }
+.flag-country {
+    border-radius: 0px;
+    filter: unset;
+    height: 11px;
+    width: 16px;
+    
+    &:after {
+        display: none !important;
+    }
+}
+
+.flag-country--flat[title="Japan"],
+.flag-country--flat[data-orig-title="Japan"] {
+    background-image: url(https://s.ppy.sh/images/flags/jp.gif) !important;
+}
+
+.flag-country--flat[title="United States"],
+.flag-country--flat[data-orig-title="United States"] {
+    background-image: url(https://s.ppy.sh/images/flags/us.gif) !important;
+}
+
+.flag-country--flat[title="United Kingdom"],
+.flag-country--flat[data-orig-title="United Kingdom"] {
+    background-image: url(https://s.ppy.sh/images/flags/gb.gif) !important;
+}
+.flag-country--flat[title="China"],
+.flag-country--flat[data-orig-title="China"] {
+    background-image: url(https://s.ppy.sh/images/flags/cn.gif) !important;
+}
+    .flag-country--flat[title="Hong Kong"],
+.flag-country--flat[data-orig-title="Hong Kong"] {
+    background-image: url(https://s.ppy.sh/images/flags/hk.gif) !important;
+}
+        .flag-country--flat[title="Singapore"],
+.flag-country--flat[data-orig-title="Singapore"] {
+    background-image: url(https://s.ppy.sh/images/flags/sg.gif) !important;
+}
+            .flag-country--flat[title="Canada"],
+.flag-country--flat[data-orig-title="Canada"] {
+    background-image: url(https://s.ppy.sh/images/flags/ca.gif) !important;
+}
+
+
 }
