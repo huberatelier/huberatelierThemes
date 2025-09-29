@@ -1,0 +1,942 @@
+/* ==UserStyle==
+@name           old osu flags
+@namespace      github.com/openstyles/stylus
+@version        1.0.0
+@description    A new userstyle
+@author         Me
+==/UserStyle== */
+
+@-moz-document domain("osu.ppy.sh") {
+.flag-country--flat[title="Afghanistan"],
+.flag-country--flat[data-orig-title="Afghanistan"] {
+    background-image: url(https://s.ppy.sh/images/flags/af.gif) !important;
+}
+.flag-country--flat[title="Aland Islands"],
+.flag-country--flat[data-orig-title="Aland Islands"] {
+    background-image: url(https://s.ppy.sh/images/flags/ax.gif) !important;
+}
+.flag-country--flat[title="Albania"],
+.flag-country--flat[data-orig-title="Albania"] {
+    background-image: url(https://s.ppy.sh/images/flags/al.gif) !important;
+}
+.flag-country--flat[title="Algeria"],
+.flag-country--flat[data-orig-title="Algeria"] {
+    background-image: url(https://s.ppy.sh/images/flags/dz.gif) !important;
+}
+.flag-country--flat[title="American Samoa"],
+.flag-country--flat[data-orig-title="American Samoa"] {
+    background-image: url(https://s.ppy.sh/images/flags/as.gif) !important;
+}
+.flag-country--flat[title="Andorra"],
+.flag-country--flat[data-orig-title="Andorra"] {
+    background-image: url(https://s.ppy.sh/images/flags/ad.gif) !important;
+}
+.flag-country--flat[title="Angola"],
+.flag-country--flat[data-orig-title="Angola"] {
+    background-image: url(https://s.ppy.sh/images/flags/ao.gif) !important;
+}
+.flag-country--flat[title="Anguilla"],
+.flag-country--flat[data-orig-title="Anguilla"] {
+    background-image: url(https://s.ppy.sh/images/flags/ai.gif) !important;
+}
+.flag-country--flat[title="Antarctica"],
+.flag-country--flat[data-orig-title="Antarctica"] {
+    background-image: url(https://s.ppy.sh/images/flags/aq.gif) !important;
+}
+.flag-country--flat[title="Antigua and Barbuda"],
+.flag-country--flat[data-orig-title="Antigua and Barbuda"] {
+    background-image: url(https://s.ppy.sh/images/flags/ag.gif) !important;
+}
+.flag-country--flat[title="Argentina"],
+.flag-country--flat[data-orig-title="Argentina"] {
+    background-image: url(https://s.ppy.sh/images/flags/ar.gif) !important;
+}
+.flag-country--flat[title="Armenia"],
+.flag-country--flat[data-orig-title="Armenia"] {
+    background-image: url(https://s.ppy.sh/images/flags/am.gif) !important;
+}
+.flag-country--flat[title="Aruba"],
+.flag-country--flat[data-orig-title="Aruba"] {
+    background-image: url(https://s.ppy.sh/images/flags/aw.gif) !important;
+}
+.flag-country--flat[title="Asia/Pacific Region"],
+.flag-country--flat[data-orig-title="Asia/Pacific Region"] {
+    background-image: url(https://s.ppy.sh/images/flags/ap.gif) !important;
+}
+.flag-country--flat[title="Australia"],
+.flag-country--flat[data-orig-title="Australia"] {
+    background-image: url(https://s.ppy.sh/images/flags/au.gif) !important;
+}
+.flag-country--flat[title="Austria"],
+.flag-country--flat[data-orig-title="Austria"] {
+    background-image: url(https://s.ppy.sh/images/flags/at.gif) !important;
+}
+.flag-country--flat[title="Azerbaijan"],
+.flag-country--flat[data-orig-title="Azerbaijan"] {
+    background-image: url(https://s.ppy.sh/images/flags/az.gif) !important;
+}
+.flag-country--flat[title="Bahamas"],
+.flag-country--flat[data-orig-title="Bahamas"] {
+    background-image: url(https://s.ppy.sh/images/flags/bs.gif) !important;
+}
+.flag-country--flat[title="Bahrain"],
+.flag-country--flat[data-orig-title="Bahrain"] {
+    background-image: url(https://s.ppy.sh/images/flags/bh.gif) !important;
+}
+.flag-country--flat[title="Bangladesh"],
+.flag-country--flat[data-orig-title="Bangladesh"] {
+    background-image: url(https://s.ppy.sh/images/flags/bd.gif) !important;
+}
+.flag-country--flat[title="Barbados"],
+.flag-country--flat[data-orig-title="Barbados"] {
+    background-image: url(https://s.ppy.sh/images/flags/bb.gif) !important;
+}
+.flag-country--flat[title="Belarus"],
+.flag-country--flat[data-orig-title="Belarus"] {
+    background-image: url(https://s.ppy.sh/images/flags/by.gif) !important;
+}
+.flag-country--flat[title="Belgium"],
+.flag-country--flat[data-orig-title="Belgium"] {
+    background-image: url(https://s.ppy.sh/images/flags/be.gif) !important;
+}
+.flag-country--flat[title="Belize"],
+.flag-country--flat[data-orig-title="Belize"] {
+    background-image: url(https://s.ppy.sh/images/flags/bz.gif) !important;
+}
+.flag-country--flat[title="Benin"],
+.flag-country--flat[data-orig-title="Benin"] {
+    background-image: url(https://s.ppy.sh/images/flags/bj.gif) !important;
+}
+.flag-country--flat[title="Bermuda"],
+.flag-country--flat[data-orig-title="Bermuda"] {
+    background-image: url(https://s.ppy.sh/images/flags/bm.gif) !important;
+}
+.flag-country--flat[title="Bhutan"],
+.flag-country--flat[data-orig-title="Bhutan"] {
+    background-image: url(https://s.ppy.sh/images/flags/bt.gif) !important;
+}
+.flag-country--flat[title="Bolivia"],
+.flag-country--flat[data-orig-title="Bolivia"] {
+    background-image: url(https://s.ppy.sh/images/flags/bo.gif) !important;
+}
+.flag-country--flat[title="Bosnia and Herzegovina"],
+.flag-country--flat[data-orig-title="Bosnia and Herzegovina"] {
+    background-image: url(https://s.ppy.sh/images/flags/ba.gif) !important;
+}
+.flag-country--flat[title="Botswana"],
+.flag-country--flat[data-orig-title="Botswana"] {
+    background-image: url(https://s.ppy.sh/images/flags/bw.gif) !important;
+}
+.flag-country--flat[title="Brazil"],
+.flag-country--flat[data-orig-title="Brazil"] {
+    background-image: url(https://s.ppy.sh/images/flags/br.gif) !important;
+}
+.flag-country--flat[title="Brunei"],
+.flag-country--flat[data-orig-title="Brunei"] {
+    background-image: url(https://s.ppy.sh/images/flags/bn.gif) !important;
+}
+.flag-country--flat[title="Bulgaria"],
+.flag-country--flat[data-orig-title="Bulgaria"] {
+    background-image: url(https://s.ppy.sh/images/flags/bg.gif) !important;
+}
+.flag-country--flat[title="Burkina Faso"],
+.flag-country--flat[data-orig-title="Burkina Faso"] {
+    background-image: url(https://s.ppy.sh/images/flags/bf.gif) !important;
+}
+.flag-country--flat[title="Burundi"],
+.flag-country--flat[data-orig-title="Burundi"] {
+    background-image: url(https://s.ppy.sh/images/flags/bi.gif) !important;
+}
+.flag-country--flat[title="Cabo Verde"],
+.flag-country--flat[data-orig-title="Cabo Verde"] {
+    background-image: url(https://s.ppy.sh/images/flags/cv.gif) !important;
+}
+.flag-country--flat[title="Cambodia"],
+.flag-country--flat[data-orig-title="Cambodia"] {
+    background-image: url(https://s.ppy.sh/images/flags/kh.gif) !important;
+}
+.flag-country--flat[title="Cameroon"],
+.flag-country--flat[data-orig-title="Cameroon"] {
+    background-image: url(https://s.ppy.sh/images/flags/cm.gif) !important;
+}
+.flag-country--flat[title="Canada"],
+.flag-country--flat[data-orig-title="Canada"] {
+    background-image: url(https://s.ppy.sh/images/flags/ca.gif) !important;
+}
+.flag-country--flat[title="Caribbean Netherlands"],
+.flag-country--flat[data-orig-title="Caribbean Netherlands"] {
+    background-image: url(https://s.ppy.sh/images/flags/a1.gif) !important;
+}
+.flag-country--flat[title="Cayman Islands"],
+.flag-country--flat[data-orig-title="Cayman Islands"] {
+    background-image: url(https://s.ppy.sh/images/flags/ky.gif) !important;
+}
+.flag-country--flat[title="Chad"],
+.flag-country--flat[data-orig-title="Chad"] {
+    background-image: url(https://s.ppy.sh/images/flags/td.gif) !important;
+}
+.flag-country--flat[title="Chile"],
+.flag-country--flat[data-orig-title="Chile"] {
+    background-image: url(https://s.ppy.sh/images/flags/cl.gif) !important;
+}
+.flag-country--flat[title="China"],
+.flag-country--flat[data-orig-title="China"] {
+    background-image: url(https://s.ppy.sh/images/flags/cn.gif) !important;
+}
+.flag-country--flat[title="Christmas Island"],
+.flag-country--flat[data-orig-title="Christmas Island"] {
+    background-image: url(https://s.ppy.sh/images/flags/cx.gif) !important;
+}
+.flag-country--flat[title="Colombia"],
+.flag-country--flat[data-orig-title="Colombia"] {
+    background-image: url(https://s.ppy.sh/images/flags/co.gif) !important;
+}
+.flag-country--flat[title="Comoros"],
+.flag-country--flat[data-orig-title="Comoros"] {
+    background-image: url(https://s.ppy.sh/images/flags/km.gif) !important;
+}
+.flag-country--flat[title="Congo"],
+.flag-country--flat[data-orig-title="Congo"] {
+    background-image: url(https://s.ppy.sh/images/flags/cg.gif) !important;
+}
+.flag-country--flat[title="Cook Islands"],
+.flag-country--flat[data-orig-title="Cook Islands"] {
+    background-image: url(https://s.ppy.sh/images/flags/ck.gif) !important;
+}
+.flag-country--flat[title="Costa Rica"],
+.flag-country--flat[data-orig-title="Costa Rica"] {
+    background-image: url(https://s.ppy.sh/images/flags/cr.gif) !important;
+}
+.flag-country--flat[title="Cote D'Ivoire"],
+.flag-country--flat[data-orig-title="Cote D'Ivoire"] {
+    background-image: url(https://s.ppy.sh/images/flags/ci.gif) !important;
+}
+.flag-country--flat[title="Croatia"],
+.flag-country--flat[data-orig-title="Croatia"] {
+    background-image: url(https://s.ppy.sh/images/flags/hr.gif) !important;
+}
+.flag-country--flat[title="Cuba"],
+.flag-country--flat[data-orig-title="Cuba"] {
+    background-image: url(https://s.ppy.sh/images/flags/cu.gif) !important;
+}
+.flag-country--flat[title="Curaçao"], /*idk*/
+.flag-country--flat[data-orig-title="Curaçao"] {
+    background-image: url(https://s.ppy.sh/images/flags/a1.gif) !important;
+}
+.flag-country--flat[title="Cyprus"],
+.flag-country--flat[data-orig-title="Cyprus"] {
+    background-image: url(https://s.ppy.sh/images/flags/cy.gif) !important;
+}
+.flag-country--flat[title="Czechia"],
+.flag-country--flat[data-orig-title="Czechia"] {
+    background-image: url(https://s.ppy.sh/images/flags/cz.gif) !important;
+}
+.flag-country--flat[title="Denmark"],
+.flag-country--flat[data-orig-title="Denmark"] {
+    background-image: url(https://s.ppy.sh/images/flags/dk.gif) !important;
+}
+.flag-country--flat[title="Djibouti"],
+.flag-country--flat[data-orig-title="Djibouti"] {
+    background-image: url(https://s.ppy.sh/images/flags/dj.gif) !important;
+}
+.flag-country--flat[title="Dominica"],
+.flag-country--flat[data-orig-title="Dominica"] {
+    background-image: url(https://s.ppy.sh/images/flags/dm.gif) !important;
+}
+.flag-country--flat[title="Dominican Republic"],
+.flag-country--flat[data-orig-title="Dominican Republic"] {
+    background-image: url(https://s.ppy.sh/images/flags/do.gif) !important;
+}
+.flag-country--flat[title="Ecuador"],
+.flag-country--flat[data-orig-title="Ecuador"] {
+    background-image: url(https://s.ppy.sh/images/flags/ec.gif) !important;
+}
+.flag-country--flat[title="Egypt"],
+.flag-country--flat[data-orig-title="Egypt"] {
+    background-image: url(https://s.ppy.sh/images/flags/eg.gif) !important;
+}
+.flag-country--flat[title="El Salvador"],
+.flag-country--flat[data-orig-title="El Salvador"] {
+    background-image: url(https://s.ppy.sh/images/flags/sv.gif) !important;
+}
+.flag-country--flat[title="Equatorial Guinea"],
+.flag-country--flat[data-orig-title="Equatorial Guinea"] {
+    background-image: url(https://s.ppy.sh/images/flags/gq.gif) !important;
+}
+.flag-country--flat[title="Estonia"],
+.flag-country--flat[data-orig-title="Estonia"] {
+    background-image: url(https://s.ppy.sh/images/flags/ee.gif) !important;
+}
+.flag-country--flat[title="Eswatini"],
+.flag-country--flat[data-orig-title="Eswatini"] {
+    background-image: url(https://s.ppy.sh/images/flags/sz.gif) !important;
+}
+.flag-country--flat[title="Ethiopia"],
+.flag-country--flat[data-orig-title="Ethiopia"] {
+    background-image: url(https://s.ppy.sh/images/flags/et.gif) !important;
+}
+.flag-country--flat[title="Europe"],
+.flag-country--flat[data-orig-title="Europe"] {
+    background-image: url(https://s.ppy.sh/images/flags/eu.gif) !important;
+}
+.flag-country--flat[title="Faroe Islands"],
+.flag-country--flat[data-orig-title="Faroe Islands"] {
+    background-image: url(https://s.ppy.sh/images/flags/fo.gif) !important;
+}
+.flag-country--flat[title="Federated States of Micronesia"],
+.flag-country--flat[data-orig-title="Federated States of Micronesia"] {
+    background-image: url(https://s.ppy.sh/images/flags/fm.gif) !important;
+}
+.flag-country--flat[title="Fiji"],
+.flag-country--flat[data-orig-title="Fiji"] {
+    background-image: url(https://s.ppy.sh/images/flags/fj.gif) !important;
+}
+.flag-country--flat[title="Finland"],
+.flag-country--flat[data-orig-title="Finland"] {
+    background-image: url(https://s.ppy.sh/images/flags/fi.gif) !important;
+}
+.flag-country--flat[title="France"],
+.flag-country--flat[data-orig-title="France"] {
+    background-image: url(https://s.ppy.sh/images/flags/fr.gif) !important;
+}
+.flag-country--flat[title="French Guiana"],
+.flag-country--flat[data-orig-title="French Guiana"] {
+    background-image: url(https://s.ppy.sh/images/flags/gf.gif) !important;
+}
+.flag-country--flat[title="French Polynesia"],
+.flag-country--flat[data-orig-title="French Polynesia"] {
+    background-image: url(https://s.ppy.sh/images/flags/pf.gif) !important;
+}
+.flag-country--flat[title="Gabon"],
+.flag-country--flat[data-orig-title="Gabon"] {
+    background-image: url(https://s.ppy.sh/images/flags/ga.gif) !important;
+}
+.flag-country--flat[title="Gambia"],
+.flag-country--flat[data-orig-title="Gambia"] {
+    background-image: url(https://s.ppy.sh/images/flags/gm.gif) !important;
+}
+.flag-country--flat[title="Georgia"],
+.flag-country--flat[data-orig-title="Georgia"] {
+    background-image: url(https://s.ppy.sh/images/flags/ge.gif) !important;
+}
+.flag-country--flat[title="Germany"],
+.flag-country--flat[data-orig-title="Germany"] {
+    background-image: url(https://s.ppy.sh/images/flags/de.gif) !important;
+}
+.flag-country--flat[title="Ghana"],
+.flag-country--flat[data-orig-title="Ghana"] {
+    background-image: url(https://s.ppy.sh/images/flags/gh.gif) !important;
+}
+.flag-country--flat[title="Gibraltar"],
+.flag-country--flat[data-orig-title="Gibraltar"] {
+    background-image: url(https://s.ppy.sh/images/flags/gi.gif) !important;
+}
+.flag-country--flat[title="Greece"],
+.flag-country--flat[data-orig-title="Greece"] {
+    background-image: url(https://s.ppy.sh/images/flags/gr.gif) !important;
+}
+.flag-country--flat[title="Greenland"],
+.flag-country--flat[data-orig-title="Greenland"] {
+    background-image: url(https://s.ppy.sh/images/flags/gl.gif) !important;
+}
+.flag-country--flat[title="Grenada"],
+.flag-country--flat[data-orig-title="Grenada"] {
+    background-image: url(https://s.ppy.sh/images/flags/gd.gif) !important;
+}
+.flag-country--flat[title="Guadeloupe"],
+.flag-country--flat[data-orig-title="Guadeloupe"] {
+    background-image: url(https://s.ppy.sh/images/flags/gp.gif) !important;
+}
+.flag-country--flat[title="Guam"],
+.flag-country--flat[data-orig-title="Guam"] {
+    background-image: url(https://s.ppy.sh/images/flags/gu.gif) !important;
+}
+.flag-country--flat[title="Guatemala"],
+.flag-country--flat[data-orig-title="Guatemala"] {
+    background-image: url(https://s.ppy.sh/images/flags/gt.gif) !important;
+}
+.flag-country--flat[title="Guernsey"],
+.flag-country--flat[data-orig-title="Guernsey"] {
+    background-image: url(https://s.ppy.sh/images/flags/gg.gif) !important;
+}
+.flag-country--flat[title="Guinea"],
+.flag-country--flat[data-orig-title="Guinea"] {
+    background-image: url(https://s.ppy.sh/images/flags/gn.gif) !important;
+}
+.flag-country--flat[title="Guyana"],
+.flag-country--flat[data-orig-title="Guyana"] {
+    background-image: url(https://s.ppy.sh/images/flags/gy.gif) !important;
+}
+.flag-country--flat[title="Haiti"],
+.flag-country--flat[data-orig-title="Haiti"] {
+    background-image: url(https://s.ppy.sh/images/flags/ht.gif) !important;
+}
+.flag-country--flat[title="Holy See (Vatican City State)"],
+.flag-country--flat[data-orig-title="Holy See (Vatican City State)"] {
+    background-image: url(https://s.ppy.sh/images/flags/va.gif) !important;
+}
+.flag-country--flat[title="Honduras"],
+.flag-country--flat[data-orig-title="Honduras"] {
+    background-image: url(https://s.ppy.sh/images/flags/hn.gif) !important;
+}
+.flag-country--flat[title="Hong Kong"],
+.flag-country--flat[data-orig-title="Hong Kong"] {
+    background-image: url(https://s.ppy.sh/images/flags/hk.gif) !important;
+}
+.flag-country--flat[title="Hungary"],
+.flag-country--flat[data-orig-title="Hungary"] {
+    background-image: url(https://s.ppy.sh/images/flags/hu.gif) !important;
+}
+.flag-country--flat[title="Iceland"],
+.flag-country--flat[data-orig-title="Iceland"] {
+    background-image: url(https://s.ppy.sh/images/flags/is.gif) !important;
+}
+.flag-country--flat[title="India"],
+.flag-country--flat[data-orig-title="India"] {
+    background-image: url(https://s.ppy.sh/images/flags/in.gif) !important;
+}
+.flag-country--flat[title="Indonesia"],
+.flag-country--flat[data-orig-title="Indonesia"] {
+    background-image: url(https://s.ppy.sh/images/flags/id.gif) !important;
+}
+.flag-country--flat[title="Iraq"],
+.flag-country--flat[data-orig-title="Iraq"] {
+    background-image: url(https://s.ppy.sh/images/flags/iq.gif) !important;
+}
+.flag-country--flat[title="Ireland"],
+.flag-country--flat[data-orig-title="Ireland"] {
+    background-image: url(https://s.ppy.sh/images/flags/ie.gif) !important;
+}
+.flag-country--flat[title="Islamic Republic of Iran"],
+.flag-country--flat[data-orig-title="Islamic Republic of Iran"] {
+    background-image: url(https://s.ppy.sh/images/flags/ir.gif) !important;
+}
+.flag-country--flat[title="Isle of Man"],
+.flag-country--flat[data-orig-title="Isle of Man"] {
+    background-image: url(https://s.ppy.sh/images/flags/im.gif) !important;
+}
+.flag-country--flat[title="Israel"],
+.flag-country--flat[data-orig-title="Israel"] {
+    background-image: url(https://s.ppy.sh/images/flags/il.gif) !important;
+}
+.flag-country--flat[title="Italy"],
+.flag-country--flat[data-orig-title="Italy"] {
+    background-image: url(https://s.ppy.sh/images/flags/it.gif) !important;
+}
+.flag-country--flat[title="Jamaica"],
+.flag-country--flat[data-orig-title="Jamaica"] {
+    background-image: url(https://s.ppy.sh/images/flags/jm.gif) !important;
+}
+.flag-country--flat[title="Japan"],
+.flag-country--flat[data-orig-title="Japan"] {
+    background-image: url(https://s.ppy.sh/images/flags/jp.gif) !important;
+}
+.flag-country--flat[title="Jersey"],
+.flag-country--flat[data-orig-title="Jersey"] {
+    background-image: url(https://s.ppy.sh/images/flags/je.gif) !important;
+}
+.flag-country--flat[title="Jordan"],
+.flag-country--flat[data-orig-title="Jordan"] {
+    background-image: url(https://s.ppy.sh/images/flags/jo.gif) !important;
+}
+.flag-country--flat[title="Kazakhstan"],
+.flag-country--flat[data-orig-title="Kazakhstan"] {
+    background-image: url(https://s.ppy.sh/images/flags/kz.gif) !important;
+}
+.flag-country--flat[title="Kenya"],
+.flag-country--flat[data-orig-title="Kenya"] {
+    background-image: url(https://s.ppy.sh/images/flags/ke.gif) !important;
+}
+.flag-country--flat[title="Kiribati"],
+.flag-country--flat[data-orig-title="Kiribati"] {
+    background-image: url(https://s.ppy.sh/images/flags/ki.gif) !important;
+}
+.flag-country--flat[title="Kosovo"], /*idk*/
+.flag-country--flat[data-orig-title="Kosovo"] {
+    background-image: url(https://s.ppy.sh/images/flags/a1.gif) !important;
+}
+.flag-country--flat[title="Kuwait"],
+.flag-country--flat[data-orig-title="Kuwait"] {
+    background-image: url(https://s.ppy.sh/images/flags/kw.gif) !important;
+}
+.flag-country--flat[title="Kyrgyzstan"],
+.flag-country--flat[data-orig-title="Kyrgyzstan"] {
+    background-image: url(https://s.ppy.sh/images/flags/kg.gif) !important;
+}
+.flag-country--flat[title="Lao People's Democratic Republic"],
+.flag-country--flat[data-orig-title="Lao People's Democratic Republic"] {
+    background-image: url(https://s.ppy.sh/images/flags/la.gif) !important;
+}
+.flag-country--flat[title="Latvia"],
+.flag-country--flat[data-orig-title="Latvia"] {
+    background-image: url(https://s.ppy.sh/images/flags/lv.gif) !important;
+}
+.flag-country--flat[title="Lebanon"],
+.flag-country--flat[data-orig-title="Lebanon"] {
+    background-image: url(https://s.ppy.sh/images/flags/lb.gif) !important;
+}
+.flag-country--flat[title="Lesotho"],
+.flag-country--flat[data-orig-title="Lesotho"] {
+    background-image: url(https://s.ppy.sh/images/flags/ls.gif) !important;
+}
+.flag-country--flat[title="Libya"],
+.flag-country--flat[data-orig-title="Libya"] {
+    background-image: url(https://s.ppy.sh/images/flags/ly.gif) !important;
+}
+.flag-country--flat[title="Liechtenstein"],
+.flag-country--flat[data-orig-title="Liechtenstein"] {
+    background-image: url(https://s.ppy.sh/images/flags/li.gif) !important;
+}
+.flag-country--flat[title="Lithuania"],
+.flag-country--flat[data-orig-title="Lithuania"] {
+    background-image: url(https://s.ppy.sh/images/flags/lt.gif) !important;
+}
+.flag-country--flat[title="Luxembourg"],
+.flag-country--flat[data-orig-title="Luxembourg"] {
+    background-image: url(https://s.ppy.sh/images/flags/lu.gif) !important;
+}
+.flag-country--flat[title="Macau"],
+.flag-country--flat[data-orig-title="Macau"] {
+    background-image: url(https://s.ppy.sh/images/flags/mo.gif) !important;
+}
+.flag-country--flat[title="Madagascar"],
+.flag-country--flat[data-orig-title="Madagascar"] {
+    background-image: url(https://s.ppy.sh/images/flags/mg.gif) !important;
+}
+.flag-country--flat[title="Malawi"],
+.flag-country--flat[data-orig-title="Malawi"] {
+    background-image: url(https://s.ppy.sh/images/flags/mw.gif) !important;
+}
+.flag-country--flat[title="Malaysia"],
+.flag-country--flat[data-orig-title="Malaysia"] {
+    background-image: url(https://s.ppy.sh/images/flags/my.gif) !important;
+}
+.flag-country--flat[title="Maldives"],
+.flag-country--flat[data-orig-title="Maldives"] {
+    background-image: url(https://s.ppy.sh/images/flags/mv.gif) !important;
+}
+.flag-country--flat[title="Mali"],
+.flag-country--flat[data-orig-title="Mali"] {
+    background-image: url(https://s.ppy.sh/images/flags/ml.gif) !important;
+}
+.flag-country--flat[title="Malta"],
+.flag-country--flat[data-orig-title="Malta"] {
+    background-image: url(https://s.ppy.sh/images/flags/mt.gif) !important;
+}
+.flag-country--flat[title="Marshall Islands"],
+.flag-country--flat[data-orig-title="Marshall Islands"] {
+    background-image: url(https://s.ppy.sh/images/flags/mh.gif) !important;
+}
+.flag-country--flat[title="Martinique"],
+.flag-country--flat[data-orig-title="Martinique"] {
+    background-image: url(https://s.ppy.sh/images/flags/mq.gif) !important;
+}
+.flag-country--flat[title="Mauritania"],
+.flag-country--flat[data-orig-title="Mauritania"] {
+    background-image: url(https://s.ppy.sh/images/flags/mr.gif) !important;
+}
+.flag-country--flat[title="Mauritius"],
+.flag-country--flat[data-orig-title="Mauritius"] {
+    background-image: url(https://s.ppy.sh/images/flags/mu.gif) !important;
+}
+.flag-country--flat[title="Mayotte"],
+.flag-country--flat[data-orig-title="Mayotte"] {
+    background-image: url(https://s.ppy.sh/images/flags/yt.gif) !important;
+}
+.flag-country--flat[title="Mexico"],
+.flag-country--flat[data-orig-title="Mexico"] {
+    background-image: url(https://s.ppy.sh/images/flags/mx.gif) !important;
+}
+.flag-country--flat[title="Moldova"],
+.flag-country--flat[data-orig-title="Moldova"] {
+    background-image: url(https://s.ppy.sh/images/flags/md.gif) !important;
+}
+.flag-country--flat[title="Monaco"],
+.flag-country--flat[data-orig-title="Monaco"] {
+    background-image: url(https://s.ppy.sh/images/flags/mc.gif) !important;
+}
+.flag-country--flat[title="Mongolia"],
+.flag-country--flat[data-orig-title="Mongolia"] {
+    background-image: url(https://s.ppy.sh/images/flags/mn.gif) !important;
+}
+.flag-country--flat[title="Montenegro"],
+.flag-country--flat[data-orig-title="Montenegro"] {
+    background-image: url(https://s.ppy.sh/images/flags/me.gif) !important;
+}
+.flag-country--flat[title="Morocco"],
+.flag-country--flat[data-orig-title="Morocco"] {
+    background-image: url(https://s.ppy.sh/images/flags/ma.gif) !important;
+}
+.flag-country--flat[title="Mozambique"],
+.flag-country--flat[data-orig-title="Mozambique"] {
+    background-image: url(https://s.ppy.sh/images/flags/mz.gif) !important;
+}
+.flag-country--flat[title="Myanmar"],
+.flag-country--flat[data-orig-title="Myanmar"] {
+    background-image: url(https://s.ppy.sh/images/flags/mm.gif) !important;
+}
+.flag-country--flat[title="Namibia"],
+.flag-country--flat[data-orig-title="Namibia"] {
+    background-image: url(https://s.ppy.sh/images/flags/na.gif) !important;
+}
+.flag-country--flat[title="Nepal"],
+.flag-country--flat[data-orig-title="Nepal"] {
+    background-image: url(https://s.ppy.sh/images/flags/np.gif) !important;
+}
+.flag-country--flat[title="Netherlands"],
+.flag-country--flat[data-orig-title="Netherlands"] {
+    background-image: url(https://s.ppy.sh/images/flags/nl.gif) !important;
+}
+.flag-country--flat[title="New Caledonia"],
+.flag-country--flat[data-orig-title="New Caledonia"] {
+    background-image: url(https://s.ppy.sh/images/flags/nc.gif) !important;
+}
+.flag-country--flat[title="New Zealand"],
+.flag-country--flat[data-orig-title="New Zealand"] {
+    background-image: url(https://s.ppy.sh/images/flags/nz.gif) !important;
+}
+.flag-country--flat[title="North Korea"],
+.flag-country--flat[data-orig-title="North Korea"] {
+    background-image: url(https://s.ppy.sh/images/flags/kp.gif) !important;
+}
+.flag-country--flat[title="Nicaragua"],
+.flag-country--flat[data-orig-title="Nicaragua"] {
+    background-image: url(https://s.ppy.sh/images/flags/ni.gif) !important;
+}
+.flag-country--flat[title="Niger"],
+.flag-country--flat[data-orig-title="Niger"] {
+    background-image: url(https://s.ppy.sh/images/flags/ne.gif) !important;
+}
+.flag-country--flat[title="Nigeria"],
+.flag-country--flat[data-orig-title="Nigeria"] {
+    background-image: url(https://s.ppy.sh/images/flags/ng.gif) !important;
+}
+.flag-country--flat[title="Niue"],
+.flag-country--flat[data-orig-title="Niue"] {
+    background-image: url(https://s.ppy.sh/images/flags/nu.gif) !important;
+}
+.flag-country--flat[title="Norfolk Island"],
+.flag-country--flat[data-orig-title="Norfolk Island"] {
+    background-image: url(https://s.ppy.sh/images/flags/nf.gif) !important;
+}
+.flag-country--flat[title="North Macedonia"],
+.flag-country--flat[data-orig-title="North Macedonia"] {
+    background-image: url(https://s.ppy.sh/images/flags/mk.gif) !important;
+}
+.flag-country--flat[title="Northern Mariana Islands"],
+.flag-country--flat[data-orig-title="Northern Mariana Islands"] {
+    background-image: url(https://s.ppy.sh/images/flags/mp.gif) !important;
+}
+.flag-country--flat[title="Norway"],
+.flag-country--flat[data-orig-title="Norway"] {
+    background-image: url(https://s.ppy.sh/images/flags/no.gif) !important;
+}
+.flag-country--flat[title="Oman"],
+.flag-country--flat[data-orig-title="Oman"] {
+    background-image: url(https://s.ppy.sh/images/flags/om.gif) !important;
+}
+.flag-country--flat[title="Pakistan"],
+.flag-country--flat[data-orig-title="Pakistan"] {
+    background-image: url(https://s.ppy.sh/images/flags/pk.gif) !important;
+}
+.flag-country--flat[title="Palau"],
+.flag-country--flat[data-orig-title="Palau"] {
+    background-image: url(https://s.ppy.sh/images/flags/pw.gif) !important;
+}
+.flag-country--flat[title="Panama"],
+.flag-country--flat[data-orig-title="Panama"] {
+    background-image: url(https://s.ppy.sh/images/flags/pa.gif) !important;
+}
+.flag-country--flat[title="Papua New Guinea"],
+.flag-country--flat[data-orig-title="Papua New Guinea"] {
+    background-image: url(https://s.ppy.sh/images/flags/pg.gif) !important;
+}
+.flag-country--flat[title="Paraguay"],
+.flag-country--flat[data-orig-title="Paraguay"] {
+    background-image: url(https://s.ppy.sh/images/flags/py.gif) !important;
+}
+.flag-country--flat[title="Peru"],
+.flag-country--flat[data-orig-title="Peru"] {
+    background-image: url(https://s.ppy.sh/images/flags/pe.gif) !important;
+}
+.flag-country--flat[title="Philippines"],
+.flag-country--flat[data-orig-title="Philippines"] {
+    background-image: url(https://s.ppy.sh/images/flags/ph.gif) !important;
+}
+.flag-country--flat[title="Poland"],
+.flag-country--flat[data-orig-title="Poland"] {
+    background-image: url(https://s.ppy.sh/images/flags/pl.gif) !important;
+}
+.flag-country--flat[title="Portugal"],
+.flag-country--flat[data-orig-title="Portugal"] {
+    background-image: url(https://s.ppy.sh/images/flags/pt.gif) !important;
+}
+.flag-country--flat[title="Puerto Rico"],
+.flag-country--flat[data-orig-title="Puerto Rico"] {
+    background-image: url(https://s.ppy.sh/images/flags/pr.gif) !important;
+}
+.flag-country--flat[title="Qatar"],
+.flag-country--flat[data-orig-title="Qatar"] {
+    background-image: url(https://s.ppy.sh/images/flags/qa.gif) !important;
+}
+.flag-country--flat[title="Reunion"],
+.flag-country--flat[data-orig-title="Reunion"] {
+    background-image: url(https://s.ppy.sh/images/flags/re.gif) !important;
+}
+.flag-country--flat[title="Romania"],
+.flag-country--flat[data-orig-title="Romania"] {
+    background-image: url(https://s.ppy.sh/images/flags/ro.gif) !important;
+}
+.flag-country--flat[title="Russian Federation"],
+.flag-country--flat[data-orig-title="Russian Federation"] {
+    background-image: url(https://s.ppy.sh/images/flags/ru.gif) !important;
+}
+.flag-country--flat[title="Rwanda"],
+.flag-country--flat[data-orig-title="Rwanda"] {
+    background-image: url(https://s.ppy.sh/images/flags/rw.gif) !important;
+}
+.flag-country--flat[title="Saint Barthelemy"],
+.flag-country--flat[data-orig-title="Saint Barthelemy"] {
+    background-image: url(https://s.ppy.sh/images/flags/bl.gif) !important;
+}
+.flag-country--flat[title="Saint Kitts and Nevis"],
+.flag-country--flat[data-orig-title="Saint Kitts and Nevis"] {
+    background-image: url(https://s.ppy.sh/images/flags/kn.gif) !important;
+}
+.flag-country--flat[title="Saint Lucia"],
+.flag-country--flat[data-orig-title="Saint Lucia"] {
+    background-image: url(https://s.ppy.sh/images/flags/lc.gif) !important;
+}
+.flag-country--flat[title="Saint Martin"],
+.flag-country--flat[data-orig-title="Saint Martin"] {
+    background-image: url(https://s.ppy.sh/images/flags/mf.gif) !important;
+}
+.flag-country--flat[title="Saint Pierre and Miquelon"],
+.flag-country--flat[data-orig-title="Saint Pierre and Miquelon"] {
+    background-image: url(https://s.ppy.sh/images/flags/pm.gif) !important;
+}
+.flag-country--flat[title="Saint Vincent and the Grenadines"],
+.flag-country--flat[data-orig-title="Saint Vincent and the Grenadines"] {
+    background-image: url(https://s.ppy.sh/images/flags/vc.gif) !important;
+}
+.flag-country--flat[title="Samoa"],
+.flag-country--flat[data-orig-title="Samoa"] {
+    background-image: url(https://s.ppy.sh/images/flags/ws.gif) !important;
+}
+.flag-country--flat[title="San Marino"],
+.flag-country--flat[data-orig-title="San Marino"] {
+    background-image: url(https://s.ppy.sh/images/flags/sm.gif) !important;
+}
+.flag-country--flat[title="Sao Tome and Principe"],
+.flag-country--flat[data-orig-title="Sao Tome and Principe"] {
+    background-image: url(https://s.ppy.sh/images/flags/st.gif) !important;
+}
+.flag-country--flat[title="Saudi Arabia"],
+.flag-country--flat[data-orig-title="Saudi Arabia"] {
+    background-image: url(https://s.ppy.sh/images/flags/sa.gif) !important;
+}
+.flag-country--flat[title="Senegal"],
+.flag-country--flat[data-orig-title="Senegal"] {
+    background-image: url(https://s.ppy.sh/images/flags/sn.gif) !important;
+}
+.flag-country--flat[title="Serbia"],
+.flag-country--flat[data-orig-title="Serbia"] {
+    background-image: url(https://s.ppy.sh/images/flags/rs.gif) !important;
+}
+.flag-country--flat[title="Seychelles"],
+.flag-country--flat[data-orig-title="Seychelles"] {
+    background-image: url(https://s.ppy.sh/images/flags/sc.gif) !important;
+}
+.flag-country--flat[title="Sierra Leone"],
+.flag-country--flat[data-orig-title="Sierra Leone"] {
+    background-image: url(https://s.ppy.sh/images/flags/sl.gif) !important;
+}
+.flag-country--flat[title="Singapore"],
+.flag-country--flat[data-orig-title="Singapore"] {
+    background-image: url(https://s.ppy.sh/images/flags/sg.gif) !important;
+}
+.flag-country--flat[title="Sint Maarten"], /*idk*/
+.flag-country--flat[data-orig-title="Sint Maarten"] {
+    background-image: url(https://s.ppy.sh/images/flags/a1.gif) !important;
+}
+.flag-country--flat[title="Slovakia"],
+.flag-country--flat[data-orig-title="Slovakia"] {
+    background-image: url(https://s.ppy.sh/images/flags/sk.gif) !important;
+}
+.flag-country--flat[title="Slovenia"],
+.flag-country--flat[data-orig-title="Slovenia"] {
+    background-image: url(https://s.ppy.sh/images/flags/si.gif) !important;
+}
+.flag-country--flat[title="Solomon Islands"],
+.flag-country--flat[data-orig-title="Solomon Islands"] {
+    background-image: url(https://s.ppy.sh/images/flags/sb.gif) !important;
+}
+.flag-country--flat[title="Somalia"],
+.flag-country--flat[data-orig-title="Somalia"] {
+    background-image: url(https://s.ppy.sh/images/flags/so.gif) !important;
+}
+.flag-country--flat[title="South Africa"],
+.flag-country--flat[data-orig-title="South Africa"] {
+    background-image: url(https://s.ppy.sh/images/flags/za.gif) !important;
+}
+.flag-country--flat[title="South Korea"],
+.flag-country--flat[data-orig-title="South Korea"] {
+    background-image: url(https://s.ppy.sh/images/flags/kr.gif) !important;
+}
+.flag-country--flat[title="South Sudan"], /*idk*/
+.flag-country--flat[data-orig-title="South Sudan"] {
+    background-image: url(https://s.ppy.sh/images/flags/a1.gif) !important;
+}
+.flag-country--flat[title="Spain"],
+.flag-country--flat[data-orig-title="Spain"] {
+    background-image: url(https://s.ppy.sh/images/flags/es.gif) !important;
+}
+.flag-country--flat[title="Sri Lanka"],
+.flag-country--flat[data-orig-title="Sri Lanka"] {
+    background-image: url(https://s.ppy.sh/images/flags/lk.gif) !important;
+}
+.flag-country--flat[title="State of Palestine"],
+.flag-country--flat[data-orig-title="State of Palestine"] {
+    background-image: url(https://s.ppy.sh/images/flags/ps.gif) !important;
+}
+.flag-country--flat[title="Sudan"],
+.flag-country--flat[data-orig-title="Sudan"] {
+    background-image: url(https://s.ppy.sh/images/flags/sd.gif) !important;
+}
+.flag-country--flat[title="Suriname"],
+.flag-country--flat[data-orig-title="Suriname"] {
+    background-image: url(https://s.ppy.sh/images/flags/sr.gif) !important;
+}
+.flag-country--flat[title="Sweden"],
+.flag-country--flat[data-orig-title="Sweden"] {
+    background-image: url(https://s.ppy.sh/images/flags/se.gif) !important;
+}
+.flag-country--flat[title="Switzerland"],
+.flag-country--flat[data-orig-title="Switzerland"] {
+    background-image: url(https://s.ppy.sh/images/flags/ch.gif) !important;
+}
+.flag-country--flat[title="Syrian Arab Republic"],
+.flag-country--flat[data-orig-title="Syrian Arab Republic"] {
+    background-image: url(https://s.ppy.sh/images/flags/sy.gif) !important;
+}
+.flag-country--flat[title="Taiwan"],
+.flag-country--flat[data-orig-title="Taiwan"] {
+    background-image: url(https://s.ppy.sh/images/flags/tw.gif) !important;
+}
+.flag-country--flat[title="Tajikistan"],
+.flag-country--flat[data-orig-title="Tajikistan"] {
+    background-image: url(https://s.ppy.sh/images/flags/tj.gif) !important;
+}
+.flag-country--flat[title="Thailand"],
+.flag-country--flat[data-orig-title="Thailand"] {
+    background-image: url(https://s.ppy.sh/images/flags/th.gif) !important;
+}
+.flag-country--flat[title="The Democratic Republic of the Congo"],
+.flag-country--flat[data-orig-title="The Democratic Republic of the Congo"] {
+    background-image: url(https://s.ppy.sh/images/flags/cd.gif) !important;
+}
+.flag-country--flat[title="Timor-Leste"],
+.flag-country--flat[data-orig-title="Timor-Leste"] {
+    background-image: url(https://s.ppy.sh/images/flags/tl.gif) !important;
+}
+.flag-country--flat[title="Togo"],
+.flag-country--flat[data-orig-title="Togo"] {
+    background-image: url(https://s.ppy.sh/images/flags/tg.gif) !important;
+}
+.flag-country--flat[title="Tokelau"],
+.flag-country--flat[data-orig-title="Tokelau"] {
+    background-image: url(https://s.ppy.sh/images/flags/tk.gif) !important;
+}
+.flag-country--flat[title="Tonga"],
+.flag-country--flat[data-orig-title="Tonga"] {
+    background-image: url(https://s.ppy.sh/images/flags/to.gif) !important;
+}
+.flag-country--flat[title="Trinidad and Tobago"],
+.flag-country--flat[data-orig-title="Trinidad and Tobago"] {
+    background-image: url(https://s.ppy.sh/images/flags/tt.gif) !important;
+}
+.flag-country--flat[title="Tunisia"],
+.flag-country--flat[data-orig-title="Tunisia"] {
+    background-image: url(https://s.ppy.sh/images/flags/tn.gif) !important;
+}
+.flag-country--flat[title="Türkiye"],
+.flag-country--flat[data-orig-title="Türkiye"] {
+    background-image: url(https://s.ppy.sh/images/flags/tr.gif) !important;
+}
+.flag-country--flat[title="Turkmenistan"],
+.flag-country--flat[data-orig-title="Turkmenistan"] {
+    background-image: url(https://s.ppy.sh/images/flags/tm.gif) !important;
+}
+.flag-country--flat[title="Turks and Caicos Islands"],
+.flag-country--flat[data-orig-title="Turks and Caicos Islands"] {
+    background-image: url(https://s.ppy.sh/images/flags/tc.gif) !important;
+}
+.flag-country--flat[title="Uganda"],
+.flag-country--flat[data-orig-title="Uganda"] {
+    background-image: url(https://s.ppy.sh/images/flags/ug.gif) !important;
+}
+.flag-country--flat[title="Ukraine"],
+.flag-country--flat[data-orig-title="Ukraine"] {
+    background-image: url(https://s.ppy.sh/images/flags/ua.gif) !important;
+}
+.flag-country--flat[title="United Arab Emirates"],
+.flag-country--flat[data-orig-title="United Arab Emirates"] {
+    background-image: url(https://s.ppy.sh/images/flags/ae.gif) !important;
+}
+.flag-country--flat[title="United Kingdom"],
+.flag-country--flat[data-orig-title="United Kingdom"] {
+    background-image: url(https://s.ppy.sh/images/flags/gb.gif) !important;
+}
+.flag-country--flat[title="United Republic of Tanzania"],
+.flag-country--flat[data-orig-title="United Republic of Tanzania"] {
+    background-image: url(https://s.ppy.sh/images/flags/tz.gif) !important;
+}
+.flag-country--flat[title="United States"],
+.flag-country--flat[data-orig-title="United States"] {
+    background-image: url(https://s.ppy.sh/images/flags/us.gif) !important;
+}
+.flag-country--flat[title="United States Minor Outlying Islands"],
+.flag-country--flat[data-orig-title="United States Minor Outlying Islands"] {
+    background-image: url(https://s.ppy.sh/images/flags/um.gif) !important;
+}
+.flag-country--flat[title="Uruguay"],
+.flag-country--flat[data-orig-title="Uruguay"] {
+    background-image: url(https://s.ppy.sh/images/flags/uy.gif) !important;
+}
+.flag-country--flat[title="Uzbekistan"],
+.flag-country--flat[data-orig-title="Uzbekistan"] {
+    background-image: url(https://s.ppy.sh/images/flags/uz.gif) !important;
+}
+.flag-country--flat[title="Vanuatu"],
+.flag-country--flat[data-orig-title="Vanuatu"] {
+    background-image: url(https://s.ppy.sh/images/flags/vu.gif) !important;
+}
+.flag-country--flat[title="Venezuela"],
+.flag-country--flat[data-orig-title="Venezuela"] {
+    background-image: url(https://s.ppy.sh/images/flags/ve.gif) !important;
+}
+.flag-country--flat[title="Vietnam"],
+.flag-country--flat[data-orig-title="Vietnam"] {
+    background-image: url(https://s.ppy.sh/images/flags/vn.gif) !important;
+}
+.flag-country--flat[title="Virgin Islands, British"],
+.flag-country--flat[data-orig-title="Virgin Islands, British"] {
+    background-image: url(https://s.ppy.sh/images/flags/vg.gif) !important;
+}
+.flag-country--flat[title="Virgin Islands, U.S."],
+.flag-country--flat[data-orig-title="Virgin Islands, U.S."] {
+    background-image: url(https://s.ppy.sh/images/flags/vi.gif) !important;
+}
+.flag-country--flat[title="Yemen"],
+.flag-country--flat[data-orig-title="Yemen"] {
+    background-image: url(https://s.ppy.sh/images/flags/ye.gif) !important;
+}
+.flag-country--flat[title="Zambia"],
+.flag-country--flat[data-orig-title="Zambia"] {
+    background-image: url(https://s.ppy.sh/images/flags/zm.gif) !important;
+}
+.flag-country--flat[title="Zimbabwe"],
+.flag-country--flat[data-orig-title="Zimbabwe"] {
+    background-image: url(https://s.ppy.sh/images/flags/zw.gif) !important;
+}
+}
