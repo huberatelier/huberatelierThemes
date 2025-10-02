@@ -8,12 +8,49 @@
 
 /*Alright so thank you Chrome for wiping ALL my userstyles after long-pressing the power button on my PC. FUCK. alright.*/
 @-moz-document domain("osu.ppy.sh") {
+        .beatmapsets-search-filter--grid {
+width: 860px;
+    min-height: 20px;
+    margin: 10px 0 0;
+    border-bottom: 1px dotted #A9A9FF;
+    display: flex !important;
+}
+    @media (min-width: 900px) {
+    .beatmapsets-search__filter-grid {
+        display: flex !important;
+    }
+    }
+    .beatmapsets-search .beatmapsets-search__filter-grid .beatmapsets-search-filter__header {
+        font-weight:bold;
+    }
+    .beatmapsets-search-filter__header:after {
+        content:":";
+        padding-right:10px;
+    }
+    .beatmapsets-search .beatmapsets-search__filter-grid .beatmapsets-search-filter__item.beatmapsets-search-filter__item--active {
+    background-color: #A9A9FF;
+    color: white;
+        font-weight:normal;
+        padding:3px;
+}
+        .beatmapsets-search .beatmapsets-search__filter-grid .beatmapsets-search-filter__item.beatmapsets-search-filter__item {
+        font-weight:normal;
+        padding:3px;
+            transition:none;
+            &:hover {
+                    background-color: #A9A9FF;
+    color: white;
+            }
+}
     .u-fancy-scrollbar, .u-fancy-scrollbar * {
     scrollbar-width: unset;
 }
     .u-fancy-scrollbar {
     scrollbar-color: #808080 hsla(0, 0%, 100%, .025);
 }
+    .nav2__col .custom-search {
+        background:red;
+    }
     .osu-page--generic-compact {
         background-image: url(https://github.com/huberatelier/huberatelierThemes/blob/main/oldosu/siteimg/main-bg-new.png?raw=true);   
         width:864px;
@@ -33,7 +70,12 @@
     background-repeat: no-repeat;
     background-image: url(https://github.com/huberatelier/huberatelierThemes/blob/main/oldosu/siteimg/right-pippi.jpg?raw=true);
     }*/
-    
+    /*.header-v4__content, .osu-page {
+        background-position-x: 57.8%;
+    background-repeat: repeat-y !important;
+    position: relative;
+        background-image:url(https://s.ppy.sh/images/right-pippi.jpg);
+    */
     .osu-layout::before {
 width: 524px;
     height: 96px;
@@ -356,6 +398,7 @@ div.beatmap-playcount:nth-child(15) .beatmap-playcount__count {
         color:rgb(68,68,68);
         font-size:10.66667px;
         font-family:Tahoma;
+    margin-top:-8px;
     }
         .play-detail__weighted-pp {
                 font-weight:normal;
@@ -392,6 +435,116 @@ div.beatmap-playcount:nth-child(15) .beatmap-playcount__count {
         .page-mode__item[data-page-id="historical"] {
   order:2;
 }
+.bbcode {
+    font-size: 10.6667px !important; /* Set base font size to 11px for 100% */
+}
+
+/* Override inline font-size percentages with specific pixel values */
+.bbcode [style*="font-size:50%"],
+.bbcode [style*="font-size: 50%"] {
+    font-size: 9px !important;
+}
+
+.bbcode [style*="font-size:85%"],
+.bbcode [style*="font-size: 85%"] {
+    font-size: 10px !important;
+}
+
+.bbcode [style*="font-size:100%"],
+.bbcode [style*="font-size: 100%"] {
+    font-size: 11px !important;
+}
+
+.bbcode [style*="font-size:150%"],
+.bbcode [style*="font-size: 150%"] {
+    font-size: 14px !important;
+}
+
+.bbcode [style*="font-size:250%"],
+.bbcode [style*="font-size: 250%"] {
+    font-size: 17.0667px !important;
+}
+.bbcode blockquote {
+        margin: 1px 0px 0px;
+    background: none repeat scroll 0% 0% rgb(251, 251, 251);
+    padding: 3px 5px;
+    border-style: solid;
+    border-color: rgb(236, 236, 236);
+    border-width: 1px 5px;
+        color:black;
+    &:before {
+        display:none;
+    }
+    }
+    .bbcode-spoilerbox__link {
+        transition:none;
+        font-size:8pt;
+        font-weight:normal;
+        color:black !important;
+        justify-content: center;
+        width:auto;
+        border-bottom: solid 1px #b7c9ff;
+    padding: 3px;
+    text-align: center;
+    cursor: pointer;
+    }
+    .bbcode-spoilerbox__link-icon {
+        display:none;
+    }
+    .bbcode-spoilerbox__link:hover {
+        text-decoration:none;
+            background-color: #5861c0;
+    color: #fff !important;
+    }
+    .bbcode-spoilerbox__body {
+        background-color: #eef;
+    padding: 5px;
+        margin-top:0px;
+    }
+    .bbcode pre {
+        background-color: rgb(242, 242, 242);
+    border: 1px solid black;
+    border-radius: 0px;
+    color: inherit;
+    font-size: inherit;
+    font-family: Monaco, 'Courier New', monospace;
+    white-space: pre-wrap;
+    overflow: scroll;
+    margin: 5px;
+    padding: 3px;
+    direction: ltr;
+    }
+    .bbcode a {
+        font-weight: normal;
+    text-shadow: 0px 0px 10px rgb(239, 207, 225);
+    color: rgb(204, 46, 138);
+    margin-bottom: 10px;
+    }
+        .bbcode h2 {
+        color: #cc2e8a;
+    text-shadow: #efcfe1 0px 0px 10px;
+    overflow: visible;
+        font-size: 17.0667px;
+        font-weight:unset;
+            margin-bottom:10px;
+    }
+    .bbcode blockquote h4 {
+    color: black;
+    }
+    .bbcode .well {
+        background: none repeat scroll 0% 0% rgb(249, 247, 254);
+    border: 1px solid rgb(225, 223, 231);
+    margin: 6px;
+    padding: 5px;
+    border-radius: 0px;
+    box-shadow: none;
+    }
+    .profile-info__title {
+        font-size: 8pt;
+    text-shadow: none;
+    color: black !important;
+    font-weight: bold;
+    }
     .medals-group__title {
     color: #000;
     clear: both;
@@ -434,6 +587,7 @@ div.beatmap-playcount:nth-child(15) .beatmap-playcount__count {
     gap: 4px;
 }
 .profile-info__icon--supporter, .profile-info__icon--supporter:active, .profile-info__icon--supporter:focus, .profile-info__icon--supporter:hover {
+    height:12px;
     width: 80px;
     background-image: url(https://github.com/huberatelier/huberatelierThemes/blob/main/oldosu/siteimg/supporter.png?raw=true);
     align-items: center;
@@ -589,38 +743,7 @@ float:right;
     flex-direction: column;
     flex-wrap: nowrap;
 }
-    .play-detail__detail {
-    display: flex
-;
-    flex: 1;
-    min-width: 0;
-    flex-direction: row;
-        margin-left:-5px;
-}
-.play-detail__time {
-    font-size: 10.66667px;
-    bottom: 2px;
-    left: 2px;
-    position: absolute;
-    color: #000;
-    flex: none;
-}
-    .play-detail__beatmap {
-    margin-top: -2px;
-    margin-left: 2px;
-    font-size: 10.66667px;
-    color: #3843a6;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-        font-weight:bold;
-}
-    .play-detail__beatmap:before {
-        content: "[";
-    }
-        .play-detail__beatmap:after {
-        content: "]";
-    }
+
         .play-detail__group--top {
         flex: 1;
         padding-bottom: 5px;
@@ -646,6 +769,15 @@ float:right;
     font-weight:bold;
     margin-top: -3px;
 }
+    .mod__icon--CL {
+        display:none;
+    }
+    .play-detail__mods {
+        padding:5px 5px;
+        &:empty {
+            padding:5px 2px;
+        }
+    }
         .play-detail__mods .mod:not(:last-child)::after {
   content: ",";
         color:#000;
@@ -691,10 +823,6 @@ display:none;
     text-shadow: none;
     color: black;
     }
-        .profile-info__title {
-        text-shadow: none;
-        color: black;
-    }
     .u-ellipsis-pre-overflow {
     order: -1;
     overflow: unset;
@@ -712,6 +840,9 @@ display:none;
     }
     .play-detail__score-detail--mods {
         padding-left:1px;
+    }
+    .play-detail__score-detail-top-right {
+        margin-left:-15px;
     }
 /*.h3.title.title--page-extra-small:nth-of-type(5) > .title__count {
     display:flex !important;
@@ -764,6 +895,7 @@ display:none; /*what the fuck is this? thanks for asking. this removes silver S 
                 flex-direction: column;
     }
     [data-page-id="main"] {
+        background-image: url(https://github.com/huberatelier/huberatelierThemes/blob/main/oldosu/siteimg/main-bg-new.png?raw=true);
         padding-top: 30px;
     }
     .profile-info {
@@ -854,7 +986,7 @@ display:none;
     .osu-page--generic-compact {
     display: flex
 ;
-    background-color: hsl(var(--hsl-b5));
+    background-image: url(https://github.com/huberatelier/huberatelierThemes/blob/main/oldosu/siteimg/main-bg-new.png?raw=true);
     flex-wrap: wrap;
     justify-content: flex-end;
 }
@@ -922,6 +1054,38 @@ display:none;
             content:" - "
         }
     }
+        .play-detail__detail {
+    display: flex;
+    flex: 1;
+    min-width: 0;
+    flex-direction: row;
+        margin-left:-5px;
+}
+.play-detail__time {
+    font-size: 10.66667px;
+    bottom: 2px;
+    left: 2px;
+    position: absolute;
+    color: #000;
+    flex: none;
+}
+    .play-detail__beatmap {
+    margin-top: -2px;
+    margin-left: 2px;
+    font-size: 10.66667px;
+    color: #3843a6;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+        font-weight:bold;
+}
+    .play-detail__beatmap:before {
+        content: "[";
+    }
+        .play-detail__beatmap:after {
+            padding-right:2px;
+        content: "]";
+    }
     .profile-extra-entries__time {
         padding-left: 3px;
      width:20%;   
@@ -939,7 +1103,16 @@ display:none;
         display:none;
     }
     .play-detail__accuracy {
+        font-weight:normal;
+        margin-bottom:15px;
+        margin-left:4px;
         color: #000;
+        &:before {
+            content:"("
+        }
+        &:after {
+            content:")"
+        }
     }
     
     .play-detail__accuracy-and-weighted-pp {
@@ -948,6 +1121,9 @@ display:none;
     font-weight: bold;
     font-family: Tahoma;
 }
+    .play-detail__weighted-pp {
+                margin-top:20px;
+    }
 [data-page-id="recent_activity"] {
   .show-more-link.show-more-link--profile-page {
     margin-left: -2px;
@@ -1090,7 +1266,7 @@ display:none;
     }
 }
 @-moz-document url-prefix("https://osu.ppy.sh/beatmapsets/") {
-    
+
     .beatmap-scoreboard-table {
         width:860px;
     --default-color: #000;
@@ -1430,37 +1606,68 @@ display:none;
         display: none !important;
     }
 }
-
-.flag-country--flat[title="Japan"],
-.flag-country--flat[data-orig-title="Japan"] {
-    background-image: url(https://s.ppy.sh/images/flags/jp.gif) !important;
+.game-mode {
+    align-items: flex-end;
+    width: 100%;
+    display: flex
+;
+    font-size: 14px;
+    gap: 10px 20px;
+    height: 25px;
+    line-height: normal;
+    list-style: none;
+        margin: 4px 2px 0 2px;
+    background: #ece4fd;
+    border-bottom: 1px solid #cab8f7;
+    padding: 0;
+    position: inherit;
+    right: 10px;
+    top: 0;
+    flex-direction: row;
+    justify-content: flex-start;
 }
-
-.flag-country--flat[title="United States"],
-.flag-country--flat[data-orig-title="United States"] {
-    background-image: url(https://s.ppy.sh/images/flags/us.gif) !important;
+    .game-mode-link {
+     padding: 4px 10px;
+    background: #e0d6fb;
+    margin-right: -18px;
+    color: #5e5e5e;
+    display: block;
+    font-size: 13.8667px;
+        text-shadow:none;
 }
-
-.flag-country--flat[title="United Kingdom"],
-.flag-country--flat[data-orig-title="United Kingdom"] {
-    background-image: url(https://s.ppy.sh/images/flags/gb.gif) !important;
+    .game-mode-link__badge {
+        display:none;
+    }
+    .game-mode-link:active, .game-mode-link:focus, .game-mode-link:hover {
+        color:#5e5e5e;
+            background-color:white;
+    }
+    .game-mode-link--active {
+        background:#cab8f7;
+        &:hover, &:focus, &:active {
+            background:#cab8f7;
+        }
+    }
+    .fa-extra-mode-osu:before {
+    content: "osu! Standard";
+        font-family:Tahoma;
 }
-.flag-country--flat[title="China"],
-.flag-country--flat[data-orig-title="China"] {
-    background-image: url(https://s.ppy.sh/images/flags/cn.gif) !important;
+    .fa-extra-mode-taiko:before {
+    content: "Taiko";
+        font-family:Tahoma;
 }
-    .flag-country--flat[title="Hong Kong"],
-.flag-country--flat[data-orig-title="Hong Kong"] {
-    background-image: url(https://s.ppy.sh/images/flags/hk.gif) !important;
+    .fa-extra-mode-fruits:before {
+    content: "Catch The Beat";
+        font-family:Tahoma;
 }
-        .flag-country--flat[title="Singapore"],
-.flag-country--flat[data-orig-title="Singapore"] {
-    background-image: url(https://s.ppy.sh/images/flags/sg.gif) !important;
+        .fa-extra-mode-mania:before {
+    content: "osu!mania";
+        font-family:Tahoma;
 }
-            .flag-country--flat[title="Canada"],
-.flag-country--flat[data-orig-title="Canada"] {
-    background-image: url(https://s.ppy.sh/images/flags/ca.gif) !important;
-}
-
-
+    .header-v4--beatmapset .header-v4__row {
+        display:none;
+    }
+    .beatmapset-header {
+        padding-top: 60px;
+    }
 }
