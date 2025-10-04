@@ -361,7 +361,48 @@ div.beatmap-playcount:nth-child(15) .beatmap-playcount__count {
     }
     .profile-links {
         float:right;
-    width: 640px;
+    width: unset;
+        min-height:auto;
+        background-color: transparent;
+    color: black;
+    box-shadow: unset;
+        font-weight:normal;
+    }
+    .profile-links__edit {
+        display:none;
+    }
+    .user-group-badge--profile-page {
+        display:none;
+    }
+    div[title="add friend"] .user-action-button--profile-page, div[data-orig-title="add friend"] .user-action-button--profile-page {
+        background-color:#5DB8EF;
+        border-radius:5px;
+        font-family:Tahoma;
+        font-weight:normal;
+        height:29px;
+        width:127px;
+    }
+    div[title="add friend"] .user-action-button__counter, div[data-orig-title="add friend"] .user-action-button__counter {
+        font-size:0px;
+        white-space: nowrap;
+    text-overflow: ellipsis;
+        &:after {
+            content:"Add as Friend";
+            font-size:11pt;
+        }
+    }
+        .user-action-button--profile-page[title="Send message"], .user-action-button--profile-page[data-orig-title="Send message"] {
+background-image: url(http://osu.ppy.sh/forum/styles/GlossyOrange/imageset/en/icon_contact_pm.png);
+    border-radius: 0px;
+    font-family: Tahoma;
+    font-weight: normal;
+    height: 12px;
+    width: 17px;
+    padding: 0px;
+    min-width: 17px;
+    }
+            .user-action-button--profile-page[title="Send message"] .fa-envelope:before, .user-action-button--profile-page[data-orig-title="Send message"] .fa-envelope:before {
+                display:none;
     }
     .page-extra--userpage {
     border-radius: 0px;
@@ -377,10 +418,14 @@ div.beatmap-playcount:nth-child(15) .beatmap-playcount__count {
         display: none;
     }
     .profile-info__details {
+        height:auto;
     display: flex;
     flex-direction: column;
     align-items: center;
 }
+    .profile-info__details .profile-info__flag {
+        order:-1;
+    }
     .medals-group {
         grid-template-columns: 1fr;
     }
@@ -1363,7 +1408,7 @@ display:none;
     flex-wrap: wrap;
 }
 
-.beatmap-scoreboard-top__item:nth-child(2) .beatmap-score-top__avatar {
+.beatmap-scoreboard-top__item .beatmap-score-top__avatar {
     display: none;
 }
 
@@ -1410,7 +1455,32 @@ display:none;
         content:")";
         margin-left: -4px;
     }
+    .beatmap-scoreboard-top__item:nth-child(1) .beatmap-score-top__user-box {
+        display: flex;
+    }
+    .beatmap-scoreboard-top__item:nth-child(1) .beatmap-score-top__position {
+        display:none;
+    }
+    .beatmap-score-top__flags {
+    order: -1;
+        align-items: center;
+    }
+    .beatmap-scoreboard-top__item:nth-child(1) .beatmap-score-top__username:after {
+        display:inline-block;
+        margin-left: 4px;
+        color:white;
+        content:" is in the lead!"
+    }
+        .beatmap-scoreboard-top__item:nth-child(1) .beatmap-score-top__username {
+        color:#fdbf2a;
+    }
+    .beatmap-scoreboard-top__item .beatmap-score-top__username {
+        font-size: 13.8667px;
+        
+    }
     .beatmap-score-top__wrapping-container--left {
+        width: 100%;
+    background: black;
         margin-top: -10px;
     margin-left: -10px;
         height: 21px;
@@ -1464,9 +1534,9 @@ display:none;
         max-width:862px;
     }
     .beatmapset-beatmap-picker {
+        margin-top:3px;
     border-radius: 0px;
-    display: flex
-;
+    display: flex;
     flex-wrap: wrap;
     margin: 0 -40px 10px;
     max-width: 100%;
