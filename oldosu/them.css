@@ -452,7 +452,7 @@ div.beatmap-playcount:nth-child(15) .beatmap-playcount__count {
             font-size:11pt;
         }
     }
-        div[title="notify me when this user uploads a new beatmap"] {
+        div[title="notify me when this user uploads a new beatmap"], div[title="mapping subscribers"], div[title="followers"] {
         display:none;
     }
     div[title="add friend"], div[data-orig-title="add friend"], div[title="remove friend"], div[data-orig-title="remove friend"] {
@@ -573,6 +573,7 @@ width: 50px;
         display: none;
     }
     .profile-info__details {
+        padding:30px 30px 0px 30px !important;
         height:auto;
     display: flex;
     flex-direction: column;
@@ -1725,6 +1726,7 @@ display:none;
     .beatmap-score-top__stat-value {
     line-height: unset;
     margin-top: unset;
+        font-size:8pt;
 }
     .beatmapset-header {
         max-width:862px;
