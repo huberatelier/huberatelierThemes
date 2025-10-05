@@ -91,28 +91,28 @@ width: 524px;
     justify-content: flex-end;
 }
             .score-rank--X {
-    background-image: url(https://github.com/huberatelier/huberatelierThemes/blob/main/oldosu/ranks/X_small.png?raw=true);
+    background-image: url(https://s.ppy.sh/images/X_small.png);
 }
         .score-rank--XH {
-    background-image: url(https://github.com/huberatelier/huberatelierThemes/blob/main/oldosu/ranks/XH_small.png?raw=true);
+    background-image: url(https://s.ppy.sh/images/XH_small.png);
 }
     .score-rank--S {
-    background-image: url(https://github.com/huberatelier/huberatelierThemes/blob/main/oldosu/ranks/S_small.png?raw=true);
+    background-image: url(https://s.ppy.sh/images/S_small.png);
 }
     .score-rank--SH {
-    background-image: url(https://github.com/huberatelier/huberatelierThemes/blob/main/oldosu/ranks/SH_small.png?raw=true);
+    background-image: url(https://s.ppy.sh/images/SH_small.png);
 }
         .score-rank--A {
-    background-image: url(https://github.com/huberatelier/huberatelierThemes/blob/main/oldosu/ranks/A_small.png?raw=true);
+    background-image: url(https://s.ppy.sh/images/A_small.png);
 }
             .score-rank--B {
-    background-image: url(https://github.com/huberatelier/huberatelierThemes/blob/main/oldosu/ranks/B_small.png?raw=true);
+    background-image: url(https://s.ppy.sh/images/B_small.png);
 }
             .score-rank--C {
-    background-image: url(https://github.com/huberatelier/huberatelierThemes/blob/main/oldosu/ranks/C_small.png?raw=true);
+    background-image: url(https://s.ppy.sh/images/C_small.png);
 }
             .score-rank--D {
-    background-image: url(https://github.com/huberatelier/huberatelierThemes/blob/main/oldosu/ranks/D_small.png?raw=true);
+    background-image: url(https://s.ppy.sh/images/D_small.png);
 }
 }
 @-moz-document url-prefix("https://osu.ppy.sh/users/") {
@@ -389,6 +389,7 @@ div.beatmap-playcount:nth-child(15) .beatmap-playcount__count {
     background-color: white;
     }
     .profile-links {
+        --gutter:10px;
         float:right;
     width: unset;
         min-height:auto;
@@ -396,6 +397,15 @@ div.beatmap-playcount:nth-child(15) .beatmap-playcount__count {
     color: black;
     box-shadow: unset;
         font-weight:normal;
+    }
+    .profile-links__row {
+    display: flex;
+    flex-wrap: wrap;
+    margin: -2px -5px;
+    flex-direction: column;
+}
+    .profile-links__icon {
+        display:none;
     }
     .profile-links__edit {
         display:none;
@@ -419,6 +429,11 @@ div.beatmap-playcount:nth-child(15) .beatmap-playcount__count {
             content:"Add as Friend";
             font-size:11pt;
         }
+    }
+    div[title="remove friend"], div[data-orig-title="remove friend"] {
+        display: flex;
+    width: 200px;
+    justify-content: center;
     }
         div[title="remove friend"] .user-action-button--profile-page, div[data-orig-title="remove friend"] .user-action-button--profile-page {
         background-color:#88b300;
@@ -725,6 +740,7 @@ width: 50px;
     box-shadow: none;
     }
     .profile-info__title {
+        order:2;
         font-size: 8pt;
     text-shadow: none;
     color: black !important;
@@ -743,6 +759,40 @@ width: 50px;
     padding: 10px 0 0;
     position: relative;
 }
+    .playstyle {
+        width:32px;
+        height:32px;
+    }
+    .playstyle-container {
+    display: flex;
+    gap: 4px;
+    justify-content: center;
+        background: #e1ddfc;
+    width: 200px;
+    height: 34px;
+    border-radius: 5px;
+    margin: 5px auto;
+}
+    @font-face {
+  font-family: 'customic';
+  src: url('https://raw.githubusercontent.com/huberatelier/huberatelierThemes/main/oldosu/otherFiles/fontawesome-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+    .profile-links__item:nth-child(1):before {
+        font-family: 'customic';
+        content:"\f090";
+            font-size:16.64px;
+            color: #76777b;
+        padding-right:6px;
+    }
+        .profile-links__item:nth-child(2):before {
+        font-family: 'customic';
+        content:"\f08b";
+            font-size:16.64px;
+            color: #76777b;
+        padding-right:6px;
+    }
     .medals-group__title:before {
         display:none;
     }
