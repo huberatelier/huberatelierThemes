@@ -7,3 +7,4 @@ Thank you Stylus and Google Chrome for wiping a month's work because my computer
 | uhh profile page  | like mostly done? 75%?  |
 | beatmap page  | 65% done because i did old diff and leaderboard and stuff |
 | anything else  | 0%  |
+| this is a mess but i got some forum done | idk% |
