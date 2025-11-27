@@ -373,6 +373,32 @@ div.beatmap-playcount:nth-child(15) .beatmap-playcount__count {
     .title__count {
         display:none;
     }
+         .js-sortable--page[data-page-id="beatmaps"] .page-extra .lazy-load .title--page-extra-small .title__count {
+        display:contents !important;
+             &:before {
+                 content:"(";
+             }
+             &:after {
+                 content:")";
+             }
+    }
+    .page-extra__beatmapsets {
+    display: flex;
+    flex-direction: column;
+}
+    .beatmapset-panel {
+        --info-bg: #e7e4fc;
+        --menu-bg: #e7e4fc;
+        border-radius: 0px;
+        background: #e7e4fc;
+        border: 1px solid #dad7fb;
+        margin: 3px;
+        padding: 2px;
+        height: 26px;
+    }
+    .beatmapset-cover, .beatmapset-panel__cover-col--info, .beatmapset-panel__play {
+        display:none;
+    }
     .avatar--full, .avatar--full-circle {
         padding-bottom:unset;
     height: 128px;
@@ -797,18 +823,7 @@ width: 50px;
     .medals-group__title:before {
         display:none;
     }
-.badge-achievement__image[alt="Video Game Pack vol.1"] {
-  content: url("https://github.com/huberatelier/huberatelierThemes/blob/main/oldosu/achievements/gamer1.png?raw=true") !important;
-}
-    .badge-achievement__image[alt="Rhythm Game Pack vol.1"] {
-  content: url("https://github.com/huberatelier/huberatelierThemes/blob/main/oldosu/achievements/rhythm1.png?raw=true") !important;
-}
 
-.badge-achievement--locked .badge-achievement__image {
-  content: url("https://github.com/huberatelier/huberatelierThemes/blob/main/oldosu/achievements/unknown.png?raw=true") !important;
-  filter: none !important;
-  opacity: 1 !important;
-}
     .badge-achievement--listing {
     height: 103px;
     width: 133px;
@@ -1939,3 +1954,222 @@ display:none;
         padding-top: 60px;
     }
 }
+@-moz-document url-prefix("https://osu.ppy.sh/community/forums/") {
+    .forum-post-info {
+width:150px;
+background-color: #f3f0fb;
+}
+.forum-post-info__row--title {
+    color: black;
+    font-size: 8pt;
+order:2;
+&:active {
+color: black;
+}
+}
+
+.forum-post-info__row--avatar {
+        order: 1;
+}
+.forum-post-info__row--username {
+    color: rgb(51, 51, 51) !important;
+order:0;
+}
+.forum-post-info__row--posts {
+order:3;
+}
+.forum-post-info__row--registration {
+display:none;
+}
+    .forum-post-info__row--support-level {
+        order: 4;
+}
+.forum-post-info__row--flag {
+    order: 4;
+}
+.forum-post-info__row--group-badge {
+    order:4;
+    }
+    .forum-post-info__row--support-level {
+    height:12px;
+    width: 80px;
+    background-image: url(https://github.com/huberatelier/huberatelierThemes/blob/main/oldosu/siteimg/supporter.png?raw=true);
+    align-items: center;
+    background-color: transparent;
+    border-radius: 0px;
+    color: transparent !important;
+    display: inline-flex
+;
+    justify-content: center;
+    padding: 0 10px;
+    text-decoration: none;
+}
+    .forum-post-info__row--avatar {
+        border-radius:0px;
+        background: #fff;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.15);
+    width: 128px;
+    border: 1px solid #ddd;
+    padding: 3px;
+    text-align: center;
+    display: inline-block;
+    vertical-align: middle;
+    margin: auto;
+    }
+    .avatar {
+        background-color:transparent;
+    }
+    .forum-post__body {
+        margin: unset;
+        padding: 8px 8px 8px 8px;
+    background: #edebfa;
+    min-height: 148px;
+    }
+    .forum-post {
+        border-top: solid 1px #c5d4ff;
+    background: #e6e4f7;
+        border-bottom:solid 1px #77829a;
+    }
+    .forum-post:after {
+        background: #77829a;
+    height: 1px;
+    width: 100%;
+    }
+    .forum-post.js-forum-post--highlighted {
+        background: #edebfa;
+    }
+    .bbcode {
+    font-size: 10.6667px !important; /* Set base font size to 11px for 100% */
+}
+
+/* Override inline font-size percentages with specific pixel values */
+.bbcode [style*="font-size:50%"],
+.bbcode [style*="font-size: 50%"] {
+    font-size: 9px !important;
+}
+
+.bbcode [style*="font-size:85%"],
+.bbcode [style*="font-size: 85%"] {
+    font-size: 10px !important;
+}
+
+.bbcode [style*="font-size:100%"],
+.bbcode [style*="font-size: 100%"] {
+    font-size: 11px !important;
+}
+
+.bbcode [style*="font-size:150%"],
+.bbcode [style*="font-size: 150%"] {
+    font-size: 14px !important;
+}
+
+.bbcode [style*="font-size:250%"],
+.bbcode [style*="font-size: 250%"] {
+    font-size: 17.0667px !important;
+}
+.bbcode blockquote {
+        margin: 1px 0px 0px;
+    background: none repeat scroll 0% 0% rgb(251, 251, 251);
+    padding: 3px 5px;
+    border-style: solid;
+    border-color: rgb(236, 236, 236);
+    border-width: 1px 5px;
+        color:black;
+    &:before {
+        display:none;
+    }
+    }
+    .bbcode-spoilerbox__link {
+        transition:none;
+        font-size:8pt;
+        font-weight:normal;
+        color:black !important;
+        justify-content: center;
+        width:auto;
+        border-bottom: solid 1px #b7c9ff;
+    padding: 3px;
+    text-align: center;
+    cursor: pointer;
+    }
+    .bbcode-spoilerbox__link-icon {
+        display:none;
+    }
+    .bbcode-spoilerbox__link:hover {
+        text-decoration:none;
+            background-color: #5861c0;
+    color: #fff !important;
+    }
+    .bbcode-spoilerbox__body {
+        background-color: #eef;
+    padding: 5px;
+        margin-top:0px;
+    }
+    .bbcode pre {
+        background-color: rgb(242, 242, 242);
+    border: 1px solid black;
+    border-radius: 0px;
+    color: inherit;
+    font-size: inherit;
+    font-family: Monaco, 'Courier New', monospace;
+    white-space: pre-wrap;
+    overflow: scroll;
+    margin: 5px;
+    padding: 3px;
+    direction: ltr;
+    }
+    .bbcode a {
+        font-weight: normal;
+    text-shadow: 0px 0px 10px rgb(239, 207, 225);
+    color: rgb(204, 46, 138);
+    margin-bottom: 10px;
+    }
+        .bbcode h2 {
+        color: #cc2e8a;
+    text-shadow: #efcfe1 0px 0px 10px;
+    overflow: visible;
+        font-size: 17.0667px;
+        font-weight:unset;
+            margin-bottom:10px;
+    }
+    .bbcode blockquote h4 {
+    color: black;
+    }
+    .bbcode .well {
+        background: none repeat scroll 0% 0% rgb(249, 247, 254);
+    border: 1px solid rgb(225, 223, 231);
+    margin: 6px;
+    padding: 5px;
+    border-radius: 0px;
+    box-shadow: none;
+    }
+    .forum-post-content, .forum-post__content--footer {
+        color:black;
+    }
+    .forum-post__header-content-item .forum-user-badge {
+        display:none;
+    }
+.forum-post__header-content-item, 
+.forum-post__header-content-item a {
+    color: rgb(90, 90, 90) !important;
+    font-size: 8pt;
+    padding-bottom: 34px;
+    height: 17px;
+    margin: 1px 4px 0 8px;
+}
+    .forum-post__header-content-item a:hover {
+    color: #3843a6 !important;
+}
+    .forum-post__content--header {
+        justify-content: flex-end;
+        padding-top:unset;
+    }
+    .forum-post__content {
+        padding:0px;
+    }
+    .forum-post__actions {
+        display:none;
+    }
+ .forum-post a, a:hover {
+    color: #3843a6;
+}
+    }
