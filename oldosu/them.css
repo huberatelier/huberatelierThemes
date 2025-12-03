@@ -8,6 +8,25 @@
 
 /*Alright so thank you Chrome for wiping ALL my userstyles after long-pressing the power button on my PC. FUCK. alright.*/
 @-moz-document domain("osu.ppy.sh") {
+    .nav2-header__body .nav2.js-nav-button {
+    height: 145px;
+}
+.classic-userlinks i {
+    font-size: 12px;
+    margin-left: 6px;
+    margin-right: 3px;
+    color: #666666;
+}
+
+.classic-userlinks a {
+    text-decoration: none;
+    color: #666666 !important;
+}
+
+.classic-userlinks a:hover {
+    text-decoration: underline;
+}
+
         .beatmapsets-search-filter--grid {
 width: 860px;
     min-height: 20px;
@@ -76,20 +95,29 @@ width: 860px;
     position: relative;
         background-image:url(https://s.ppy.sh/images/right-pippi.jpg);
     */
-    .osu-layout::before {
-width: 524px;
-    height: 96px;
-    position: absolute;
-    background-repeat: no-repeat;
-    right: 0;
-    top: 0;
-    background-image: url(https://github.com/huberatelier/huberatelierThemes/blob/main/oldosu/siteimg/right-pippi.jpg?raw=true);   
-    }
-        .osu-page--generic-compact {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: flex-end;
+/* Select ONLY the osu-page inside the top header */
+.js-pinned-header.nav2-header > .nav2-header__body > .osu-page {
+    position: relative !important;
 }
+
+/* Attach Pippi to that fixed-width container */
+.js-pinned-header.nav2-header > .nav2-header__body > .osu-page::after {
+    content: "";
+    position: absolute;
+
+    top: 0;
+    right: 0px;   /* adjust as needed */
+
+    width: 524px;
+    height: 96px;
+    background-image: url("https://s.ppy.sh/images/right-pippi.jpg");
+    background-repeat: no-repeat;
+
+    pointer-events: none;
+    z-index: -1;
+}
+
+
             .score-rank--X {
     background-image: url(https://s.ppy.sh/images/X_small.png);
 }
