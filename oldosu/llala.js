@@ -623,4 +623,85 @@ window.addEventListener('load', function() {
         // Try immediately
 
     })();
+
 })();
+// === Classic topbar using avatar menu username + correct ID ===
+(function() {
+    'use strict';
+
+    function waitFor(selector, timeout = 10000) {
+        return new Promise(resolve => {
+            const start = Date.now();
+            const timer = setInterval(() => {
+                const el = document.querySelector(selector);
+                if (el) {
+                    clearInterval(timer);
+                    resolve(el);
+                }
+                if (Date.now() - start > timeout) {
+                    clearInterval(timer);
+                    resolve(null);
+                }
+            }, 100);
+        });
+    }
+
+    async function initClassicBar() {
+
+        // Wait for nav container
+        const iconGroup = await waitFor('.nav2__colgroup--icons');
+        if (!iconGroup) return;
+
+        // Get username from popup
+        const usernameEl = await waitFor('.js-current-user-cover .u-relative');
+        let username = usernameEl ? usernameEl.textContent.trim() : "User";
+
+        // Get correct profile URL from avatar button
+        const avatarLink = document.querySelector('.js-current-user-avatar');
+        let profileUrl = "/users";
+        if (avatarLink && avatarLink.href) {
+            profileUrl = avatarLink.href;
+        }
+
+        // Remove avatar + notifications
+        document.querySelectorAll('.nav2__col--notifications, .nav2__col--avatar')
+            .forEach(e => e.remove());
+
+        // Build classic topbar
+        const classic = document.createElement('div');
+        classic.style.cssText = `
+            font-size: 12px;
+            color: #666666;
+            margin-left: 10px;
+            display: flex;
+            gap: 5px;
+            align-items: center;
+            margin-top: 4px;
+            margin-right: 7px;
+        `;
+
+classic.innerHTML = `
+    Welcome, <b><a href="${profileUrl}" style="color:#666">${username}</a></b>
+
+    <i class="fas fa-inbox"></i>
+    <a href="/notifications" style="color:#666">Messages</a>
+
+    <i class="fas fa-search"></i>
+    <a href="/home/search" style="color:#666">Search</a>
+
+    <i class="fas fa-cog"></i>
+    <a href="/home/account/edit" style="color:#666">Settings</a>
+
+    <i class="fas fa-sign-out-alt"></i>
+    <a href="/session" data-method="delete" style="color:#666">Logout</a>
+`;
+
+
+        iconGroup.appendChild(classic);
+    }
+
+    initClassicBar();
+
+})();
+
+
