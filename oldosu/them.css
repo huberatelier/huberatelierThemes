@@ -8,6 +8,18 @@
 
 /*Alright so thank you Chrome for wiping ALL my userstyles after long-pressing the power button on my PC. FUCK. alright.*/
 @-moz-document domain("osu.ppy.sh") {
+.nav2__col:empty {
+    flex: 0 !important;
+    width: 0 !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    overflow: hidden !important;
+}
+
+
+    .nav2__colgroup--icons .nav-button--support {
+        display:none;
+    }
     .nav2-header__body .nav2.js-nav-button {
     height: 145px;
 }
@@ -97,24 +109,20 @@ width: 860px;
     */
 /* Select ONLY the osu-page inside the top header */
 .js-pinned-header.nav2-header > .nav2-header__body > .osu-page {
-    position: relative !important;
+    position:relative !important;
 }
 
-/* Attach Pippi to that fixed-width container */
 .js-pinned-header.nav2-header > .nav2-header__body > .osu-page::after {
-    content: "";
-    position: absolute;
-
-    top: 0;
-    right: 0px;   /* adjust as needed */
-
-    width: 524px;
-    height: 96px;
+    content:"";
+    position:absolute;
+    top:0;
+    right:0px;
+    width:524px;
+    height:96px;
     background-image: url("https://s.ppy.sh/images/right-pippi.jpg");
     background-repeat: no-repeat;
-
     pointer-events: none;
-    z-index: -1;
+    z-index:-1;
 }
 
 
