@@ -585,36 +585,7 @@ window.addEventListener('load', function() {
         });
     })();
 
-    (function() {
-        'use strict';
 
-        const checkNav = setInterval(() => {
-            const twitterCol = document.querySelector('.nav-button--twitter')?.closest('.nav2__col');
-            const supportCol = document.querySelector('.nav-button--support')?.closest('.nav2__col');
-
-            if (twitterCol && supportCol) {
-                clearInterval(checkNav);
-
-                const facebookCol = supportCol.cloneNode(true);
-                const facebookBtn = facebookCol.querySelector('a');
-
-                facebookBtn.href = 'https://facebook.com';
-                facebookBtn.classList.remove('nav-button--support');
-                facebookBtn.classList.add('nav-button--facebook');
-                facebookBtn.setAttribute('data-orig-title', 'Facebook');
-
-                facebookBtn.style.width = '61px';
-                facebookBtn.style.height = '62px';
-                facebookBtn.style.background = 'url(https://s.ppy.sh/images/social.png)';
-                facebookBtn.style.backgroundPosition = '-305px 0'; // adjust to actual sprite position
-                facebookBtn.style.position = 'absolute';
-                facebookBtn.style.top = '6px';
-                facebookBtn.style.left = '650px';
-
-                twitterCol.insertAdjacentElement('afterend', facebookCol);
-            }
-        }, 200);
-    })();
 
     (function() {
         'use strict';
@@ -669,16 +640,18 @@ window.addEventListener('load', function() {
 
         // Build classic topbar
         const classic = document.createElement('div');
-        classic.style.cssText = `
-            font-size: 12px;
-            color: #666666;
-            margin-left: 10px;
-            display: flex;
-            gap: 5px;
-            align-items: center;
-            margin-top: 4px;
-            margin-right: 7px;
-        `;
+classic.style.cssText = `
+    font-size: 12px;
+    color: #666666;
+    margin-left: 10px;
+    display: flex;
+    gap: 5px;
+    align-items: center;
+    margin-top: 4px;
+    margin-right: 5px;   /* FIX */
+    width: auto;          /* FIX */
+`;
+
 
 classic.innerHTML = `
     Welcome, <b><a href="${profileUrl}" style="color:#666">${username}</a></b>
@@ -703,5 +676,100 @@ classic.innerHTML = `
     initClassicBar();
 
 })();
+// === Classic Old Osu! Social Buttons (final clean version) ===
 
+(function() {
+    'use strict';
 
+    // Wait for element to appear
+    function waitFor(sel, timeout = 8000) {
+        return new Promise(resolve => {
+            const start = performance.now();
+            const int = setInterval(() => {
+                const el = document.querySelector(sel);
+                if (el) { clearInterval(int); resolve(el); }
+                if (performance.now() - start > timeout) {
+                    clearInterval(int); resolve(null);
+                }
+            }, 60);
+        });
+    }
+
+    async function addClassicSocialButtons() {
+        // Parent container for header icons (this is the correct placement)
+        const iconGroup = await waitFor('.nav2__colgroup--icons');
+        if (!iconGroup) return;
+
+        // Ensure not duplicated
+        document.querySelectorAll('.classic-social-container').forEach(e => e.remove());
+
+        // Create container (behaves like a normal nav column)
+        const cont = document.createElement('div');
+        cont.className = 'nav2__col classic-social-container';
+
+        // Let flexbox position it naturally with the other nav items
+        Object.assign(cont.style, {
+              top: "100px",
+            right: "40px",
+            position: "fixed",
+            flexShrink: "1",
+            width: "auto",
+            marginTop: "-60px",
+            height: "0px",
+            display: "flex",
+            flexDirection: "row",
+            alignItems: "center",
+            gap: "0px",
+            pointerEvents: "auto",
+            zIndex: 9999
+        });
+
+        const SPRITE = "https://s.ppy.sh/images/social.png";
+
+        // Make one button
+        function makeBtn(link, xPos) {
+            const a = document.createElement('a');
+            a.href = link;
+            a.target = "_blank";
+            a.className = "classic-social-btn";
+
+            Object.assign(a.style, {
+                width: "61px",
+                height: "62px",
+                display: "inline-block",
+                backgroundImage: `url("${SPRITE}")`,
+                backgroundRepeat: "no-repeat",
+                backgroundPosition: `${xPos} 0px`,
+                cursor: "pointer"
+            });
+
+            // Hover shift (second row of sprite)
+            a.addEventListener("mouseenter", () => {
+                a.style.backgroundPosition = `${xPos} -62px`;
+            });
+            a.addEventListener("mouseleave", () => {
+                a.style.backgroundPosition = `${xPos} 0px`;
+            });
+
+            return a;
+        }
+
+        // Classic offsets you specified
+        cont.appendChild(makeBtn("https://facebook.com/osugame", "0px"));
+        cont.appendChild(makeBtn("https://twitter.com/osugame", "-61px"));
+        cont.appendChild(makeBtn("https://osu.ppy.sh/home/support", "-122px"));
+
+        // Find support column to insert before
+        const supportCol = iconGroup.querySelector('.nav-button--support')?.parentNode;
+
+        if (supportCol) {
+            // Insert BEFORE support column (same order as old osu!)
+            iconGroup.insertBefore(cont, supportCol);
+        } else {
+            // If support button missing, append to end
+            iconGroup.appendChild(cont);
+        }
+    }
+
+    addClassicSocialButtons();
+})();
