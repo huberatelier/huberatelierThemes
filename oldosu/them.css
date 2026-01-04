@@ -8,6 +8,10 @@
 
 /*Alright so thank you Chrome for wiping ALL my userstyles after long-pressing the power button on my PC. FUCK. alright.*/
 @-moz-document domain("osu.ppy.sh") {
+    .avatar--guest {
+        background-image:url("https://s.ppy.sh/images/blank.jpg") !important;
+    }
+    
 .nav2__col:empty {
     flex: 0 !important;
     width: 0 !important;
@@ -152,6 +156,7 @@ width: 860px;
 }
 }
 @-moz-document url-prefix("https://osu.ppy.sh/users/") {
+    
 /*    .header-v4__row .game-mode {
         padding-top: 30px;
     }*/
@@ -1557,6 +1562,7 @@ display:none;
         .title--page-extra-small:before {
             display:none;
     }
+    
 }
 @-moz-document url-prefix("https://osu.ppy.sh/beatmapsets/") {
 
@@ -1808,6 +1814,9 @@ display:none;
     .beatmapset-beatmap-picker__beatmap:before {
 display:none;
 }
+    .beatmapset-header__beatmap-picker-box {
+        padding-left:2px;
+    }
 .beatmapset-mapping, .beatmapset-header__details-text--title, .beatmapset-header__details-text--artist, .beatmapset-info:nth-child(2) {
     display:none;
     }
@@ -1990,7 +1999,102 @@ display:none;
         padding-top: 60px;
     }
 }
+@-moz-document url-prefix("https://osu.ppy.sh/community/forums") {
+    .osu-page--forum {
+    background-image: url(https://s.ppy.sh/images/main-bg-new.png);
+    }
+    .forum-title__description, .forum-item--header { /*USELESS !!!!!!!!!!!!!!!!!!.*/
+        display:none;
+    }
+    .forum-item {
+        background-color:transparent;
+        padding-top:0px;
+        padding-right:0px;
+        margin-top:-8px;
+    }
+    .forum-item:hover {
+        text-shadow: 1px 1px 8px #afb7ff;
+        background-color:transparent;
+    }
+    .forum-title__name {
+        color: #fff;
+    font-size: 16px;
+    margin: 0;
+    line-height: 35px;
+    font-weight: normal;
+    border-radius: 5px;
+    background: rgb(91, 83, 153);
+    background-image: linear-gradient(bottom,rgb(91,83,153) 0%,rgb(123,114,207) 100%);
+    background-image: -o-linear-gradient(bottom,rgb(91,83,153) 0%,rgb(123,114,207) 100%);
+    background-image: -moz-linear-gradient(bottom,rgb(91,83,153) 0%,rgb(123,114,207) 100%);
+    background-image: -webkit-linear-gradient(bottom, rgb(91, 83, 153) 0%, rgb(123, 114, 207) 100%);
+    background-image: -ms-linear-gradient(bottom,rgb(91,83,153) 0%,rgb(123,114,207) 100%);
+    background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, rgb(91, 83, 153)), color-stop(1, rgb(123, 114, 207)));
+    }
+        .forum-list {
+        padding-left: 7px;
+    padding-right: 8px;
+    }
+    .forum-list__items {
+        padding-left:28px;
+        padding-right:32px;
+    }
+        .forum-item-stripe {
+            padding-right: 30px;
+            background-position-y: center;
+    background-repeat: no-repeat;
+        width: 26px;
+            background-image: url("https://github.com/huberatelier/huberatelierThemes/blob/main/oldosu/siteimg/forum_read.png?raw=true");
+    }
+    .forum-item-stripe:after, .forum-item-stripe:before {
+        display:none;
+    }
+    a, a:hover, .forum-item__latest-post, .forum-item__name {
+        color: #3843a6;
+    }
+    .forum-item__name {
+        font-size:13.8667px;
+    }
+    .forum-item__subforums {
+        font-size:10.6667px;
+        margin: 0px;
+    }
+    .forum-item__subforum {
+        margin: 2px 1px;
+    }
+.forum-item__subforum-icon::before {
+    content: none;
+}
+
+.forum-item__subforum:not(:first-child) .forum-item__subforum-icon::before {
+    color:black;
+    content: "|";
+}
+
+.forum-item__details {
+        padding: 4px;
+        background-color: #edebfa;
+    border-radius: 5px;
+    }
+    .forum-item__latest-post {
+        background-color: #e3e1fa;
+    padding: 4px;
+        border-radius: 5px;
+    }
+    .forum-item__description {
+        font-size:10.6667px;
+        color:black;
+    }
+
+}
 @-moz-document url-prefix("https://osu.ppy.sh/community/forums/") {
+    .forum-title__description {
+        display:none;
+    }
+    
+    .osu-page--forum-topic-reply[data-state=stick] {
+        height:200px;
+    }
     .forum-post-info {
 width:150px;
 background-color: #f3f0fb;
@@ -2005,6 +2109,7 @@ color: black;
 }
 
 .forum-post-info__row--avatar {
+
         order: 1;
 }
 .forum-post-info__row--username {
@@ -2053,6 +2158,7 @@ display:none;
     margin: auto;
     }
     .avatar {
+            border-radius:0px;
         background-color:transparent;
     }
     .forum-post__body {
