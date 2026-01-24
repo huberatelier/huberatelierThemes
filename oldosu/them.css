@@ -8,10 +8,12 @@
 
 /*Alright so thank you Chrome for wiping ALL my userstyles after long-pressing the power button on my PC. FUCK. alright.*/
 @-moz-document domain("osu.ppy.sh") {
-    .avatar--guest {
+    
+    
+   /* .avatar--guest {
         background-image:url("https://s.ppy.sh/images/blank.jpg") !important;
     }
-    
+    */
 .nav2__col:empty {
     flex: 0 !important;
     width: 0 !important;
@@ -2155,7 +2157,6 @@ display:none;
     text-align: center;
     display: inline-block;
     vertical-align: middle;
-    margin: auto;
     }
     .avatar {
             border-radius:0px;
@@ -2317,12 +2318,15 @@ display:none;
         padding-top: 20px;
         padding-left: 8px;
     }
-    .forum-post__actions {
+    /*.forum-post__actions { what??
         display:none;
-    }
+    }*/
  .forum-post a, a:hover {
     color: #3843a6;
 }
+    .header-v4__container .header-nav-v4 .header-nav-v4__item .header-nav-v4__link {
+    min-width: max-content;
+    }
     .counter-box--info {
         display:none;
     }
@@ -2353,4 +2357,135 @@ display:none;
     .forum-post__content--main {
         background-color: #edebfa;
     }
+    .forum-topic-title {
+        display:none;
     }
+    .header-nav-v4--breadcrumb
+  .header-nav-v4__item:last-child
+  .header-nav-v4__link {
+    background: none !important;
+    color: rgb(67, 63, 117) !important;
+    padding: 0 !important;
+    border-radius: 0 !important;
+    cursor: pointer;
+}
+    }
+
+@-moz-document domain("osu.ppy.sh/community/forums/") {
+/* ================================
+   HARD RESET inside old forum rows
+   ================================ */
+
+
+}
+
+
+@-moz-document url-prefix("https://osu.ppy.sh/rankings/") {
+    .osu-page.osu-page--generic, .osu-page.osu-page--ranking-info {
+        background-image: url("https://s.ppy.sh/images/main-bg-new.png") !important;
+    }
+    .ranking-page-table__row {
+        height:15px;
+    }
+    .ranking-page-table__column {
+        padding:0;
+    }
+    .ranking-page-table__column:first-child {
+    border-bottom-left-radius: 0px;
+    border-top-left-radius: 0px;
+        padding-left:0px;
+}
+    .ranking-page-table__column:last-child {
+           border-bottom-right-radius: 0px;
+    border-top-right-radius: 0px;
+    padding-right: 0px; 
+}
+.ranking-page-table tbody > tr.ranking-page-table__row:nth-child(even) {
+    --bg: #dad7fb;
+}
+    .ranking-page-table tbody > tr.ranking-page-table__row:nth-child(odd) {
+    --bg: #e7e4fc;
+}
+        .ranking-page-table tbody > tr.ranking-page-table__row:hover {
+    --bg: #fde1ff;
+}
+    .ranking-page-table {
+        border-spacing:0px;
+    }
+    .ranking-page {
+    color: #000000;
+        font-weight:bold;
+        font-size:8pt;
+    }
+    .ranking-page-table-main__link {
+        font-weight:normal;
+        color:#3843a6;
+    }
+    .ranking-page-table__column--dimmed {
+        font-weight:normal;
+        color:#000;
+    }
+    .ranking-page-table__heading {
+        font-weight:bold;
+        color:#000;
+    }
+    .ranking-page-table__heading--grade {
+    font-size: 0;
+    position: relative;
+}
+
+.ranking-page-table__heading--grade {
+    font-size: 0;
+    position: relative;
+}
+
+.ranking-page-table thead th.ranking-page-table__heading--grade:nth-last-child(3)::before,
+.ranking-page-table thead th.ranking-page-table__heading--grade:nth-last-child(3)::after {
+    content: "";
+    display: inline-block;
+    width: 15px;
+    height: 14px;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.ranking-page-table thead th.ranking-page-table__heading--grade:nth-last-child(3)::before {
+    background-image: url("https://s.ppy.sh/images/X_small.png");
+    height:15px;
+    width:14px;
+}
+.ranking-page-table thead th.ranking-page-table__heading--grade:nth-last-child(3)::after {
+       background-image: url("https://s.ppy.sh/images/XH_small.png");
+    height:15px;
+    width:14px;
+}
+
+.ranking-page-table thead th.ranking-page-table__heading--grade:nth-last-child(2)::before, .ranking-page-table thead th.ranking-page-table__heading--grade:nth-last-child(2)::after {
+    content: "";
+    display: inline-block;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+    .ranking-page-table thead th.ranking-page-table__heading--grade:nth-last-child(2)::before {
+    background-image: url("https://s.ppy.sh/images/S_small.png");
+    height:15px;
+    width:12px;
+}
+.ranking-page-table thead th.ranking-page-table__heading--grade:nth-last-child(2)::after {
+       background-image: url("https://s.ppy.sh/images/SH_small.png");
+    height:15px;
+    width:12px;
+}
+
+.ranking-page-table thead th.ranking-page-table__heading--grade:nth-last-child(1)::before {
+    content: "";
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    background-image: url("https://s.ppy.sh/images/A_small.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+
+}
