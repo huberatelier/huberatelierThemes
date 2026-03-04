@@ -13,5 +13,20 @@
     "pp": 420,
     "grade": "XH",
     "date": "2012-06-15"
+  },
+    "129847": {
+    "score": 1479652,
+    "accuracy": 97.11,
+    "maxCombo": 140,
+    "count300": 592,
+    "count100": 4,
+    "count50": 0,
+    "misses": 15,
+    "geki": 136,
+    "katu": 2,
+    "mods": "DT",
+    "pp": 420,
+    "grade": "A",
+    "date": "2012-04-16"
   }
 }
