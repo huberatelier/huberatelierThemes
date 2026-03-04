@@ -28,5 +28,20 @@
     "pp": 420,
     "grade": "A",
     "date": "2012-04-16"
+  },
+    "106965": {
+    "score": "4,068,320",
+    "accuracy": 95.88,
+    "maxCombo": 458,
+    "count300": 464,
+    "count100": 17,
+    "count50": 1,
+    "misses": 8,
+    "geki": 89,
+    "katu": 6,
+    "mods": "NM",
+    "pp": unknown,
+    "grade": "A",
+    "date": "2013-04-16"
   }
 }
