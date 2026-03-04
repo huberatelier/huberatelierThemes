@@ -43,5 +43,20 @@
     "pp": 274,
     "grade": "A",
     "date": "2013-04-16"
+  },
+      "118068": {
+    "score": "60,650,900",
+    "accuracy": 100,
+    "maxCombo": 2245,
+    "count300": 1151,
+    "count100": 0,
+    "count50": 0,
+    "misses": 0,
+    "geki": 237,
+    "katu": 0,
+    "mods": "None",
+    "pp": 375,
+    "grade": "SS",
+    "date": "2013-04-26"
   }
 }
